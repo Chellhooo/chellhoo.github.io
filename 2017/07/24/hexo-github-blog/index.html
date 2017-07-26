@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://chellhooo.com/img/blog9.png">
 <meta property="og:image" content="http://chellhooo.com/img/blog.png">
 <meta property="og:image" content="http://chellhooo.com/img/blog_theme.png">
-<meta property="og:updated_time" content="2017-07-26T02:14:43.876Z">
+<meta property="og:updated_time" content="2017-07-26T02:17:12.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github blog">
 <meta name="twitter:description" content="[ 唠叨 ]  刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁">
@@ -342,8 +342,10 @@
 </li>
 <li><p>新建gh-page<br><br> 在代码库的setting页面底部新建gh-page,并选择master branch,最后save</p>
 <p> <img src="/img/blog6.png"></p>
-<pre><code>* github改版之后发现已经没有Automatic page generator 这个按钮了，需要自己手动新建page，可是我在新建的时候发现是无法点击master branch的选项。后来当我手动增加了readme.md之后，发现master那两个选项都可以点击了（emmm..如果分支是空的话就不能设置页？+ +），或者你在新建仓库的时候记得把 Initialize this repository with a README 这个选项勾上就好啦（也就是上图中步骤②）
-</code></pre></li>
+<ul>
+<li>github改版之后发现已经没有Automatic page generator 这个按钮了，需要自己手动新建page，可是我在新建的时候发现是无法点击master branch的选项。后来当我手动增加了readme.md之后，发现master那两个选项都可以点击了（emmm..如果分支是空的话就不能设置页？+ +），或者你在新建仓库的时候记得把 Initialize this repository with a README 这个选项勾上就好啦（也就是上图中步骤②）</li>
+</ul>
+</li>
 <li><p>done</p>
 <p>然后新建page标题的下方出现你的博客域名，在之后你可以通过这个域名访问你的博客。<img src="/img/blog7.png"></p>
 </li>
@@ -392,8 +394,8 @@
 <li>嘻嘻嘻嘻，激动人心的时候到啦~，在浏览器地址栏中输入你的github博客的域名（即<a href="https://username.github.io/），就可以看到你刚刚在本地看到博客的模样啦~" target="_blank" rel="external">https://username.github.io/），就可以看到你刚刚在本地看到博客的模样啦~</a><br><img src="/img/blog.png"></li>
 </ol>
 <h3 id="五、管理博客"><a href="#五、管理博客" class="headerlink" title="五、管理博客"></a>五、管理博客</h3><ol>
-<li>博客后台管理插件<br><br> hexo admin <a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="external">https://jaredforsyth.com/hexo-admin/</a><br><br> 相关介绍可以参考博文 <a href="http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/" target="_blank" rel="external">http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/</a></li>
-<li>hexo主题<br><br> <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题? - 知乎</a><br><br> 把喜欢主题项目clone下来，放在根目录的themes文件夹中，在_config.yml修改theme名称，即clone下来的代码库名称<br> <img src="/img/blog_theme.png"><br><br></li>
+<li>博客后台管理插件<br><br> hexo admin <a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="external">https://jaredforsyth.com/hexo-admin/</a><br><br> 相关介绍可以参考博文  <a href="http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/" target="_blank" rel="external">http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/</a></li>
+<li>hexo主题<br><br> <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题? - 知乎</a><br> 把喜欢主题项目clone下来，放在根目录的themes文件夹中，在_config.yml修改theme名称，即clone下来的代码库名称<br> <img src="/img/blog_theme.png"><br><br></li>
 </ol>
 <h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ol>
 <li><h4 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h4><pre><code>``npm install hexo -g`` #安装
@@ -411,8 +413,8 @@
 </ol>
 <pre><code>* 更多hexo命令戳这里https://hexo.io/docs/commands.html 
 </code></pre><h4 id="2-遇到的坑坑坑"><a href="#2-遇到的坑坑坑" class="headerlink" title="2. 遇到的坑坑坑"></a>2. 遇到的坑坑坑</h4><ul>
-<li>Q1. 新文章发布并部署上github之后仍然没有更新<br><br>A1. 试一下hexo clean清除缓存</li>
-<li>Q2. [error:deloyer not found:git]<br><br>A2. 安装拓展<code>npm install hexo-deployer-git --save</code></li>
+<li>Q1. 新文章发布并部署上github之后仍然没有更新<br>A1. 试一下hexo clean清除缓存</li>
+<li>Q2. [error:deloyer not found:git]<br>A2. 安装拓展<code>npm install hexo-deployer-git --save</code></li>
 </ul>
 <h4 id="3-hexo解疑"><a href="#3-hexo解疑" class="headerlink" title="3. hexo解疑"></a>3. hexo解疑</h4><ul>
 <li><h4 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h4>在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
