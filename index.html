@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/2017/07/24/hexo-github-blog-2/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/2017/07/24/hexo-github-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/24/hexo-github-blog-2/" itemprop="url">hexo+github blog</a></h1>
+                <a class="post-title-link" href="/2017/07/24/hexo-github-blog/" itemprop="url">hexo+github blog</a></h1>
         
 
         <div class="post-meta">
@@ -321,7 +321,7 @@
       
         
           
-            <font color="1C1F21" size="3">[ 唠叨 ] </font><font color="BFBFBF" size="3"> 刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。</font><br><br><font color="1C1F21" size="3"> 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁置了，现在是时候来填坑啦~hexo+github博客的搭建方法网上很多，可是还是免不了会掉一些奇奇怪怪的坑，鉴于网上类似的教程很多，所以我只详细说我觉得需要注意的地方，希望能给你们避雷：）</font><br><br><br><br>#### 一、GIT<br><br><em> 注册github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a>
+            <font color="1C1F21" size="3">[ 唠叨 ] </font><font color="BFBFBF" size="3"> 刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。</font><br><br><font color="1C1F21" size="3"> 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁置了，现在是时候来填坑啦~hexo+github博客的搭建方法网上很多，可是还是免不了会掉一些奇奇怪怪的坑，鉴于网上类似的教程很多，所以我只详细说我觉得需要注意的地方，希望能给你们避雷：）</font><br><br><br>#### 一、GIT<br><br><em> 注册github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a>
 </em> 下载git：<a href="https://git-scm.com/downloads" target="_blank" rel="external">https://git-scm.com/downloads</a><br><br>  关于学习git命令建议看廖雪峰的博客 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/</a><br><br><br>1. 新建代码库<br>    <img src="/img/blog0.png"><br><br>2. 设置代码库<br><br>    <img src="/img/blog1.png"><br><br>3. 新建gh-page<br><br>    在代码库的setting页面底部新建gh-page,并选择master branch,最后save<br><br>    <img src="/img/blog6.png"><br><br>    <em> <strong>github改版之后发现已经没有Automatic page generator 这个按钮了，需要自己手动新建page，可是我在新建的时候发现是无法点击master branch的选项。后来当我手动增加了readme.md之后，发现master那两个选项都可以点击了（emmm..如果分支是空的话就不能设置页？+ +），或者你在新建仓库的时候记得把 Initialize this repository with a README 这个选项勾上就好啦（也就是上图中步骤②）</strong><br><br>4. done<br>然后新建page标题的下方出现你的博客域名，在之后你可以通过这个域名访问你的博客。<img src="/img/blog7.png"><br><br>#### 二、node.js<br><br>下载并安装node.js: <a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a> 
 
 </em> <font color="BFBFBF" size="3">hexo博客需要在node.js环境下运行，所以我们需要给博客配置node.js</font><br>* <font color="BFBFBF" size="3">安装完之后按’ ctrl + R ‘输入cmd，在命令行窗口中先后输入node -v和npm -v，如若出现版本信息则安装成功。</font>
@@ -352,40 +352,40 @@
 <h4 id="四、把博客挂载在github上"><a href="#四、把博客挂载在github上" class="headerlink" title="四、把博客挂载在github上"></a>四、把博客挂载在github上</h4><ol>
 <li>在上述文件夹中找到并打开_config.yml，找到下图中的deploy设置，在repo处粘贴你github上博客代码库的链接即<img src="/img/blog9.png"></li>
 <li>输入<code>$ hexo d -g</code>（或<code>$ hexo d -g</code>）</li>
-<li>嘻嘻嘻嘻，激动人心的时候到啦~，在浏览器地址栏中输入你的github博客的域名（即<a href="https://username.github.io/），就可以看到你刚刚在本地看到博客的模样啦~" target="_blank" rel="external">https://username.github.io/），就可以看到你刚刚在本地看到博客的模样啦~</a></li>
+<li>嘻嘻嘻嘻，激动人心的时候到啦~，在浏览器地址栏中输入你的github博客的域名（即<a href="https://username.github.io/），就可以看到你刚刚在本地看到博客的模样啦~" target="_blank" rel="external">https://username.github.io/），就可以看到你刚刚在本地看到博客的模样啦~</a><br><img src="/img/blog.png"></li>
 </ol>
-<p><img src="/img/blog.png"></p>
 <h4 id="五、管理博客"><a href="#五、管理博客" class="headerlink" title="五、管理博客"></a>五、管理博客</h4><ol>
 <li>博客后台管理插件<br> hexo admin <a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="external">https://jaredforsyth.com/hexo-admin/</a><br> 相关介绍可以参考博文 <a href="http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/" target="_blank" rel="external">http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/</a></li>
 <li>hexo主题<br> <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题? - 知乎</a><br> 把喜欢主题项目clone下来，放在根目录的themes文件夹中，在_config.yml修改theme名称，即clone下来的代码库名称<br> <img src="/img/blog_theme.png"></li>
 </ol>
 <h4 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h4><ol>
-<li><h5 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h5><p>   <code>npm install hexo -g</code> #安装<br><br>   <code>npm update hexo -g</code> #升级<br><br>   <code>hexo init</code> #初始化<br></p>
+<li><h5 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h5><p>   <code>npm install hexo -g</code> #安装<br>   <code>npm update hexo -g</code> #升级<br>   <code>hexo init</code> #初始化</p>
 <ul>
-<li><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br><code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </li>
+<li><p><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br><code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </p>
+<ul>
+<li><strong>合并多条命令</strong><br><code>$ hexo d -g</code>或<code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code></li>
+</ul>
+</li>
 </ul>
 <ul>
-<li><p><strong>合并多条命令</strong><br><br><code>$ hexo d -g</code>或<code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code></p>
-</li>
-<li><p><strong>草稿</strong><br><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章</p>
+<li><p><strong>草稿</strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章</p>
 <font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font>
 </li>
 <li><p><strong>模板</strong><br><code>hexo new &quot;postName&quot;</code>#新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #本地预览效果（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #将.deploy目录部署到GitHub</p>
 </li>
-<li><p><strong>更多hexo命令戳这里</strong><a href="https://hexo.io/docs/commands.html" target="_blank" rel="external">https://hexo.io/docs/commands.html</a></p>
-</li>
 </ul>
 </li>
 </ol>
-<ol>
+<pre><code>* &lt;strong&gt;更多hexo命令戳这里&lt;/strong&gt;https://hexo.io/docs/commands.html
+</code></pre><ol>
 <li><h5 id="hexo解疑"><a href="#hexo解疑" class="headerlink" title="hexo解疑"></a>hexo解疑</h5><ul>
-<li><h5 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h5><pre><code>在hexo文档中我们可以看到一些命令如`hexo new [layout] &lt;title&gt;`、`hexo publish [layout] &lt;filename&gt;`有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中`default_layout`默认配置（如果我们没有修改过这个配置通常默认是post）。
+<li>#####layout参数说明<pre><code>在hexo文档中我们可以看到一些命令如`hexo new [layout] &lt;title&gt;`、`hexo publish [layout] &lt;filename&gt;`有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中`default_layout`默认配置（如果我们没有修改过这个配置通常默认是post）。
 </code></pre><ul>
 <li><code>layout</code>是什么呢<pre><code>layout意为布局，在hexo new命令中是指定新建文件的模板格式。hexo默认会提供三种布局draft、page、post。而在博客所在的文件夹的根目录中有一个scaffolds文件夹，里面有draft.md、page.md、post.md三个文件，这三个文件分别是设置生成不同类型模板文件的默认格式。（比如hexo new post &quot;test&quot;,则新建的文件会在source文件夹中的_post文件夹中看到） 
 </code></pre></li>
 </ul>
 </li>
-<li><h5 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h5>  hexo new [layout] title 写<br><br>  hexo publish [layout] title 发布（把草稿发表为文章）   <font color="575757" size="2">(新建、删除或修改文章后，不需要重启hexo server，刷新一下即可预览)</font></li>
+<li><h5 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h5>  hexo new [layout] title 写<br>  hexo publish [layout] title 发布（把草稿发表为文章）   <font color="575757" size="2">(新建、删除或修改文章后，不需要重启hexo server，刷新一下即可预览)</font></li>
 <li><h5 id="hexo-g-和-hexo-d-有什么区别"><a href="#hexo-g-和-hexo-d-有什么区别" class="headerlink" title="hexo g 和 hexo d 有什么区别"></a>hexo g 和 hexo d 有什么区别</h5><p>  hexo g == hexo generate 生成静态页面至public目录，开启服务器后(即 hexo s)并只能访问localhost:4000看到更改</p>
 <pre><code>hexo d == hexo deploy 部署，可以通过访问博客域名看到更改
 
