@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,github," />
+  <meta name="keywords" content="hexo,github,gh-page," />
 
 
 
@@ -94,7 +94,7 @@
 
 
 <meta name="description" content="[ 唠叨 ]  刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁">
-<meta name="keywords" content="hexo,github">
+<meta name="keywords" content="hexo,github,gh-page">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github blog">
 <meta property="og:url" content="http://chellhooo.com/2017/07/24/hexo-github-blog/index.html">
@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://chellhooo.com/img/blog9.png">
 <meta property="og:image" content="http://chellhooo.com/img/blog.png">
 <meta property="og:image" content="http://chellhooo.com/img/blog_theme.png">
-<meta property="og:updated_time" content="2017-07-26T01:36:22.670Z">
+<meta property="og:updated_time" content="2017-07-26T02:10:10.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github blog">
 <meta name="twitter:description" content="[ 唠叨 ]  刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁">
@@ -409,24 +409,22 @@
 </li>
 </ol>
 <pre><code>* 更多hexo命令戳这里https://hexo.io/docs/commands.html 
-</code></pre><ol>
-<li><h6 id="hexo解疑"><a href="#hexo解疑" class="headerlink" title="hexo解疑"></a>hexo解疑</h6><ul>
-<li><h6 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h6>   在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
-<li><code>layout</code>是什么呢<pre><code>layout意为布局，在hexo new命令中是指定新建文件的模板格式。hexo默认会提供三种布局draft、page、post。而在博客所在的文件夹的根目录中有一个scaffolds文件夹，里面有draft.md、page.md、post.md三个文件，这三个文件分别是设置生成不同类型模板文件的默认格式。（比如hexo new post &quot;test&quot;,则新建的文件会在source文件夹中的_post文件夹中看到） 
-</code></pre></li>
+</code></pre><h6 id="2-遇到的坑坑坑"><a href="#2-遇到的坑坑坑" class="headerlink" title="2. 遇到的坑坑坑"></a>2. 遇到的坑坑坑</h6><ul>
+<li>Q1. 新文章发布并部署上github之后仍然没有更新<br><br>A1. 试一下hexo clean清除缓存</li>
+<li>Q2. [error:deloyer not found:git]<br><br>A2. 安装拓展<code>npm install hexo-deployer-git --save</code></li>
+</ul>
+<h6 id="3-hexo解疑"><a href="#3-hexo解疑" class="headerlink" title="3. hexo解疑"></a>3. hexo解疑</h6><ul>
+<li><h6 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h6>在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
+<li><code>layout</code>是什么呢<br><br>layout意为布局，在hexo new命令中是指定新建文件的模板格式。hexo默认会提供三种布局draft、page、post。而在博客所在的文件夹的根目录中有一个scaffolds文件夹，里面有draft.md、page.md、post.md三个文件，这三个文件分别是设置生成不同类型模板文件的默认格式。（比如hexo new post “test”,则新建的文件会在source文件夹中的_post文件夹中看到） </li>
 </ul>
 </li>
-<li><h6 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h6><pre><code>hexo new [layout] title 写
-hexo publish [layout] title 发布（把草稿发表为文章） 
-</code></pre>  <font color="575757" size="2">(新建、删除或修改文章后，不需要重启hexo server，刷新一下即可预览)</font></li>
-<li><h6 id="hexo-g-和-hexo-d-有什么区别"><a href="#hexo-g-和-hexo-d-有什么区别" class="headerlink" title="hexo g 和 hexo d 有什么区别"></a>hexo g 和 hexo d 有什么区别</h6><pre><code>hexo g == hexo generate 生成静态页面至public目录，开启服务器后(即 hexo s)并只能访问localhost:4000看到更改&lt;br&gt;
-hexo d == hexo deploy 部署，可以通过访问博客域名看到更改
-
- hexo d -g #在部署前生成
+<li><h6 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h6><code>hexo new [layout] title</code> 写<br><br> <code>hexo publish [layout] title</code> 发布（把草稿发表为文章）<br> <font color="575757" size="2">(新建、删除或修改文章后，不需要重启hexo server，刷新一下即可预览)</font></li>
+<li><h6 id="hexo-g-和-hexo-d-有什么区别"><a href="#hexo-g-和-hexo-d-有什么区别" class="headerlink" title="hexo g 和 hexo d 有什么区别"></a>hexo g 和 hexo d 有什么区别</h6><p><code>hexo g == hexo generate</code> 生成静态页面至public目录，开启服务器后(即 hexo s)并只能访问localhost:4000看到更改<br><br>   <code>hexo d == hexo deploy</code> 部署，可以通过访问博客域名看到更改</p>
+<pre><code>hexo d -g #在部署前生成
 </code></pre></li>
 </ul>
-</li>
-</ol>
+<hr>
+<p><strong>最后最后，如有错误欢迎指出~ 转载请注明本文地址</strong></p>
 
       
     </div>
@@ -459,6 +457,8 @@ hexo d == hexo deploy 部署，可以通过访问博客域名看到更改
             <a href="/tags/hexo/" rel="tag"># hexo</a>
           
             <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/gh-page/" rel="tag"># gh-page</a>
           
         </div>
       
@@ -565,7 +565,7 @@ hexo d == hexo deploy 部署，可以通过访问博客域名看到更改
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>
@@ -600,7 +600,7 @@ hexo d == hexo deploy 部署，可以通过访问博客域名看到更改
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、GIT"><span class="nav-number">1.</span> <span class="nav-text">一、GIT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、node-js"><span class="nav-number">2.</span> <span class="nav-text">二、node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、hexo"><span class="nav-number">3.</span> <span class="nav-text">三、hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、把博客挂载在github上"><span class="nav-number">4.</span> <span class="nav-text">四、把博客挂载在github上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、管理博客"><span class="nav-number">5.</span> <span class="nav-text">五、管理博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#常见的hexo命令整合"><span class="nav-number">6.0.1.</span> <span class="nav-text">常见的hexo命令整合</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hexo解疑"><span class="nav-number">6.0.2.</span> <span class="nav-text">hexo解疑</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#layout参数说明"><span class="nav-number">6.0.3.</span> <span class="nav-text">layout参数说明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hexo-new-和-hexo-publish-有什么区别"><span class="nav-number">6.0.4.</span> <span class="nav-text">hexo new 和 hexo publish 有什么区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hexo-g-和-hexo-d-有什么区别"><span class="nav-number">6.0.5.</span> <span class="nav-text">hexo g 和 hexo d 有什么区别</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、GIT"><span class="nav-number">1.</span> <span class="nav-text">一、GIT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、node-js"><span class="nav-number">2.</span> <span class="nav-text">二、node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、hexo"><span class="nav-number">3.</span> <span class="nav-text">三、hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、把博客挂载在github上"><span class="nav-number">4.</span> <span class="nav-text">四、把博客挂载在github上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、管理博客"><span class="nav-number">5.</span> <span class="nav-text">五、管理博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#常见的hexo命令整合"><span class="nav-number">6.0.1.</span> <span class="nav-text">常见的hexo命令整合</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-遇到的坑坑坑"><span class="nav-number">6.0.2.</span> <span class="nav-text">2. 遇到的坑坑坑</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-hexo解疑"><span class="nav-number">6.0.3.</span> <span class="nav-text">3. hexo解疑</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#layout参数说明"><span class="nav-number">6.0.4.</span> <span class="nav-text">layout参数说明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hexo-new-和-hexo-publish-有什么区别"><span class="nav-number">6.0.5.</span> <span class="nav-text">hexo new 和 hexo publish 有什么区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#hexo-g-和-hexo-d-有什么区别"><span class="nav-number">6.0.6.</span> <span class="nav-text">hexo g 和 hexo d 有什么区别</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
