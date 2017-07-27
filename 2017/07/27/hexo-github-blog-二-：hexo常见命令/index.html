@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="常见的hexo命令整合npm install hexo -g #安装 npm update hexo -g #升级 hexo init #初始化  简写hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号   hexo p == hexo publish（第一二条命令都省略了layout参数，具体说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+github blog(二)：hexo常用命令及用法">
+<meta property="og:url" content="http://chellhooo.com/2017/07/27/hexo-github-blog-二-：hexo常见命令/index.html">
+<meta property="og:site_name" content="Chellhooooo">
+<meta property="og:description" content="常见的hexo命令整合npm install hexo -g #安装 npm update hexo -g #升级 hexo init #初始化  简写hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号   hexo p == hexo publish（第一二条命令都省略了layout参数，具体说">
+<meta property="og:updated_time" content="2017-07-27T11:57:16.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo+github blog(二)：hexo常用命令及用法">
+<meta name="twitter:description" content="常见的hexo命令整合npm install hexo -g #安装 npm update hexo -g #升级 hexo init #初始化  简写hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号   hexo p == hexo publish（第一二条命令都省略了layout参数，具体说">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/2017/07/27/hexo-github-blog-二-：hexo常见命令/"/>
+
+
+
+
+
+  <title>hexo+github blog(二)：hexo常用命令及用法 | Chellhooooo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhooooo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/2017/07/27/hexo-github-blog-二-：hexo常见命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhooooo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo+github blog(二)：hexo常用命令及用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T19:41:52+08:00">
+                2017-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/07/27/hexo-github-blog-二-：hexo常见命令/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/07/27/hexo-github-blog-二-：hexo常见命令/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><h3 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h3><pre><code>npm install hexo -g #安装
+npm update hexo -g #升级
+hexo init #初始化
+</code></pre><ul>
+<li><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br>   <code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </li>
+</ul>
+<ul>
+<li><p><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code></p>
+<ul>
+<li><strong> 草稿 </strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font></li>
+<li><p><strong> 模板 </strong><br><code>hexo new &quot;postName&quot;</code>#新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #本地预览效果（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #将.deploy目录部署到GitHub<br><br><strong>新建、修改、删除不用重新开启服务器，直接刷新便能在本地预览效果</strong></p>
+</li>
+<li><p><strong>更多hexo命令戳这里<a href="https://hexo.io/docs/commands.html" target="_blank" rel="external">hexo docs</a></strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><h3 id="遇到的坑坑坑"><a href="#遇到的坑坑坑" class="headerlink" title="遇到的坑坑坑"></a>遇到的坑坑坑</h3></li>
+</ol>
+<ul>
+<li>Q1. 新文章发布并部署上github之后仍然没有更新<br>A1. 试一下<code>hexo clean</code>清除缓存</li>
+<li>Q2. [error:deloyer not found:git]<br>A2. 安装拓展<code>npm install hexo-deployer-git --save</code></li>
+</ul>
+<ol>
+<li><h3 id="hexo解疑"><a href="#hexo解疑" class="headerlink" title="hexo解疑"></a>hexo解疑</h3></li>
+</ol>
+<ul>
+<li><h3 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h3>在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
+<li><code>layout</code>是什么呢<br>layout意为布局，在<code>hexo new</code>命令中是指定新建文件的模板格式。hexo默认会提供三种布局draft、page、post。而在博客所在的文件夹的根目录中有一个scaffolds文件夹，里面有draft.md、page.md、post.md三个文件，这三个文件分别是设置生成不同类型模板文件的默认格式。（比如hexo new post “test”,则新建的文件会在source文件夹中的_post文件夹中看到） </li>
+</ul>
+</li>
+<li><h3 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h3><code>hexo new [layout] title</code> 写<br><code>hexo publish [layout] title</code> 发布（把草稿发表为文章）<br> <br><font face="黑体">(新建、删除或修改文章后，不需要重启<code>hexo server</code>，刷新一下即可预览)</font></li>
+<li><h3 id="hexo-g-和-hexo-d-有什么区别"><a href="#hexo-g-和-hexo-d-有什么区别" class="headerlink" title="hexo g 和 hexo d 有什么区别"></a>hexo g 和 hexo d 有什么区别</h3><p><code>hexo g == hexo generate</code> 生成静态页面至public目录，开启服务器后(即 <code>hexo s</code>)并只能访问localhost:4000看到更改<br>  <code>hexo d == hexo deploy</code> 部署，可以通过访问博客域名看到更改</p>
+<pre><code>hexo d -g #在部署前生成
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/24/hexo-github-blog/" target="_blank" rel="external">本文地址</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/24/hexo-github-blog/" rel="next" title="hexo+github blog(一)：搭建">
+                <i class="fa fa-chevron-left"></i> hexo+github blog(一)：搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/27/hexo-github-blog-三-：评论及主题/" rel="prev" title="hexo+github blog(三)：评论及主题">
+                hexo+github blog(三)：评论及主题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的hexo命令整合"><span class="nav-number">1.</span> <span class="nav-text">常见的hexo命令整合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的坑坑坑"><span class="nav-number">2.</span> <span class="nav-text">遇到的坑坑坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo解疑"><span class="nav-number">3.</span> <span class="nav-text">hexo解疑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layout参数说明"><span class="nav-number">4.</span> <span class="nav-text">layout参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-new-和-hexo-publish-有什么区别"><span class="nav-number">5.</span> <span class="nav-text">hexo new 和 hexo publish 有什么区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-g-和-hexo-d-有什么区别"><span class="nav-number">6.</span> <span class="nav-text">hexo g 和 hexo d 有什么区别</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt8l2FFD';
+      var conf = 'b5c5688c5a97a1cc869df51335cd7b84';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
