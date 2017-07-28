@@ -320,59 +320,14 @@
 
       
         
-          
-            <p>[瞎bb] <font size="2" color="grey">博客不仅是个人成长的历程见证，同样也是大家互相分享交流以共同进步的平台，所以为自己的博客加上评论功能也是必不可少的。而在我搭建博客伊始，正赶上国内评论系统龙头 <strong>多说</strong> 宣布停止服务，老用户在默默唏嘘之余也在积极寻求新的替换品，而我也偷偷跟在他们背后物色合适的评论系统(嘘)。从中我挑了几个比较主流的在这里作简单的介绍，大家按需选择就好~鉴于我暂时只用过hexo，所以本文主要以hexo静态博客说明。详细的参考资料在文末，大家也按需自取吧。</font><br><a id="more"></a> </p>
-<ol>
-<li><h2 id="国内产品"><a href="#国内产品" class="headerlink" title="国内产品"></a>国内产品</h2><p>国内评论系统最大的好处就是可以支持国内社交账号登录，无需翻墙或注册新账号，交流互动更加省心，但是因为有了多说这个前车之鉴，我也不知道国内的产品可以走多远，为了求稳，我还是没有选择以下评论系统。</p>
-<ul>
-<li><p><strong><a href="http://changyan.kuaizhan.com/" target="_blank" rel="external">搜狐畅言</a></strong></p>
-<ul>
-<li>支持其他评论平台的数据导入，支持第三账号登录，支持自定义样式等</li>
-<li>需要注册域名并备案，不然只有15天的使用期</li>
-<li>使用方法：<ul>
-<li>hexo部分主题(如next)已经集成畅言插件，在<strong>themes/next/_config.yml</strong>畅言对应的设置处写上自己的APPID和APPKEY即可，</li>
-<li>hexo其他主题引入插件戳这里<a href="http://www.zhaiqianfeng.com/2017/03/changyan-for-hexo-next-theme.html" target="_blank" rel="external">http://www.zhaiqianfeng.com/2017/03/changyan-for-hexo-next-theme.html</a>,原理是一样的~</li>
-<li>对于自己写的页面也可以直接写入官网提供的通用代码，其他评论服务的接入基本都是类似下面就不介绍啦，官网也会有详细的介绍。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong><a href="http://www.uyan.cc" target="_blank" rel="external">友言</a></strong><br>无需备案，可将评论一键同步到各大社区网站(emmm..它的官网总让觉得很虚，有种快垮(?)的感觉..)</p>
-</li>
-</ul>
-</li>
-<li><h2 id="disqus"><a href="#disqus" class="headerlink" title="disqus"></a><a href="https://disqus.com/" target="_blank" rel="external">disqus</a></h2>业界大佬，听说已经跃升全球第二的占有率 <ul>
-<li>界面简洁大气</li>
-<li>支持ssl，数据转移方便</li>
-<li>只可惜评论需要翻墙和不能自定义样式，不过现在大都具备科学上网的能力，所以问题也不算大。<br>要想更科学使用disqus?看这里：）<strong><a href="http://blog.fooleap.org/use-disqus-correctly.html" target="_blank" rel="external">科学使用disqus</a></strong></li>
-</ul>
-</li>
-<li><h2 id="gitment"><a href="#gitment" class="headerlink" title="gitment"></a><a href="https://github.com/imsun/gitment" target="_blank" rel="external">gitment</a></h2>适合托管在<strong>GitHub Pages</strong>上的静态博客<ul>
-<li>使用github账号登录，基于github提醒功能</li>
-<li>无需后端代码，在前端直接引入 </li>
-<li>支持点赞、@人、代码高亮等，而且页面效果还是很让人心动<br><strong>demo： <a href="https://imsun.github.io/gitment/" target="_blank" rel="external">https://imsun.github.io/gitment/</a></strong><br><strong>中文文档： <a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">Gitment：使用 GitHub Issues 搭建评论系统</a></strong><br><strong>hexo博客戳这里：<a href="http://www.jianshu.com/p/10134c474991" target="_blank" rel="external">Hexo博客框架下Gitment取代多说评论</a></strong></li>
-</ul>
-</li>
-<li><h2 id="Staticman"><a href="#Staticman" class="headerlink" title="Staticman"></a><a href="https://staticman.net" target="_blank" rel="external">Staticman</a></h2>适合托管在 <strong>GitHub Pages</strong> 上的 Jekyll 博客</li>
-<li><h2 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a><a href="https://livere.com/" target="_blank" rel="external">来必力</a></h2>来自韩国,引入方法同国内评论系统。<ul>
-<li>UI比较小清新</li>
-<li>最重要的是它支持国内主流社交账号登录，评论无需注册</li>
-<li>评论支持拖动文件分享图片和视频，可以引用他人评论</li>
-<li>邮箱消息提醒功能</li>
-</ul>
-</li>
-<li><h2 id="ISSO"><a href="#ISSO" class="headerlink" title="ISSO"></a><a href="https://posativ.org/isso/" target="_blank" rel="external">ISSO</a></h2>需要配置python环境</li>
-<li><h2 id="HashOver"><a href="#HashOver" class="headerlink" title="HashOver"></a><a href="http://tildehash.com/?page=hashover" target="_blank" rel="external">HashOver</a></h2>在php环境下运行，支持 XML、MySQL、SQLite 几种数据储存方式<br>   <strong><a href="http://www.candura.us/posts/post-348/" target="_blank" rel="external">HEXO评论从“多说”搬迁到Hashover</a></strong><br>   <strong><a href="https://orro.ro/p/79.html" target="_blank" rel="external">Hashover-PHP开源评论系统</a></strong></li>
-</ol>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li>[1] <strong><a href="https://www.zhihu.com/question/57426274" target="_blank" rel="external">如何评价「多说」即将关闭？有什么替代方案？</a></strong></li>
-<li>[2] <strong><a href="https://blog.shuiba.co/comment-systems-recommendation" target="_blank" rel="external">第三方评论系统推荐</a></strong></li>
-</ul>
-<hr>
-<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/27/hexo-github-blog-%E4%B8%89-%EF%BC%9A%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" target="_blank" rel="external">本文地址</a></strong></p>
-
-          
+          <p>[瞎bb] <font size="2" color="grey">博客不仅是个人成长的历程见证，同样也是大家互相分享交流以共同进步的平台，所以为自己的博客加上评论功能也是必不可少的。而在我搭建博客伊始，正赶上国内评论系统龙头 <strong>多说</strong> 宣布停止服务，老用户在默默唏嘘之余也在积极寻求新的替换品，而我也偷偷跟在他们背后物色合适的评论系统(嘘)。从中我挑了几个比较主流的在这里作简单的介绍，大家按需选择就好~鉴于我暂时只用过hexo，所以本文主要以hexo静态博客说明。详细的参考资料在文末，大家也按需自取吧。</font><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/27/hexo-github-blog-三-：评论功能/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -489,9 +444,7 @@ hexo init #初始化
 <li><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br>   <code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </li>
 </ul>
 <ul>
-<li><p><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code><a id="more"></a> </p>
-<ul>
-<li><strong> 草稿 </strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font>
+<li><p><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/27/hexo-github-blog-二-：hexo常见命令/#more" rel="contents">
@@ -607,87 +560,17 @@ hexo init #初始化
 
       
         
-          
-            <font color="1C1F21" size="3">[ 唠叨 ] </font><font color="BFBFBF" size="3"> 刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。</font><br><br><font color="1C1F21" size="3"> 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁置了，现在是时候来填坑啦~hexo+github博客的搭建方法网上很多，可是还是免不了会掉一些奇奇怪怪的坑，鉴于网上类似的教程很多，所以我只详细说我觉得需要注意的地方，希望能给你们避雷：）</font>
+          <font color="1C1F21" size="3">[ 唠叨 ] </font><font color="BFBFBF" size="3"> 刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。</font><br><br><font color="1C1F21" size="3"> 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁置了，现在是时候来填坑啦~hexo+github博客的搭建方法网上很多，可是还是免不了会掉一些奇奇怪怪的坑，鉴于网上类似的教程很多，所以我只详细说我觉得需要注意的地方，希望能给你们避雷：）</font>
 
 <h2 id="一、GIT"><a href="#一、GIT" class="headerlink" title="一、GIT"></a>一、GIT</h2><ul>
-<li>注册github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a></li>
-<li>下载git：<a href="https://git-scm.com/downloads?&lt;br" target="_blank" rel="external">https://git-scm.com/downloads?&lt;br</a><br>关于学习git命令建议看廖雪峰老师的博客 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/</a><a id="more"></a> 
-</li>
-</ul>
-<ol>
-<li><h3 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h3><p> <img src="http://otqswgdd3.bkt.clouddn.com/blog0.png" alt="newrepo"></p>
-</li>
-<li><h3 id="设置代码库"><a href="#设置代码库" class="headerlink" title="设置代码库"></a>设置代码库</h3><p> <img src="http://otqswgdd3.bkt.clouddn.com/blog1.png" alt="setrepo"></p>
-</li>
-<li><h3 id="新建gh-page"><a href="#新建gh-page" class="headerlink" title="新建gh-page"></a>新建gh-page</h3><p> 在代码库的setting页面底部新建gh-page,并选择master branch,最后save</p>
-<p> <img src="http://otqswgdd3.bkt.clouddn.com/blog6.png" alt="newpage"></p>
-<ul>
-<li>github改版之后发现已经没有<strong>Automatic page generator</strong> 这个按钮了，需要自己手动新建page，可是我在新建的时候发现是无法点击master branch的选项。后来当我手动增加了readme.md之后，发现master那两个选项都可以点击了（emmm..如果分支是空的话就不能设置页？+ +），或者你在新建仓库的时候记得把 <strong>Initialize this repository with a README</strong> 这个选项勾上就好啦（也就是上图中步骤②）<br></li>
-</ul>
-</li>
-<li><h3 id="done"><a href="#done" class="headerlink" title="done"></a>done</h3><p>然后新建page标题的下方出现你的博客域名，在之后你可以通过这个域名访问你的博客。<img src="http://otqswgdd3.bkt.clouddn.com/blog7.png" alt="ghblog"><br></p>
-</li>
-</ol>
-<h2 id="二、node-js"><a href="#二、node-js" class="headerlink" title="二、node.js"></a>二、node.js</h2><p>下载并安装node.js: <a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a><br>根据提示基本一路按next就可以安装完成啦~就不截图了</p>
-<ul>
-<li>hexo博客需要在node.js环境下运行，所以我们需要给博客配置node.js</li>
-<li>安装完之后按<code>ctrl + R</code>输入cmd，在命令行窗口中先后输入<code>node -v</code>和<code>npm -v</code>，如若出现版本信息则安装成功。<br></li>
-</ul>
-<h2 id="三、hexo"><a href="#三、hexo" class="headerlink" title="三、hexo"></a>三、hexo</h2><ol>
-<li><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>在你觉得适合的地方新建一个放博客文件的文件夹，并在该文件夹右键点击git bash，并输入</p>
- <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<p>按回车并等待安装hexo。同样的，你也可以在命令行窗口使用<code>hexo -v</code>检查你是否已经安装成功。</p>
-<ul>
-<li>如果网速不好，建议使用淘宝的npm镜像，步骤为先后输入<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org </div><div class="line">$ cnpm install -g hexo-cli </div><div class="line">$ cnpm install hexo --save</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><font color="817E7E" size="3">npm是Node包管理器，它是在安装node的时候便一同被安装，其中一个功能就是你可以直接使用npm下载第三方代码或程序。了解更多戳下面</font><br><strong><a href="https://diamondfsd.com/article/f8e036db-aa1d-47fe-a1f5-5cc71e2bde90" target="_blank" rel="external">什么是NPM, 为什么要用NPM来管理包</a></strong><br></li>
-</ul>
-<ol>
-<li><h3 id="初始化hexo"><a href="#初始化hexo" class="headerlink" title="初始化hexo"></a>初始化hexo</h3><p>同样是在上述文件夹，执行下列命令</p>
- <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo init //初始化</div><div class="line">$ npm install //安装依赖和插件</div></pre></td></tr></table></figure>
-<p>文件夹会出现下述目录结构</p>
-<pre><code>.
-├── _config.yml
-├── package.json
-├── scaffolds
-├── source
- |   ├── _drafts
- |   └── _posts
- └── themes
-</code></pre><ul>
-<li><font color="BFBFBF" size="3">关于这些文件夹的作用，可以参考</font><a href="https://hexo.io/docs/setup.html" target="_blank" rel="external">hexo官方文档</a><br></li>
-</ul>
-</li>
-<li><h3 id="在本地运行hexo"><a href="#在本地运行hexo" class="headerlink" title="在本地运行hexo"></a>在本地运行hexo</h3><p>执行下列命令，便可以在浏览器输入<strong>localhost:4000</strong>看到你的小博客儿啦~ </p>
- <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s -g</div></pre></td></tr></table></figure>
-<ul>
-<li><code>$ hexo s -g</code>是由 <code>$ hexo g</code> 和 <code>$ hexo s</code>两条命令合并在一起，更多常见hexo命令可以见本文文末~</li>
-<li>按<code>ctrl+c</code>停止运行服务器<br></li>
-</ul>
-</li>
-</ol>
-<h2 id="四、把博客挂载在github上"><a href="#四、把博客挂载在github上" class="headerlink" title="四、把博客挂载在github上"></a>四、把博客挂载在github上</h2><ol>
-<li>在上述文件夹中找到并打开<strong>_config.yml</strong>，找到下图中的deploy设置，在repo处粘贴你github上博客代码库的链接即<img src="http://otqswgdd3.bkt.clouddn.com/blog9.png" alt="hexo-gh"><br></li>
-<li><p>执行下列命令</p>
- <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g（或<span class="code">`$ hexo d -g`</span>）</div></pre></td></tr></table></figure>
-</li>
-<li><p>嘻嘻嘻嘻，激动人心的时候到啦~，在浏览器地址栏中输入你的github博客的域名（即<a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a>），就可以看到你刚刚在本地看到博客的模样啦~<br><img src="http://otqswgdd3.bkt.clouddn.com/blog.png" alt="blog"><br></p>
-</li>
-</ol>
-<h2 id="五、管理博客"><a href="#五、管理博客" class="headerlink" title="五、管理博客"></a>五、管理博客</h2><ol>
-<li><h3 id="Hexo如何在线可视化写博客？"><a href="#Hexo如何在线可视化写博客？" class="headerlink" title="Hexo如何在线可视化写博客？"></a><a href="https://www.zhihu.com/question/27384681" target="_blank" rel="external">Hexo如何在线可视化写博客？</a></h3></li>
-<li><h3 id="博客后台管理插件"><a href="#博客后台管理插件" class="headerlink" title="博客后台管理插件"></a>博客后台管理插件</h3> <strong>hexo admin ： <a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="external">https://jaredforsyth.com/hexo-admin/</a></strong><br> 相关介绍可以参考博文     <a href="http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/" target="_blank" rel="external">http://yeshaoting.cn/article/hexo/hexo%E4%BD%BF%E7%94%A8%E8%BF%9B%E9%98%B6/</a><br></li>
-<li><h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3> <strong><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题? - 知乎</a></strong><br> 把喜欢的主题项目clone下来，放在根目录的themes文件夹中，在<strong>_config.yml</strong>修改<strong>theme</strong>名称，即clone下来的代码库名称<br> <img src="http://otqswgdd3.bkt.clouddn.com/blog_theme.png" alt=""><br></li>
-</ol>
-<hr>
-<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/24/hexo-github-blog/" target="_blank" rel="external">本文地址</a></strong></p>
-
-          
+<li>注册github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/24/hexo-github-blog/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
