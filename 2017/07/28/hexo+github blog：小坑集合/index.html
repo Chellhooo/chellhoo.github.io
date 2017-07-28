@@ -93,20 +93,17 @@
 
 
 
-<meta name="description" content="使用&amp;lt;!–more–&amp;gt;显示出错[背景]  有时候我们会对文章增加阅读全文的功能，在非正文阅读的页面只显示文章部分文字，对此我们有两个方法 在相关主题的themes/主题名/_config.yml中设置auto_excerptenable开关为true 在文章中间加上&amp;lt;!–more–&amp;gt;，则文章该处后面的文字将会隐藏[情景]  我在next主题下，两种方法都会出现间歇性不能正">
+<meta name="description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-up">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github blog：小坑集合">
-<meta property="og:url" content="http://chellhooo.com/2017/07/28/Untitled/index.html">
+<meta property="og:url" content="http://chellhooo.com/2017/07/28/hexo+github blog：小坑集合/index.html">
 <meta property="og:site_name" content="Chellhooooo">
-<meta property="og:description" content="使用&amp;lt;!–more–&amp;gt;显示出错[背景]  有时候我们会对文章增加阅读全文的功能，在非正文阅读的页面只显示文章部分文字，对此我们有两个方法 在相关主题的themes/主题名/_config.yml中设置auto_excerptenable开关为true 在文章中间加上&amp;lt;!–more–&amp;gt;，则文章该处后面的文字将会隐藏[情景]  我在next主题下，两种方法都会出现间歇性不能正">
+<meta property="og:description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-up">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://chellhooo.com/img/readmore3.png">
-<meta property="og:image" content="http://chellhooo.com/img/readmore.png">
-<meta property="og:updated_time" content="2017-07-28T14:49:32.888Z">
+<meta property="og:updated_time" content="2017-07-28T15:22:48.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github blog：小坑集合">
-<meta name="twitter:description" content="使用&amp;lt;!–more–&amp;gt;显示出错[背景]  有时候我们会对文章增加阅读全文的功能，在非正文阅读的页面只显示文章部分文字，对此我们有两个方法 在相关主题的themes/主题名/_config.yml中设置auto_excerptenable开关为true 在文章中间加上&amp;lt;!–more–&amp;gt;，则文章该处后面的文字将会隐藏[情景]  我在next主题下，两种方法都会出现间歇性不能正">
-<meta name="twitter:image" content="http://chellhooo.com/img/readmore3.png">
+<meta name="twitter:description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-up">
 
 
 
@@ -134,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://chellhooo.com/2017/07/28/Untitled/"/>
+  <link rel="canonical" href="http://chellhooo.com/2017/07/28/hexo+github blog：小坑集合/"/>
 
 
 
@@ -259,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/2017/07/28/Untitled/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/2017/07/28/hexo+github blog：小坑集合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -324,11 +321,7 @@
 
       
         <ol>
-<li><h3 id="使用-lt-–more–-gt-显示出错"><a href="#使用-lt-–more–-gt-显示出错" class="headerlink" title="使用&lt;!–more–&gt;显示出错"></a>使用&lt;!–more–&gt;显示出错</h3><strong>[背景]</strong>  有时候我们会对文章增加<strong>阅读全文</strong>的功能，在非正文阅读的页面只显示文章部分文字，对此我们有两个方法<ul>
-<li>在相关主题的<strong>themes/主题名/_config.yml</strong>中设置<strong>auto_excerpt</strong>enable开关为true<img src="/img/readmore3.png"></li>
-<li>在文章中间加上&lt;!–more–&gt;，则文章该处后面的文字将会隐藏<br><strong>[情景]</strong>  我在next主题下，两种方法都会出现间歇性不能正常截断文章，按钮文字都显示如下图<a id="more"></a>（后续：不能正常截断文章大概是网络或者服务器日常抽风）<img src="/img/readmore.png"><br><strong>[解决方法]</strong>  <del>在<strong>themes/next/scripts/</strong>下创建<strong>excerpt.js</strong>，把下列代码写进文件并保存<br>,重新开启服务器，就可以看到已经恢复正常了</del><br><del><strong>[参考链接]</strong>  <a href="https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update" target="_blank" rel="external">https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update</a></del><br><br><strong>[解决方法]</strong> 在<strong>_config.yml</strong>配置除德文(themes/主题名/languages/de.yml是德文配置文件)以外的语言！<br><font size="2" color="9C9C9C">是的你没猜错，<strong>weiterlesen</strong>是一句德文 ：）</font><br><strong>[意外收获]</strong> 使用<code>hexo s --debug</code>可以知道hexo是否有解析到我们所需的脚本文件</li>
-</ul>
-</li>
+<li><h3 id="使用-lt-–more–-gt-按钮显示weiterlesen"><a href="#使用-lt-–more–-gt-按钮显示weiterlesen" class="headerlink" title="使用&lt;!–more–&gt;按钮显示weiterlesen"></a>使用&lt;!–more–&gt;按钮显示weiterlesen</h3><del><strong>[解决方法]</strong> 在<strong>themes/next/scripts/</strong>下创建 <strong>excerpt.js</strong>，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了</del><br><del><strong>[参考链接]</strong>  <a href="https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update" target="_blank" rel="external">https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update</a></del><br><strong>[解决方法]</strong> 在<strong>_config.yml</strong>配置除德文(themes/主题名/languages/de.yml是德文配置文件)以外的语言！<br><font size="2" color="9C9C9C">是的你没猜错，<strong>weiterlesen</strong>是一句德文 ：）</font><br><strong>[意外收获]</strong> 使用<code>hexo s --debug</code>可以知道hexo是否有解析到我们所需的脚本文件</li>
 </ol>
 <hr>
 <p>持续更新……</p>
@@ -499,7 +492,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-lt-–more–-gt-显示出错"><span class="nav-number">1.</span> <span class="nav-text">使用<!–more–>显示出错</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-lt-–more–-gt-按钮显示weiterlesen"><span class="nav-number">1.</span> <span class="nav-text">使用<!–more–>按钮显示weiterlesen</span></a></li></ol></div>
             
 
           </div>
