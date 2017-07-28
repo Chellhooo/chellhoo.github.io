@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -282,7 +282,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-28T18:46:37+08:00">
                 2017-07-28
@@ -406,7 +406,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T19:44:10+08:00">
                 2017-07-27
@@ -445,7 +445,7 @@
       
         
           
-            <p>[瞎bb] <font size="2" color="grey">博客不仅是个人成长的历程见证，同样也是大家互相分享交流以共同进步的平台，所以为自己的博客加上评论功能也是必不可少的。而在我搭建博客伊始，正赶上国内评论系统龙头 <strong>多说</strong> 宣布停止服务，老用户在默默唏嘘之余也在积极寻求新的替换品，而我也偷偷跟在他们背后物色合适的评论系统(嘘)。从中我挑了几个比较主流的在这里作简单的介绍，大家按需选择就好~鉴于我暂时只用过hexo，所以本文主要以hexo静态博客说明。详细的参考资料在文末，大家也按需自取吧。</font></p>
+            <p>[瞎bb] <font size="2" color="grey">博客不仅是个人成长的历程见证，同样也是大家互相分享交流以共同进步的平台，所以为自己的博客加上评论功能也是必不可少的。而在我搭建博客伊始，正赶上国内评论系统龙头 <strong>多说</strong> 宣布停止服务，老用户在默默唏嘘之余也在积极寻求新的替换品，而我也偷偷跟在他们背后物色合适的评论系统(嘘)。从中我挑了几个比较主流的在这里作简单的介绍，大家按需选择就好~鉴于我暂时只用过hexo，所以本文主要以hexo静态博客说明。详细的参考资料在文末，大家也按需自取吧。</font><br><a id="more"></a> </p>
 <ol>
 <li><h2 id="国内产品"><a href="#国内产品" class="headerlink" title="国内产品"></a>国内产品</h2><p>国内评论系统最大的好处就是可以支持国内社交账号登录，无需翻墙或注册新账号，交流互动更加省心，但是因为有了多说这个前车之鉴，我也不知道国内的产品可以走多远，为了求稳，我还是没有选择以下评论系统。</p>
 <ul>
@@ -567,7 +567,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T19:41:52+08:00">
                 2017-07-27
@@ -605,8 +605,7 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li><h3 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h3><pre><code>npm install hexo -g #安装
 npm update hexo -g #升级
 hexo init #初始化
@@ -614,42 +613,16 @@ hexo init #初始化
 <li><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br>   <code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </li>
 </ul>
 <ul>
-<li><p><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code></p>
+<li><p><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code><a id="more"></a> </p>
 <ul>
-<li><strong> 草稿 </strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font><a id="more"></a></li>
-<li><p><strong> 模板 </strong><br><code>hexo new &quot;postName&quot;</code>#新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #本地预览效果（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #将.deploy目录部署到GitHub<br><br><strong>新建、修改、删除不用重新开启服务器，直接刷新便能在本地预览效果</strong></p>
-</li>
-<li><p><strong>更多hexo命令戳这里<a href="https://hexo.io/docs/commands.html" target="_blank" rel="external">hexo docs</a></strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><h3 id="遇到的坑坑坑"><a href="#遇到的坑坑坑" class="headerlink" title="遇到的坑坑坑"></a>遇到的坑坑坑</h3></li>
-</ol>
-<ul>
-<li>Q1. 新文章发布并部署上github之后仍然没有更新<br>A1. 试一下<code>hexo clean</code>清除缓存</li>
-<li>Q2. [error:deloyer not found:git]<br>A2. 安装拓展<code>npm install hexo-deployer-git --save</code></li>
-</ul>
-<ol>
-<li><h3 id="hexo解疑"><a href="#hexo解疑" class="headerlink" title="hexo解疑"></a>hexo解疑</h3></li>
-</ol>
-<ul>
-<li><h3 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h3>在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
-<li><code>layout</code>是什么呢<br>layout意为布局，在<code>hexo new</code>命令中是指定新建文件的模板格式。hexo默认会提供三种布局draft、page、post。而在博客所在的文件夹的根目录中有一个scaffolds文件夹，里面有draft.md、page.md、post.md三个文件，这三个文件分别是设置生成不同类型模板文件的默认格式。（比如hexo new post “test”,则新建的文件会在source文件夹中的_post文件夹中看到） </li>
-</ul>
-</li>
-<li><h3 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h3><code>hexo new [layout] title</code> 写<br><code>hexo publish [layout] title</code> 发布（把草稿发表为文章）<br> <br><font face="黑体">(新建、删除或修改文章后，不需要重启<code>hexo server</code>，刷新一下即可预览)</font></li>
-<li><h3 id="hexo-g-和-hexo-d-有什么区别"><a href="#hexo-g-和-hexo-d-有什么区别" class="headerlink" title="hexo g 和 hexo d 有什么区别"></a>hexo g 和 hexo d 有什么区别</h3><p><code>hexo g == hexo generate</code> 生成静态页面至public目录，开启服务器后(即 <code>hexo s</code>)并只能访问localhost:4000看到更改<br>  <code>hexo d == hexo deploy</code> 部署，可以通过访问博客域名看到更改</p>
-<pre><code>hexo d -g #在部署前生成
-</code></pre></li>
-</ul>
-</li>
-</ol>
-<hr>
-<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/27/hexo-github-blog-%E4%BA%8C-%EF%BC%9Ahexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" target="_blank" rel="external">本文地址</a></strong></p>
-
-          
+<li><strong> 草稿 </strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/27/hexo-github-blog-二-：hexo常见命令/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -733,7 +706,7 @@ hexo init #初始化
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -746,7 +719,7 @@ hexo init #初始化
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -796,7 +769,7 @@ hexo init #初始化
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
