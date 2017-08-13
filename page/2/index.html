@@ -322,21 +322,28 @@
       
         
           
-            <h4 id="参考链接"><a href="#参考链接" class="headerlink" title="[ 参考链接 ] :"></a>[ 参考链接 ] :</h4><ul>
-<li><p><a href="http://www.arao.me/2015/hexo-next-theme-optimize-seo/" target="_blank" rel="external">动动手指，不限于NexT主题的Hexo优化（SEO篇）</a></p>
-</li>
-<li><p><a href="https://blog.ansheng.me/article/use-github-as-a-personal-blog" target="_blank" rel="external">使用GitHub做个人博客</a></p>
-</li>
-<li><p><a href="https://www.zhihu.com/question/30898326" target="_blank" rel="external">如何解决百度爬虫无法爬取搭建在Github上的个人博客的问题？</a></p>
-</li>
-</ul>
-<p><strong>[ 踩坑提醒 ]</strong> : </p>
-<ol>
-<li>在<strong>_config.yml</strong>配置完hexo sitemap网站地图之后要先执行<code>hexo d</code>或<code>hexo g</code>，hexo才会编译并在hexo站点根目录生成sitemap.xml和baidusitemap.xml</li>
-</ol>
-<p><strong>[ 说明 ]</strong>:<br>  看了一圈，感觉涉及的范围有点广，而顾及到暑假的学习计划和我自身情况，博客暂时对我来说是记录个人成长和学习笔记，就先不弄这一块了。有机会再回来填这个坑~</p>
+          [ 参考链接 ] :
+动动手指，不限于NexT主题的Hexo优化（SEO篇）
+
+使用GitHub做个人博客
+
+如何解决百度爬虫无法爬取搭建在Github上的个人博客的问题？
+
+
+[ 踩坑提醒 ] : 
+
+在_config.yml配置完hexo sitemap网站地图之后要先执行hexo d或hexo g，hexo才会编译并在hexo站点根目录生成sitemap.xml和baidusitemap.xml
+
+[ 说明 ]:  看了一圈，感觉涉及的范围有点广，而顾及到暑假的学习计划和我自身情况，博客暂时对我来说是记录个人成长和学习笔记，就先不弄这一块了。有机会再回来填这个坑~
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/hexo-github-blog-四-：seo优化/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -446,19 +453,17 @@
       
         
           
-            <ol>
-<li><h3 id="使用-lt-–more–-gt-按钮显示weiterlesen"><a href="#使用-lt-–more–-gt-按钮显示weiterlesen" class="headerlink" title="使用&lt;!–more–&gt;按钮显示weiterlesen"></a>使用&lt;!–more–&gt;按钮显示weiterlesen</h3><p><del><strong>[解决方法]</strong> 在<strong>themes/next/scripts/</strong>下创建 <strong>excerpt.js</strong>，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了</del><br><del><strong>[参考链接]</strong>  <a href="https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update" target="_blank" rel="external">https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update</a></del></p>
-<p><strong>[解决方法]</strong> 在<strong>_config.yml</strong>配置除德文(themes/主题名/languages/de.yml是德文配置文件)以外的语言！<br><font size="2" color="9C9C9C">是的你没猜错，<strong>weiterlesen</strong>是一句德文 ：）</font><br><strong>[意外收获]</strong> 使用<code>hexo s --debug</code>可以知道hexo是否有解析到我们所需的脚本文件</p>
-</li>
-<li><h3 id="修改配置文件在本地总是看不到效果"><a href="#修改配置文件在本地总是看不到效果" class="headerlink" title="修改配置文件在本地总是看不到效果"></a>修改配置文件在本地总是看不到效果</h3>先别着急地崩溃，也先别着急检查步骤是否错了，先检查修改配置文件后是否有执行<code>hexo deploy</code>或者<code>hexo generate</code><ul>
-<li>只有新建、删除、修改文章才无需部署直接开启服务器即可在本地预览，待效果满意之后再<code>hexo d -g</code>部署上github</li>
-</ul>
-</li>
-</ol>
-<hr>
-<p>持续更新……</p>
-
           
+使用&lt;!–more–&gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update
+[解决方法] 在_config.yml配置除德文(themes/主题名/languages/de.yml是德文配置文件)以外的语言！是的你没猜错，weiterlesen是一句德文 ：）[意外
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/hexo+github blog：小坑集合/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -568,63 +573,17 @@
       
         
           
-            <p>[瞎bb] <font size="2" color="grey">博客不仅是个人成长的历程见证，同样也是大家互相分享交流以共同进步的平台，所以为自己的博客加上评论功能也是必不可少的。而在我搭建博客伊始，正赶上国内评论系统龙头 <strong>多说</strong> 宣布停止服务，老用户在默默唏嘘之余也在积极寻求新的替换品，而我也偷偷跟在他们背后物色合适的评论系统(嘘)。从中我挑了几个比较主流的在这里作简单的介绍，大家按需选择就好~鉴于我暂时只用过hexo，所以本文主要以hexo静态博客说明。详细的参考资料在文末，大家也按需自取吧。</font></p>
-<ol>
-<li><h2 id="国内产品"><a href="#国内产品" class="headerlink" title="国内产品"></a>国内产品</h2>国内评论系统最大的好处就是可以支持国内社交账号登录，无需翻墙或注册新账号，交流互动更加省心，但是因为有了多说这个前车之鉴，我也不知道国内的产品可以走多远，为了求稳，我还是没有选择以下评论系统。</li>
-</ol>
-<a id="more"></a>
-<ul>
-<li><p><strong><a href="http://changyan.kuaizhan.com/" target="_blank" rel="external">搜狐畅言</a></strong>     </p>
-<ul>
-<li>支持其他评论平台的数据导入，支持第三账号登录，支持自定义样式等</li>
-<li>需要注册域名并备案，不然只有15天的使用期</li>
-<li><p>使用方法：</p>
-<ul>
-<li>hexo部分主题(如next)已经集成畅言插件，在<strong>themes/next/_config.yml</strong>畅言对应的设置处写上自己的APPID和APPKEY即可，</li>
-<li>hexo其他主题引入插件戳这里<a href="http://www.zhaiqianfeng.com/2017/03/changyan-for-hexo-next-theme.html" target="_blank" rel="external">http://www.zhaiqianfeng.com/2017/03/changyan-for-hexo-next-theme.html</a>,原理是一样的~</li>
-<li>对于自己写的页面也可以直接写入官网提供的通用代码，其他评论服务的接入基本都是类似下面就不介绍啦，官网也会有详细的介绍。</li>
-</ul>
-</li>
-<li><p><strong><a href="http://www.uyan.cc" target="_blank" rel="external">友言</a></strong><br>无需备案，可将评论一键同步到各大社区网站(emmm..它的官网总让觉得很虚，有种快垮(?)的感觉..)</p>
-</li>
-</ul>
-<ol>
-<li><h2 id="disqus"><a href="#disqus" class="headerlink" title="disqus"></a><a href="https://disqus.com/" target="_blank" rel="external">disqus</a></h2>业界大佬，听说已经跃升全球第二的占有率 </li>
-</ol>
-<ul>
-<li>界面简洁大气</li>
-<li>支持ssl，数据转移方便</li>
-<li>只可惜评论需要翻墙和不能自定义样式，不过现在大都具备科学上网的能力，所以问题也不算大。<br>要想更科学使用disqus?看这里：）<strong><a href="http://blog.fooleap.org/use-disqus-correctly.html" target="_blank" rel="external">科学使用disqus</a></strong></li>
-</ul>
-<ol>
-<li><h2 id="gitment"><a href="#gitment" class="headerlink" title="gitment"></a><a href="https://github.com/imsun/gitment" target="_blank" rel="external">gitment</a></h2>适合托管在<strong>GitHub Pages</strong>上的静态博客</li>
-</ol>
-</li>
-<li>使用github账号登录，基于github提醒功能</li>
-<li>无需后端代码，在前端直接引入 </li>
-<li>支持点赞、@人、代码高亮等，而且页面效果还是很让人心动<br><strong>demo： <a href="https://imsun.github.io/gitment/" target="_blank" rel="external">https://imsun.github.io/gitment/</a></strong><br><strong>中文文档： <a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">Gitment：使用 GitHub Issues 搭建评论系统</a></strong><br><strong>hexo博客戳这里：<a href="http://www.jianshu.com/p/10134c474991" target="_blank" rel="external">Hexo博客框架下Gitment取代多说评论</a></strong><ol>
-<li><h2 id="Staticman"><a href="#Staticman" class="headerlink" title="Staticman"></a><a href="https://staticman.net" target="_blank" rel="external">Staticman</a></h2>适合托管在 <strong>GitHub Pages</strong> 上的 Jekyll 博客</li>
-<li><h2 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a><a href="https://livere.com/" target="_blank" rel="external">来必力</a></h2>来自韩国,引入方法同国内评论系统。</li>
-</ol>
-</li>
-<li>UI比较小清新</li>
-<li>最重要的是它支持国内主流社交账号登录，评论无需注册</li>
-<li>评论支持拖动文件分享图片和视频，可以引用他人评论</li>
-<li>邮箱消息提醒功能<ol>
-<li><h2 id="ISSO"><a href="#ISSO" class="headerlink" title="ISSO"></a><a href="https://posativ.org/isso/" target="_blank" rel="external">ISSO</a></h2>需要配置python环境</li>
-<li><h2 id="HashOver"><a href="#HashOver" class="headerlink" title="HashOver"></a><a href="http://tildehash.com/?page=hashover" target="_blank" rel="external">HashOver</a></h2>在php环境下运行，支持 XML、MySQL、SQLite 几种数据储存方式<br><strong><a href="http://www.candura.us/posts/post-348/" target="_blank" rel="external">HEXO评论从“多说”搬迁到Hashover</a></strong><br><strong><a href="https://orro.ro/p/79.html" target="_blank" rel="external">Hashover-PHP开源评论系统</a></strong></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li>[1] <strong><a href="https://www.zhihu.com/question/57426274" target="_blank" rel="external">如何评价「多说」即将关闭？有什么替代方案？</a></strong></li>
-<li>[2] <strong><a href="https://blog.shuiba.co/comment-systems-recommendation" target="_blank" rel="external">第三方评论系统推荐</a></strong></li>
-</ul>
-<hr>
-<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/27/hexo-github-blog-%E4%B8%89-%EF%BC%9A%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" target="_blank" rel="external">本文地址</a></strong></p>
+          [瞎bb] 博客不仅是个人成长的历程见证，同样也是大家互相分享交流以共同进步的平台，所以为自己的博客加上评论功能也是必不可少的。而在我搭建博客伊始，正赶上国内评论系统龙头 多说 宣布停止服务，老用户在默默唏嘘之余也在积极寻求新的替换品，而我也偷偷跟在他们背后物色合适的评论系统(嘘)。从中我挑了几个比较主流的在这里作简单的介绍，大家按需选择就好~鉴于我暂时只用过hexo，所以本文主要以hexo静态博客说明。详细的参考资料在文末，大家也按需自取吧。
 
-          
+国内产品国内评论系统最大的好处就是可以支持国内社交账号登录，无需翻墙或注册新账号，交流互动更加省心，但是因为有了多说这个前车之鉴，我也不知道国内的产
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/hexo-github-blog-三-：评论功能/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
