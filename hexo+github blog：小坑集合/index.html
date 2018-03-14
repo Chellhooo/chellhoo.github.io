@@ -93,7 +93,7 @@
 
 
 
-<meta name="description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-up">
+<meta name="description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/">
 <meta name="keywords" content="hexo,github,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github blog：小坑集合">
@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-up">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-13T08:47:56.207Z">
+<meta property="og:updated_time" content="2018-03-14T13:09:26.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github blog：小坑集合">
 <meta name="twitter:description" content="使用&amp;lt;!–more–&amp;gt;按钮显示weiterlesen[解决方法] 在themes/next/scripts/下创建 excerpt.js，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了[参考链接]  https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-up">
@@ -309,8 +309,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-blog/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo blog</span>
+                  <a href="/categories/项目搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">项目搭建</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目搭建/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -344,12 +355,15 @@
 
       
         <ol>
-<li><h3 id="使用-lt-–more–-gt-按钮显示weiterlesen"><a href="#使用-lt-–more–-gt-按钮显示weiterlesen" class="headerlink" title="使用&lt;!–more–&gt;按钮显示weiterlesen"></a>使用&lt;!–more–&gt;按钮显示weiterlesen</h3><p><del><strong>[解决方法]</strong> 在<strong>themes/next/scripts/</strong>下创建 <strong>excerpt.js</strong>，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了</del><br><del><strong>[参考链接]</strong>  <a href="https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update" target="_blank" rel="external">https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update</a></del></p>
+<li><h4 id="使用-lt-–more–-gt-按钮显示weiterlesen"><a href="#使用-lt-–more–-gt-按钮显示weiterlesen" class="headerlink" title="使用&lt;!–more–&gt;按钮显示weiterlesen"></a>使用&lt;!–more–&gt;按钮显示weiterlesen</h4><p><del><strong>[解决方法]</strong> 在<strong>themes/next/scripts/</strong>下创建 <strong>excerpt.js</strong>，把下列代码写进文件并保存,重新开启服务器，就可以看到已经恢复正常了</del><br><del><strong>[参考链接]</strong>  <a href="https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update" target="_blank" rel="noopener">https://stackoverflow.com/questions/32933052/hexo-excerpt-more-not-working-after-update</a></del></p>
 <p><strong>[解决方法]</strong> 在<strong>_config.yml</strong>配置除德文(themes/主题名/languages/de.yml是德文配置文件)以外的语言！<br><font size="2" color="9C9C9C">是的你没猜错，<strong>weiterlesen</strong>是一句德文 ：）</font><br><strong>[意外收获]</strong> 使用<code>hexo s --debug</code>可以知道hexo是否有解析到我们所需的脚本文件</p>
 </li>
-<li><h3 id="修改配置文件在本地总是看不到效果"><a href="#修改配置文件在本地总是看不到效果" class="headerlink" title="修改配置文件在本地总是看不到效果"></a>修改配置文件在本地总是看不到效果</h3>先别着急地崩溃，也先别着急检查步骤是否错了，先检查修改配置文件后是否有执行<code>hexo deploy</code>或者<code>hexo generate</code><ul>
+<li><h4 id="修改配置文件在本地总是看不到效果"><a href="#修改配置文件在本地总是看不到效果" class="headerlink" title="修改配置文件在本地总是看不到效果"></a>修改配置文件在本地总是看不到效果</h4><p>先别着急地崩溃，也先别着急检查步骤是否错了，先检查修改配置文件后是否有执行<code>hexo deploy</code>或者<code>hexo generate</code></p>
+<ul>
 <li>只有新建、删除、修改文章才无需部署直接开启服务器即可在本地预览，待效果满意之后再<code>hexo d -g</code>部署上github</li>
 </ul>
+</li>
+<li><h4 id="hexo-publish-“xxx”一直显示not-exit？"><a href="#hexo-publish-“xxx”一直显示not-exit？" class="headerlink" title="hexo publish “xxx”一直显示not exit？"></a>hexo publish “xxx”一直显示not exit？</h4><p>文件名中的空格要用<code>-</code>来代替<br>而且文件名并不会影响文章的标题哦，随便取一个名字就行，<code>hexo publish &quot;xxx&quot;</code>中的xx指的是文件名而不是标题。</p>
 </li>
 </ol>
 <hr>
@@ -485,7 +499,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -496,7 +510,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -507,7 +521,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -542,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-lt-–more–-gt-按钮显示weiterlesen"><span class="nav-number">1.</span> <span class="nav-text">使用<!–more–>按钮显示weiterlesen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件在本地总是看不到效果"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件在本地总是看不到效果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-lt-–more–-gt-按钮显示weiterlesen"><span class="nav-number">1.</span> <span class="nav-text">使用<!–more–>按钮显示weiterlesen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改配置文件在本地总是看不到效果"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件在本地总是看不到效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-publish-“xxx”一直显示not-exit？"><span class="nav-number">3.</span> <span class="nav-text">hexo publish “xxx”一直显示not exit？</span></a></li></ol></div>
             
 
           </div>
@@ -565,7 +579,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="常见的hexo命令整合npm install hexo -g #安装 npm update hexo -g #升级 hexo init #初始化  简写hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号   hexo p == hexo publish（第一二条命令都省略了layout参数，具体说">
+<meta name="description" content="常见的hexo命令整合npm install hexo -g #安装    npm update hexo -g #升级    hexo init #初始化  简写  hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章">
 <meta name="keywords" content="hexo命令,new,hexo g,hexo s,draft">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github blog(二)：hexo常用命令及用法">
 <meta property="og:url" content="http://chellhooo.com/hexo-github-blog-二-：hexo常见命令/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
-<meta property="og:description" content="常见的hexo命令整合npm install hexo -g #安装 npm update hexo -g #升级 hexo init #初始化  简写hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号   hexo p == hexo publish（第一二条命令都省略了layout参数，具体说">
+<meta property="og:description" content="常见的hexo命令整合npm install hexo -g #安装    npm update hexo -g #升级    hexo init #初始化  简写  hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号 ``hexo p == hexo publish``（第一二条命令都省略了`la">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-13T08:48:15.750Z">
+<meta property="og:updated_time" content="2018-03-14T07:01:35.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github blog(二)：hexo常用命令及用法">
-<meta name="twitter:description" content="常见的hexo命令整合npm install hexo -g #安装 npm update hexo -g #升级 hexo init #初始化  简写hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号   hexo p == hexo publish（第一二条命令都省略了layout参数，具体说">
+<meta name="twitter:description" content="常见的hexo命令整合npm install hexo -g #安装    npm update hexo -g #升级    hexo init #初始化  简写  hexo n &amp;quot;xx.md&amp;quot; == hexo new &amp;quot;xx.md&amp;quot; #新建文章，如果有标题含空格一定要有引号 ``hexo p == hexo publish``（第一二条命令都省略了`la">
 
 
 
@@ -309,8 +309,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-blog/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo blog</span>
+                  <a href="/categories/项目搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">项目搭建</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目搭建/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -343,44 +354,42 @@
       
 
       
-        <ol>
-<li><h3 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h3><pre><code>npm install hexo -g #安装
-npm update hexo -g #升级
-hexo init #初始化
+        <h3 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h3><pre><code>npm install hexo -g #安装
+   npm update hexo -g #升级
+   hexo init #初始化
 </code></pre><ul>
-<li><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br>   <code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </li>
+<li><p><strong>简写</strong><br>  <code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号</p>
+<pre><code>``hexo p == hexo publish``（第一二条命令都省略了`layout`参数，具体说明下文有提及~）
+``hexo s == hexo server`` #启动服务预览
+``hexo g == hexo generate`` #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改
+``hexo d == hexo deploy`` #部署，访问博客域名看到更改 
+</code></pre><ul>
+<li><strong>合并多条命令</strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code><a id="more"></a> </li>
+<li><strong>草稿</strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font><a id="more"></a></li>
+<li><strong>模板</strong><br><code>hexo new &quot;postName&quot;</code>#新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #本地预览效果（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #将.deploy目录部署到GitHub<br><br><strong>新建、修改、删除不用重新开启服务器，直接刷新便能在本地预览效果</strong></li>
+<li><strong>调试</strong><br>  <code>hexo server -debug</code>#开启调试模式，可以知道当前是否有解析我们所需的脚本文件等状态信息</li>
+<li><strong>更多hexo命令戳这里<a href="https://hexo.io/docs/commands.html" target="_blank" rel="noopener">hexo docs</a></strong><h3 id="遇到的坑坑坑"><a href="#遇到的坑坑坑" class="headerlink" title="遇到的坑坑坑"></a>遇到的坑坑坑</h3></li>
 </ul>
-<ul>
-<li><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code><a id="more"></a> </li>
-<li><strong> 草稿 </strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font><a id="more"></a></li>
-<li><strong> 模板 </strong><br><code>hexo new &quot;postName&quot;</code>#新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #本地预览效果（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #将.deploy目录部署到GitHub<br><br><strong>新建、修改、删除不用重新开启服务器，直接刷新便能在本地预览效果</strong></li>
-<li><strong>调试</strong><br> <code>hexo server -debug</code>#开启调试模式，可以知道当前是否有解析我们所需的脚本文件等状态信息</li>
-<li><strong>更多hexo命令戳这里<a href="https://hexo.io/docs/commands.html" target="_blank" rel="external">hexo docs</a></strong></li>
-</ul>
-<ol>
-<li><h3 id="遇到的坑坑坑"><a href="#遇到的坑坑坑" class="headerlink" title="遇到的坑坑坑"></a>遇到的坑坑坑</h3></li>
-</ol>
 <ul>
 <li>Q1. 新文章发布并部署上github之后仍然没有更新<br>A1. 试一下<code>hexo clean</code>清除缓存</li>
 <li>Q2. [error:deloyer not found:git]<br>A2. 安装拓展<code>npm install hexo-deployer-git --save</code></li>
 </ul>
-<ol>
-<li><h3 id="hexo解疑"><a href="#hexo解疑" class="headerlink" title="hexo解疑"></a>hexo解疑</h3></li>
-</ol>
-<ul>
-<li><h3 id="layout参数说明"><a href="#layout参数说明" class="headerlink" title="layout参数说明"></a>layout参数说明</h3>在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
+<h3 id="hexo解疑"><a href="#hexo解疑" class="headerlink" title="hexo解疑"></a>hexo解疑</h3><ul>
+<li>layout参数说明<br>在hexo文档中我们可以看到一些命令如<code>hexo new [layout] &lt;title&gt;</code>、<code>hexo publish [layout] &lt;filename&gt;</code>有一个layout参数，倘若上述命令中没有指定layout，就会默认使用_config.yml文件中<code>default_layout</code>默认配置（如果我们没有修改过这个配置通常默认是post）。<ul>
 <li><code>layout</code>是什么呢<br>layout意为布局，在<code>hexo new</code>命令中是指定新建文件的模板格式。hexo默认会提供三种布局draft、page、post。而在博客所在的文件夹的根目录中有一个scaffolds文件夹，里面有draft.md、page.md、post.md三个文件，这三个文件分别是设置生成不同类型模板文件的默认格式。（比如hexo new post “test”,则新建的文件会在source文件夹中的_post文件夹中看到） </li>
 </ul>
 </li>
-<li><h3 id="hexo-new-和-hexo-publish-有什么区别"><a href="#hexo-new-和-hexo-publish-有什么区别" class="headerlink" title="hexo new 和 hexo publish 有什么区别"></a>hexo new 和 hexo publish 有什么区别</h3><code>hexo new [layout] title</code> 写<br><code>hexo publish [layout] title</code> 发布（把草稿发表为文章）<br> <br><font face="黑体">(新建、删除或修改文章后，不需要重启<code>hexo server</code>，刷新一下即可预览)</font></li>
-<li><h3 id="hexo-g-和-hexo-d-有什么区别"><a href="#hexo-g-和-hexo-d-有什么区别" class="headerlink" title="hexo g 和 hexo d 有什么区别"></a>hexo g 和 hexo d 有什么区别</h3><p><code>hexo g == hexo generate</code> 生成静态页面至public目录，开启服务器后(即 <code>hexo s</code>)并只能访问localhost:4000看到更改<br>  <code>hexo d == hexo deploy</code> 部署，可以通过访问博客域名看到更改</p>
-<pre><code>hexo d -g #在部署前生成
-</code></pre></li>
+<li>hexo new 和 hexo publish 有什么区别<br><code>hexo new [layout] title</code> 写<br><code>hexo publish [layout] title</code> 发布（把草稿发表为文章）<br><font face="黑体">(新建、删除或修改文章后，不需要重启<code>hexo server</code>，刷新一下即可预览)</font></li>
+<li>hexo g 和 hexo d 有什么区别<br><code>hexo g == hexo generate</code> 生成静态页面至public目录，开启服务器后(即 <code>hexo s</code>)并只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> 部署，可以通过访问博客域名看到更改<br><code>hexo d -g</code> #在部署前生成<ul>
+<li>怎么给文章分类和加标签？<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">categories:</div><div class="line">- Diary</div><div class="line">- love // 此时love会成为Diary的子目录</div><div class="line">tags:</div><div class="line">- PS3</div><div class="line">- Games</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-</ol>
+</ul>
+</li>
+</ul>
 <hr>
-<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/27/hexo-github-blog-%E4%BA%8C-%EF%BC%9Ahexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" target="_blank" rel="external">本文地址</a></strong></p>
+<p><strong>最后最后，如有错误欢迎指出~ 转载请注明<a href="https://chellhooo.github.io/2017/07/27/hexo-github-blog-%E4%BA%8C-%EF%BC%9Ahexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" target="_blank" rel="noopener">本文地址</a></strong></p>
 
       
     </div>
@@ -512,7 +521,7 @@ hexo init #初始化
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -523,7 +532,7 @@ hexo init #初始化
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -534,7 +543,7 @@ hexo init #初始化
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -569,7 +578,7 @@ hexo init #初始化
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的hexo命令整合"><span class="nav-number">1.</span> <span class="nav-text">常见的hexo命令整合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的坑坑坑"><span class="nav-number">2.</span> <span class="nav-text">遇到的坑坑坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo解疑"><span class="nav-number">3.</span> <span class="nav-text">hexo解疑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layout参数说明"><span class="nav-number">4.</span> <span class="nav-text">layout参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-new-和-hexo-publish-有什么区别"><span class="nav-number">5.</span> <span class="nav-text">hexo new 和 hexo publish 有什么区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-g-和-hexo-d-有什么区别"><span class="nav-number">6.</span> <span class="nav-text">hexo g 和 hexo d 有什么区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的hexo命令整合"><span class="nav-number">1.</span> <span class="nav-text">常见的hexo命令整合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的坑坑坑"><span class="nav-number">2.</span> <span class="nav-text">遇到的坑坑坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo解疑"><span class="nav-number">3.</span> <span class="nav-text">hexo解疑</span></a></li></ol></div>
             
 
           </div>
@@ -592,7 +601,7 @@ hexo init #初始化
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

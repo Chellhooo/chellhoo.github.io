@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="npm,webpack,vue,html-webpack-plugin" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="loaderUtils.getOptions is not a function有着掉坑体质的我，总是会遇到各种奇奇怪怪的问题。在我vue+webpack+vux单页面应用开始以来，我的依赖包几乎天天掉：）每天都要按着提示机械地把各种包装上才能开始工作，有时候还会出现各种奇怪的报错，比如今天说的这个A valid qu">
+<meta name="keywords" content="npm,webpack,vue,html-webpack-plugin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="error:loaderUtils.getOptions is not a function">
+<meta property="og:url" content="http://chellhooo.com/npm-webpack-error-1/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="loaderUtils.getOptions is not a function有着掉坑体质的我，总是会遇到各种奇奇怪怪的问题。在我vue+webpack+vux单页面应用开始以来，我的依赖包几乎天天掉：）每天都要按着提示机械地把各种包装上才能开始工作，有时候还会出现各种奇怪的报错，比如今天说的这个A valid query string passed to parseQuery should">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chellhooo.com/img/2017-08-29_185941.png">
+<meta property="og:image" content="http://chellhooo.com/img/2017-09-01_030724.png">
+<meta property="og:image" content="http://chellhooo.com/img/2017-09-01_031551.png">
+<meta property="og:image" content="http://chellhooo.com/img/2017-09-01_031945.png">
+<meta property="og:image" content="http://chellhooo.com/img/2017-09-01_032359.png">
+<meta property="og:updated_time" content="2018-03-14T03:51:38.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="error:loaderUtils.getOptions is not a function">
+<meta name="twitter:description" content="loaderUtils.getOptions is not a function有着掉坑体质的我，总是会遇到各种奇奇怪怪的问题。在我vue+webpack+vux单页面应用开始以来，我的依赖包几乎天天掉：）每天都要按着提示机械地把各种包装上才能开始工作，有时候还会出现各种奇怪的报错，比如今天说的这个A valid query string passed to parseQuery should">
+<meta name="twitter:image" content="http://chellhooo.com/img/2017-08-29_185941.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/npm-webpack-error-1/"/>
+
+
+
+
+
+  <title>error:loaderUtils.getOptions is not a function | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/npm-webpack-error-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">error:loaderUtils.getOptions is not a function</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-01T02:31:23+08:00">
+                2017-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/掉坑集锦/" itemprop="url" rel="index">
+                    <span itemprop="name">掉坑集锦</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/掉坑集锦/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><code>loaderUtils.getOptions is not a function</code><br>有着掉坑体质的我，总是会遇到各种奇奇怪怪的问题。在我vue+webpack+vux单页面应用开始以来，我的依赖包几乎天天掉：）每天都要按着提示机械地把各种包装上才能开始工作，有时候还会出现各种奇怪的报错，比如今天说的这个<code>A valid query string passed to parseQuery should begin with &#39;?&#39;</code>,而在遇到这个问题之前，我是先碰到<code>loaderUtils.getOptions is not a function</code>的报错，然后我按照网上答案执行<code>cnpm install vue-loader vue-template-compiler loader-utils</code>更新插件，之后出现了一长串惊心动魄的红色，开始了我悲惨的踩坑之路:)<br><img src="/img/2017-08-29_185941.png"></li>
+<li><code>cnpm install vue-loader vue-template-compiler loader-utils</code><br>一开始我尝试更新了babel-loader、loader-utils等插件发现没用，之后我看到<a href="https://github.com/webpack/loader-utils/issues/56" target="_blank" rel="noopener">webpack的loader-utils有提及过这个问题</a>,可是还是没能解决我的问题，后来我找到可能是<code>html-webpack-plugin</code>的问题，然后在<code>html-webpack-plugin</code>的两个issue ([2],[3])下找到一点思路<ol>
+<li>各种依赖包中是有下载顺序的，所以如果有时自己乱更新一个插件可能会影响其和其他依赖包的兼容</li>
+<li>在<code>package-lock.json</code>中看到<code>html-webpack-plugin</code>下依赖包的版本(可参考下图)，<br><img src="/img/2017-09-01_030724.png"><br>其中，我曾经尝试过<code>cnpm install --save-dev loader-utils@1.0.4</code>把我的loader-utils版本回退，<code>A valid query string passed to parseQuery should begin with &#39;?&#39;</code>报错没有了，但出现了<code>loaderUtils.parseQuery is not a function</code>([4])。</li>
+</ol>
+</li>
+<li><code>loaderUtils.parseQuery is not a function</code><br>我先后执行了下面两条代码（一定要按顺序）<br><code>npm install --save-dev webpack</code><br><code>npm install --save-dev html-webpack-plugin</code><br>然后！！我终于仿佛看到胜利的曙光！<br><img src="/img/2017-09-01_031551.png"><br>第一次觉得掉依赖包也能这么幸福o(<em>￣▽￣</em>)o<br>之后我又开始漫长但幸福的补包之路：)<br>但，生活总是处处充满惊喜（笑容中带点疲惫）</li>
+<li>由一长串不知名错误。。<br><img src="/img/2017-09-01_031945.png"><br>之后我尝试<code>cnpm install  --save-dev extract-text-webpack-plugin@beta css-loader style-loaderss-loader less</code>，报错从红色变成白色<code>chunk.sortModules is not a function</code><br><img src="/img/2017-09-01_032359.png">然后我重新<code>cnpm install</code>,报错没了掉包又来了，装完之后不知名报错又来了：）心态崩了</li>
+<li>最终解决方法<br>其实在这悲催的过程我曾无数次使用<code>npm/cnpm install</code>更新依赖包的版本，和尝试删掉<code>node_module</code>文件夹重新 npm i，可是结果都不行。可是！在这一次，我把<code>node_module</code>文件夹删掉的同时把<code>package-lock.json</code>删掉，再重新npm i，一切就都结束了（笑容中带点欣慰）done！</li>
+</ol>
+<ul>
+<li>这解决方法看上去简单粗暴了点，可是能运行就行，还省事。虽然每次掉坑都很想死，可是在查找资料中无形中还是学到不少东西的，当最后看到的结果没有红色的时候，还是挺欣慰的,还是值得的。<br><img="src= img="" 2017-09-01_023425.png"=""></img="src=></li>
+</ul>
+<p>[参考资料]<br>[1]<a href="https://github.com/webpack/loader-utils/issues/56" target="_blank" rel="noopener">https://github.com/webpack/loader-utils/issues/56</a><br>[2]<a href="https://github.com/jantimon/html-webpack-plugin/pull/663" target="_blank" rel="noopener">https://github.com/jantimon/html-webpack-plugin/pull/663</a><br>[3]<a href="https://github.com/jantimon/html-webpack-plugin/issues/727" target="_blank" rel="noopener">https://github.com/jantimon/html-webpack-plugin/issues/727</a><br>[4]<a href="https://github.com/JeffreyWay/laravel-mix/issues/985" target="_blank" rel="noopener">https://github.com/JeffreyWay/laravel-mix/issues/985</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/npm掉坑集锦/" rel="next" title="npm掉坑集锦">
+                <i class="fa fa-chevron-left"></i> npm掉坑集锦
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Vue-Spa应用的简单实现/" rel="prev" title="vue单页面应用的简单实现">
+                vue单页面应用的简单实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="EventLoop,单线程，异步,node.js" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="js的单线程和异步JavaScript是单线程的，即负责编译并执行js代码的线程只有一个。但对于数据库 文件系统等I/O操作，包括HTTP请求等等这些容易堵塞等待的操作通常会异步处理。异步，我们通常的理解就是，多个任务可以同时执行，而同步则是必须是一个任务完成之后，下一个任务才能开始执行。那么平时我们所说的异步（如aj">
+<meta name="keywords" content="EventLoop,单线程，异步,node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的单线程和异步">
+<meta property="og:url" content="http://chellhooo.com/js的单线程和异步/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="js的单线程和异步JavaScript是单线程的，即负责编译并执行js代码的线程只有一个。但对于数据库 文件系统等I/O操作，包括HTTP请求等等这些容易堵塞等待的操作通常会异步处理。异步，我们通常的理解就是，多个任务可以同时执行，而同步则是必须是一个任务完成之后，下一个任务才能开始执行。那么平时我们所说的异步（如ajax的异步加载）不就是和单线程冲突吗？其实，JavaScript执行的平台通常是">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-14T03:48:20.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js的单线程和异步">
+<meta name="twitter:description" content="js的单线程和异步JavaScript是单线程的，即负责编译并执行js代码的线程只有一个。但对于数据库 文件系统等I/O操作，包括HTTP请求等等这些容易堵塞等待的操作通常会异步处理。异步，我们通常的理解就是，多个任务可以同时执行，而同步则是必须是一个任务完成之后，下一个任务才能开始执行。那么平时我们所说的异步（如ajax的异步加载）不就是和单线程冲突吗？其实，JavaScript执行的平台通常是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/js的单线程和异步/"/>
+
+
+
+
+
+  <title>js的单线程和异步 | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js的单线程和异步/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">js的单线程和异步</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T18:40:46+08:00">
+                2018-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="js的单线程和异步"><a href="#js的单线程和异步" class="headerlink" title="js的单线程和异步"></a>js的单线程和异步</h3><p>JavaScript是单线程的，即负责编译并执行js代码的线程只有一个。但对于数据库 文件系统等I/O操作，包括HTTP请求等等这些容易堵塞等待的操作通常会异步处理。<br>异步，我们通常的理解就是，多个任务可以同时执行，而同步则是必须是一个任务完成之后，下一个任务才能开始执行。那么平时我们所说的异步（如ajax的异步加载）不就是和单线程冲突吗？<br>其实，JavaScript执行的平台通常是在浏览器，这里的异步是主要由浏览器完成的。现在把JavaScript的单线程称为主线程/执行线程，在一个浏览器中只能有一个JavaScript的执行线程，即在同一个浏览器打开多个页面的时候，只有一个js主线程在解析代码，实现异步的实际是浏览器除了js的主线程之外还有很多其他的线程。异步执行的步骤大致为</p>
+<ol>
+<li>所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。</li>
+<li>主线程之外，还存在一个”任务队列”（task queue）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。</li>
+<li>一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</li>
+<li>主线程不断重复上面的第三步。</li>
+</ol>
+<p>其中任务队列中秉承先进先出的原则，回调函数会按顺序放进队列的尾部。当为函数设置了setTimeout()的时候，在主线程的<strong>执行栈清空</strong>之后，任务队列中的回调函数才会开始执行，期间主线程会首先要检查一下该事件的执行时间，某些事件只有到了规定的时间，才能返回主线程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeout(function()&#123;console.log(1)&#125;,1000);</div><div class="line">console.log(&apos;2&apos;);</div><div class="line">// 2 1</div></pre></td></tr></table></figure></p>
+<p>其中setTimeout(fn,0)的含义是，指定某个任务在主线程最早可得的空闲时间执行，也就是说，尽可能早得执行。但它仍是按顺序在”任务队列”的尾部添加一个事件，因此要等到同步任务和”任务队列”前面的事件都处理完，才会得到执行。</p>
+<p>上述的主线程从任务队列中读取事件又称为event loop。主线程运行的时候，产生堆（heap）和栈（stack），栈中的代码调用各种外部API，它们在”任务队列”中加入各种事件（click，load，done）。只要栈中的代码执行完毕，主线程就会去读取”任务队列”，依次执行那些事件所对应的回调函数。</p>
+<h3 id="node-js中的Event-Loop"><a href="#node-js中的Event-Loop" class="headerlink" title="node.js中的Event Loop"></a>node.js中的Event Loop</h3><p>实际上，主线程一直在做的一件事情就是读取和执行，若执行栈非空则执行任务，直至执行栈为空则读取任务进入执行。而当遇到异步I/O操作和定时器的时候，才会进入eventloop并把相应的回调结果放进任务队列，等待进入执行栈。下列为eventloop中各阶段执行顺序<br> ┌───────────────────────┐<br>┌─&gt;│        timers         │<br>│  └──────────┬────────────┘<br>│  ┌──────────┴────────────┐<br>│  │     I/O callbacks     │<br>│  └──────────┬────────────┘<br>│  ┌──────────┴────────────┐<br>│  │     idle, prepare     │<br>│  └──────────┬────────────┘      ┌───────────────┐<br>│  ┌──────────┴────────────┐      │   incoming:   │<br>│  │         poll          │&lt;─────┤  connections, │<br>│  └──────────┬────────────┘      │   data, etc.  │<br>│  ┌──────────┴────────────┐      └───────────────┘<br>│  │        check          │<br>│  └──────────┬────────────┘<br>│  ┌──────────┴────────────┐<br>└──┤    close callbacks    │<br>   └───────────────────────┘</p>
+<p>而在文档中，eventloop各阶段解释如下：</p>
+<blockquote>
+<p>timers: this phase executes callbacks scheduled by setTimeout() and setInterval().<br>I/O callbacks: executes almost all callbacks with the exception of close callbacks, the ones scheduled by timers, and setImmediate(). //处理I/O异常错误<br>idle, prepare: only used internally. //只用于内部<br>poll: retrieve new I/O events; node will block here when appropriate.<br>check: setImmediate() callbacks are invoked here.<br>close callbacks: e.g. socket.on(‘close’, …).//处理各种close事件回调</p>
+</blockquote>
+<p>其中：</p>
+<blockquote>
+<p>Between each run of the event loop, Node.js checks if it is waiting for any asynchronous I/O or timers and shuts down cleanly if there are not any.</p>
+</blockquote>
+<p>在不同的eventloop之间，node.js会先检查是否有任何异步的I/O操作和定时器，即若程序仅有一句话(var a= ‘hello’; )，处理完目标代码后，不会进入eventloop，而是直接结束程序。</p>
+<p>eventloop最重要的三个阶段及其顺序为<br><strong>timers(setTimeout&amp;setInterval) -&gt; poll(I/O) -&gt; check(immediates)</strong></p>
+<ul>
+<li>timers<br>执行定时任务(setTimeOut和setInterval)，将达到延时的回调依次执行完。其中该阶段中定时器中嵌套的setTimeOut和setInterval都不会在该次eventloop中执行,即使已到达延时。(不一定会准确按照设置的定时阈值执行，操作系统调度或其他回调的运行可能会延迟它们。)</li>
+<li>poll 轮询<br>  获取新的I/O事件, 适当的条件下node将阻塞在这里<ul>
+<li>执行轮询队列中的事件</li>
+<li>若轮询队列为空 且设置了setImmediate，终止轮询阶段，进入check阶段执行</li>
+<li>若轮询队列为空 而没设置setImmediate，检查是否有定时器任务到期，有就回到timers阶段，执行回调函数；若无，eventloop将阻塞在该阶段等待回调加入轮询队列（有时间限制）。<br>因而timers和I/O回调的执行顺序并不一定，下述例子可以帮助理解运行原理<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line"></div><div class="line"> function someAsyncOperation (callback) &#123;</div><div class="line"> var time = Date.now();</div><div class="line"> // 花费9毫秒</div><div class="line"> fs.readFile(&apos;/path/to/xxxx.pdf&apos;, callback);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> var timeoutScheduled = Date.now();</div><div class="line"> var fileReadTime = 0;</div><div class="line"> var delay = 0;</div><div class="line"> var immediateTime=0;</div><div class="line"></div><div class="line"> setTimeout(function () &#123;</div><div class="line"> delay = Date.now() - timeoutScheduled;</div><div class="line"> console.log(&apos;timeout&apos;);</div><div class="line"> &#125;, 5);</div><div class="line"></div><div class="line"> setImmediate(function immediate () &#123;</div><div class="line">     immediateTime= Date.now() - timeoutScheduled;</div><div class="line">     console.log(&apos;immediate&apos;);</div><div class="line"> &#125;);</div><div class="line"></div><div class="line"> someAsyncOperation(function () &#123;</div><div class="line"> fileReadtime = Date.now();</div><div class="line"> while(Date.now() - fileReadtime &lt; 20) &#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line"> console.log(&apos;setTimeout: &apos; + (delay) + &quot;ms have passed since I was scheduled&quot;);</div><div class="line"> console.log(&apos;fileReaderTime&apos;,fileReadtime - timeoutScheduled);</div><div class="line"> &#125;);</div><div class="line"> console.log(&apos;immediate:&apos;,immediateTime);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-&gt; node eventloop.js</div><div class="line">timeout</div><div class="line">immediate  // settimeout和setimmediate顺序不定，经测试在另一台机器可能会相反</div><div class="line">setTimeout: 8ms have passed since I was scheduled</div><div class="line">fileReaderTime 12  // 即settimeout先于I/O回调执行</div><div class="line">immediate：9</div></pre></td></tr></table></figure>
+<p>解释：<br>当时程序启动时，event loop初始化：</p>
+<ol>
+<li>timer阶段（无callback到达，setTimeout需要10毫秒）</li>
+<li>I/O callback阶段，无异步I/O完成</li>
+<li>忽略</li>
+</ol>
+<ul>
+<li>check<br>  只执行一个最先设置的setimmediate回调，若timers和poll阶段若设置了setimmediates的回调,并且此回调是最先设置的回调,则该回调会在该次event loop的check阶段执行。<br>  注意：<strong>新版node.js会把所有的setimmediate的都先执行！！！</strong><br>  下面这个例子(来自《深入浅出Node.js》，node.js版本为0.10.13)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//加入两个nextTick的回调函数</div><div class="line">process.nextTick(function () &#123;</div><div class="line">    console.log(&apos;nextTick延迟执行1&apos;);</div><div class="line">&#125;);</div><div class="line">process.nextTick(function () &#123; </div><div class="line">    console.log(&apos;nextTick延迟执行2&apos;);</div><div class="line">&#125;);</div><div class="line">// 加入两个setImmediate()的回调函数</div><div class="line">setImmediate(function () &#123;</div><div class="line">    console.log(&apos;setImmediate延迟执行1&apos;);  </div><div class="line">    process.nextTick(function () &#123;</div><div class="line">        console.log(&apos;强势插入&apos;);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">setImmediate(function () &#123;</div><div class="line">    console.log(&apos;setImmediate延迟执行2&apos;); </div><div class="line">&#125;);</div><div class="line"></div><div class="line">console.log(&apos;正常执行&apos;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>老版本的Node会优先执行process.nextTick。<br>当process.nextTick队列执行完后再执行一个setImmediate任务。然后再次回到新的事件循环。所以执行完第一个setImmediate后，队列里只剩下第一个setImmediate里的process.nextTick和第二个setImmediate。所以process.nextTick会先执行。<br>书中结果为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">正常执行</div><div class="line">nextTick延迟执行1</div><div class="line">nextTick延迟执行2</div><div class="line">setImmediate延迟执行1</div><div class="line">强势插入</div><div class="line">setImmediate延迟执行2</div></pre></td></tr></table></figure></p>
+<p>而在新版的Node中，process.nextTick执行完后，会循环遍历setImmediate，将setImmediate都执行完毕后再跳出循环。所以两个setImmediate执行完后队列里只剩下第一个setImmediate里的process.nextTick。最后输出”强势插入”。<br>所以在6.x的版本中 结果为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">正常执行</div><div class="line">nextTick延迟执行1</div><div class="line">nextTick延迟执行2</div><div class="line">setImmediate延迟执行1</div><div class="line">setImmediate延迟执行2</div><div class="line">强势插入</div></pre></td></tr></table></figure></p>
+<h3 id="setImmediate-vs-setTimeout"><a href="#setImmediate-vs-setTimeout" class="headerlink" title="setImmediate() vs setTimeout()"></a>setImmediate() vs setTimeout()</h3><p>之前在网上看到很多人说文档对setImmediate() 和 setTimeout()执行顺序描述得不是很准确(setImmediate指定的回调函数，总是排在setTimeout前面)，可是我回去看文档的时候发现文档的描述还是挺完整的(?)，可能后来对其进行了补充吧。回正题，现在文档是这样描述的：</p>
+<blockquote>
+<p>if we run the following script which is not within an I/O cycle (i.e. the main module), the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process<br>However, if you move the two calls within an I/O cycle, the immediate callback is always executed first.</p>
+</blockquote>
+<p>也就是说 只有在<strong>同一个I/O周期</strong>的时候，setImmediate才是总比setTimeout先执行的，而不在同一个I/O 周期中的时候，二者的执行顺序是取决于程序的性能，是不确定的。下述是官网给的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 不在同一个I/O周期</div><div class="line">setTimeout(() =&gt; &#123;</div><div class="line">  console.log(&apos;timeout&apos;);</div><div class="line">&#125;, 0);</div><div class="line"></div><div class="line">setImmediate(() =&gt; &#123;</div><div class="line">  console.log(&apos;immediate&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// timeout immediate 或 immediate timeout</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 在同一个I/O周期</div><div class="line">const fs = require(&apos;fs&apos;);</div><div class="line"></div><div class="line">fs.readFile(__filename, () =&gt; &#123;</div><div class="line">  setTimeout(() =&gt; &#123;</div><div class="line">    console.log(&apos;timeout&apos;);</div><div class="line">  &#125;, 0);</div><div class="line">  setImmediate(() =&gt; &#123;</div><div class="line">    console.log(&apos;immediate&apos;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//immediate timeout</div></pre></td></tr></table></figure>
+<p>在当二者在异步I/O callback内部调用时，poll阶段不会被堵塞而直接进入check阶段执行setImmediate，然后在下一个eventloop进入timers阶段执行setTimeout。<br>如下述例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;)</div><div class="line"></div><div class="line">fs.readFile(__filename, () =&gt; &#123;</div><div class="line">  setTimeout(() =&gt; &#123;</div><div class="line">    console.log(&apos;timeout&apos;)</div><div class="line">  &#125;, 0)</div><div class="line">  setImmediate(() =&gt; &#123;</div><div class="line">    console.log(&apos;immediate&apos;)</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ node timeout_vs_immediate.js</div><div class="line">immediate</div><div class="line">timeout</div></pre></td></tr></table></figure>
+<h3 id="node-js的process-nextTick"><a href="#node-js的process-nextTick" class="headerlink" title="node.js的process.nextTick()"></a>node.js的process.nextTick()</h3><blockquote>
+<p>the nextTickQueue will be processed after the current operation completes, regardless of the current phase of the event loop.</p>
+</blockquote>
+<p>process是node.js用来代表进程的对象，process.nextTick()方法无论eventloop执行到哪个阶段，都会在当前阶段结束之时立即执行，nextTick所注册的回调会被push到nextTickQueue，然后再继续进行eventloop循环。主要用处有以下两点</p>
+<ol>
+<li>它可以预设不同错误发生情况的处理方法，清理任何不需要的资源，或者可能在事件循环继续之前再次尝试请求。</li>
+<li>再继续eventloop下一阶段之前，当前的执行栈执行完毕前执行回调<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">const EventEmitter = require(&apos;events&apos;);</div><div class="line">const util = require(&apos;util&apos;);</div><div class="line"></div><div class="line">function MyEmitter() &#123;</div><div class="line">  EventEmitter.call(this);</div><div class="line"></div><div class="line">  // use nextTick to emit the event once a handler is assigned</div><div class="line">  process.nextTick(() =&gt; &#123;</div><div class="line">    this.emit(&apos;event&apos;);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line">util.inherits(MyEmitter, EventEmitter);</div><div class="line"></div><div class="line">const myEmitter = new MyEmitter();****</div><div class="line">myEmitter.on(&apos;event&apos;, () =&gt; &#123;</div><div class="line">  console.log(&apos;an event occurred!&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>(但如果使用不当，递归使用该方法会使I/O“饿死”无法进入poll阶段)</p>
+<h3 id="macro-task-vs-micro-task"><a href="#macro-task-vs-micro-task" class="headerlink" title="macro-task vs micro-task"></a>macro-task vs micro-task</h3><p>我在寻找eventloop的相关资料的时候，偶然发现ECMAScript有Macrotask和Microtask两个概念，可以在另外一个角度理解eventloop。下面做一下整理汇总~<br>异步任务可以通常分为以下两种：</p>
+<ul>
+<li>macro-task/task: script（即整体代码）, setTimeout, setInterval, setImmediate, I/O, UI rendering</li>
+<li>micro-task: Promises（这里指浏览器实现的原生 Promise）, Object.observe, MutationObserver</li>
+</ul>
+<p>首先在 macrotask队列（或称为taskQueue）中取出第一个任务，执行完毕后取出 microtask 队列中的所有任务顺序执行；之后再取 macrotask 任务，周而复始，直至两个队列的任务都取完。<br>而一开始的时候，第一个执行的任务自然也就是script，进入指定的代码。<br>当执行栈为空时，执行一次 microtask 检查点。这也确保了无论是一个macrotas 还是一个 microtask 在执行完毕之后都会生成一个 microtask 检查点，也保证了 microtask 队列能够一次性执行完毕。 </p>
+<p>然而在网上大部分资料都说process.nextTick()应该要放在microtask中的，但是在上面对process.nextTick的介绍可知，process.nextTick()方法无论eventloop执行到哪个阶段，都会在当前阶段结束之时立即执行，因而process.nextTick都会比microtask的其他的事件先执行。</p>
+<p>那问题来了，队列是遵循先进先出原则的，process.nextTick()是怎么优先microtask队列中其他事件执行的(如promise.then)的呢？</p>
+<p>后来我看到一篇<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">文章</a>中的评论区，文章作者对于这个问题是这样解释的</p>
+<blockquote>
+<p>Other way around. setImmediate is task-queuing, whereas nextTick is before other pending work such as I/O, so it’s <strong>closer to microtasks</strong>.</p>
+</blockquote>
+<p>与其说process.nextTick()是microtask，说它近似于microtask更为准确。在Node中，<code>_tickCallback</code>在每一次执行完TaskQueue中的一个任务后被调用，而这个_tickCallback中实质上干了两件事：</p>
+<ol>
+<li>nextTickQueue中所有任务执行掉(长度最大1e4，Node版本v6.9.1)</li>
+<li>第一步执行完后执行_runMicrotasks函数，执行microtask中的部分(promise.then注册的回调)</li>
+</ol>
+<p>在node.js的源码中，可以发现microtask是通过nextTick驱动的，下列为其中的一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// This tickInfo thing is used so that the C++ code in src/node.cc</div><div class="line">// can have easy access to our nextTick state, and avoid unnecessary</div><div class="line">// calls into JS land.</div><div class="line">const tickInfo = process._setupNextTick(_tickCallback, _runMicrotasks);</div><div class="line">_runMicrotasks = _runMicrotasks.runMicrotasks;</div></pre></td></tr></table></figure></p>
+<p>更多具体的代码分析可以看<a href="https://www.zhihu.com/question/55557148" target="_blank" rel="noopener">这里</a>，从中可以发现，当<code>nextTickQueue</code>中的事件被执行完的时候，<code>_runMicrotasks()</code>就会执行，microtask也就会开始执行。</p>
+<p>因而事件优先级：process.nextTick &gt; promise.then &gt;（ setImmediate ？setTimeout ）</p>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#why-would-that-be-allowed" target="_blank" rel="noopener">[Node.js文档] Event Loop, Timers, and process.nextTick()</a><br><a href="http://cnodejs.org/topic/57d68794cb6f605d360105bf" target="_blank" rel="noopener">[cnodejs] Node.js Event Loop 的理解 Timers，process.nextTick()</a><br><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">JavaScript 运行机制详解：再谈Event Loop ——阮一峰</a><br><a href="https://github.com/nodejs/node-v0.x-archive/issues/6034#issuecomment-30017889" target="_blank" rel="noopener">setTimeout(fn, 0) running before setImmediate #6034</a><br><a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a><br><a href="https://www.zhihu.com/question/55557148" target="_blank" rel="noopener">Node.js中process.nextTick是由v8的microtask queue驱动的么？</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node-js/" rel="tag"># node.js</a>
+          
+            <a href="/tags/单线程/" rel="tag"># 单线程</a>
+          
+            <a href="/tags/Event-Loop/" rel="tag"># Event Loop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/变量提升和函数提升/" rel="next" title="变量提升和函数提升">
+                <i class="fa fa-chevron-left"></i> 变量提升和函数提升
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/css学习笔记-居中那些事/" rel="prev" title="[css学习笔记] 居中那些事">
+                [css学习笔记] 居中那些事 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js的单线程和异步"><span class="nav-number">1.</span> <span class="nav-text">js的单线程和异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js中的Event-Loop"><span class="nav-number">2.</span> <span class="nav-text">node.js中的Event Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setImmediate-vs-setTimeout"><span class="nav-number">3.</span> <span class="nav-text">setImmediate() vs setTimeout()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js的process-nextTick"><span class="nav-number">4.</span> <span class="nav-text">node.js的process.nextTick()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#macro-task-vs-micro-task"><span class="nav-number">5.</span> <span class="nav-text">macro-task vs micro-task</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">5.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

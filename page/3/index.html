@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/hexo-github-blog-二-：hexo常见命令/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/设计模式：MVC和MVP和MVVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hexo-github-blog-二-：hexo常见命令/" itemprop="url">hexo+github blog(二)：hexo常用命令及用法</a></h2>
+                <a class="post-title-link" href="/设计模式：MVC和MVP和MVVM/" itemprop="url">设计模式：MVC和MVP和MVVM</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T19:41:52+08:00">
-                2017-07-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T13:36:19+08:00">
+                2018-01-25
               </time>
             
 
@@ -295,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-blog/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -343,19 +321,19 @@
 
       
         
-          <ol>
-<li><h3 id="常见的hexo命令整合"><a href="#常见的hexo命令整合" class="headerlink" title="常见的hexo命令整合"></a>常见的hexo命令整合</h3><pre><code>npm install hexo -g #安装
-npm update hexo -g #升级
-hexo init #初始化
-</code></pre><ul>
-<li><strong>简写</strong><br><code>hexo n &quot;xx.md&quot; == hexo new &quot;xx.md&quot;</code> #新建文章，如果有标题含空格一定要有引号<br>   <code>hexo p == hexo publish</code>（第一二条命令都省略了<code>layout</code>参数，具体说明下文有提及~）<br><code>hexo s == hexo server</code> #启动服务预览<br><code>hexo g == hexo generate</code> #生成静态页面至public目录，开启服务器后只能访问localhost:4000看到更改<br><code>hexo d == hexo deploy</code> #部署，访问博客域名看到更改 </li>
-</ul>
-<ul>
-<li><strong> 合并多条命令 </strong><br><code>$ hexo d -g</code> 或 <code>$ hexo d -g</code> == <code>hexo d</code> 和 <code>hexo g</code><a id="more"></a> </li>
-<li><strong> 草稿 </strong><br><code>hexo new draft &quot;new draft&quot;</code>#新建草稿<br><code>hexo publish draft &quot;xx.md&quot;</code>#把草稿变成正式文章<br><br><font color="575757" size="2">(如果上述命令中没有写draft，则默认使用_config.yml文件中<code>default_layout</code>默认配置。)</font>
+          
+          软件架构 / 设计模式
+MVC
+View 传送指令到 Controller
+Controller 完成业务逻辑后，要求 Model 改变状态
+Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
+
+
+主动MVC 用户向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。 model ：在MVC中Model应该包含2部分功能，一部分是处理业务逻辑，一部分是提供View显示的数据。 模型中数据的变化一般会通过一种刷新机制被公布。为了实现这种机制，那些用于监视此模型的视图必须事先在此模型上注册，从而，视图可以了解在数据模型上发生的改变。 view：为
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/hexo-github-blog-二-：hexo常见命令/#more" rel="contents">
+            <a class="btn" href="/设计模式：MVC和MVP和MVVM/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -401,7 +379,7 @@ hexo init #初始化
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/hexo-github-blog/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue-js笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -420,7 +398,7 @@ hexo init #初始化
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hexo-github-blog/" itemprop="url">hexo+github blog(一)：搭建</a></h2>
+                <a class="post-title-link" href="/vue-js笔记/" itemprop="url">vue.js笔记</a></h2>
         
 
         <div class="post-meta">
@@ -432,8 +410,8 @@ hexo init #初始化
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T14:01:00+08:00">
-                2017-07-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T12:07:33+08:00">
+                2017-11-25
               </time>
             
 
@@ -455,8 +433,19 @@ hexo init #初始化
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo-blog/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo blog</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/vue-js/" itemprop="url" rel="index">
+                    <span itemprop="name">vue.js</span>
                   </a>
                 </span>
 
@@ -491,13 +480,159 @@ hexo init #初始化
       
         
           
-          [ 唠叨 ]  刚开始学习前端的时候，我总是会遇到各种各样奇奇怪怪的坑，而网上的一些总结博文总能让一直深陷神坑而绝望的我好像瞬间获得一点希望的曙光，我觉得程序猿的圈子里最吸引我的就是这种无私而纯粹的技术分享交流吧，而我也希望我的一些踩坑经验能帮助其他同坑中人，嘿嘿。 我也试过把博客写在免费的博客站点，可是总感觉缺少点什么，后来偶然了解到可以自己搭建博客，顿时心生向往，可是一直被因为各种元素（懒）搁置了，现在是时候来填坑啦~hexo+github博客的搭建方法网上很多，可是还是免不了会掉一些奇奇怪怪的坑，鉴于网上类似的教程很多，所以我只详细说我觉得需要注意的地方，希望能给你们避雷：）
+          
+多个实例为什么不能同时挂载一个element?其实是可以创建多个实例的。只是在第一个实例创建并渲染后，html里别的实例的模板语句已经不存在了，可能还会报错别的实例中的数据并不能在第一个实例中找到。详情可以看着我之前的这个问题
 
-一、GI
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/vue-js笔记/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/Vue-Spa应用的简单实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Vue-Spa应用的简单实现/" itemprop="url">vue单页面应用的简单实现</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-19T15:41:32+08:00">
+                2017-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">项目搭建</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+环境&amp;常用工具简要介绍
+node.js(自带npm)
+vue-cli  vue-cli是vue.js官方工程命令行脚手架，可以快速地初始化一个vue工程。然而它其实初始化一切工程，只要有一份能够运行的模，就能通过vue-cli进行工程的初始化  安装： npm install vue-cli  使用： vue init &lt;template-name&gt; [project-name]* &lt;template-name&gt; 项目模板
+    官方模板-&gt; https://github.com/vuejs-templates
+    自定义模板-&gt; https
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/hexo-github-blog/#more" rel="contents">
+            <a class="btn" href="/Vue-Spa应用的简单实现/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -538,7 +673,7 @@ hexo init #初始化
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -584,7 +719,7 @@ hexo init #初始化
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -595,7 +730,7 @@ hexo init #初始化
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -606,7 +741,7 @@ hexo init #初始化
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -648,7 +783,7 @@ hexo init #初始化
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

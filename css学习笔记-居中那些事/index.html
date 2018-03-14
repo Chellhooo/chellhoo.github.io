@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vertical-align,margin,line-height,垂直居中,absolute," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="垂直水平居中 margin:auto &amp;amp;&amp;amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述  Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-">
+<meta name="keywords" content="vertical-align,margin,line-height,垂直居中,absolute">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[css学习笔记] 居中那些事">
+<meta property="og:url" content="http://chellhooo.com/css学习笔记-居中那些事/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="垂直水平居中 margin:auto &amp;amp;&amp;amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述  Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-righ">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chellhooo.com/img/vertical-align0.png">
+<meta property="og:image" content="http://chellhooo.com/img/vertical-align.png">
+<meta property="og:image" content="http://chellhooo.com/img/vertical-align2.png">
+<meta property="og:updated_time" content="2018-03-14T12:30:38.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[css学习笔记] 居中那些事">
+<meta name="twitter:description" content="垂直水平居中 margin:auto &amp;amp;&amp;amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述  Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-righ">
+<meta name="twitter:image" content="http://chellhooo.com/img/vertical-align0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/css学习笔记-居中那些事/"/>
+
+
+
+
+
+  <title>[css学习笔记] 居中那些事 | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-居中那些事/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">[css学习笔记] 居中那些事</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T14:46:27+08:00">
+                2018-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="垂直水平居中"><a href="#垂直水平居中" class="headerlink" title="垂直水平居中"></a>垂直水平居中</h4><ul>
+<li><p><strong>margin:auto &amp;&amp; position:absolute</strong><br><a href="https://www.w3.org/TR/CSS22/visudet.html#Computing_widths_and_margins" target="_blank" rel="noopener">css文档</a>对块级非替换元素在普通流内布局有公式描述</p>
+<blockquote>
+<p>Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-right-width’ + ‘margin-right’ = width of containing block</p>
+</blockquote>
+<p>当margin-left和margin-right值为auto的时候，则他们的使用值是<strong>相同</strong>的，并<strong>水平居中</strong>在包含块(父元素)中，即平分包含块中剩余的水平空间。但是margin-top和margin-bottom为auto的时候，它的使用值是<strong>0</strong>，所以只使用margin:auto的时候只能实现水平居中而不能实现垂直居中。</p>
+<blockquote>
+<p>If there is exactly one value specified as ‘auto’, its used value follows from the equality.<br> If ‘width’ is set to ‘auto’, any other ‘auto’ values become ‘0’ and ‘width’ follows from the resulting equality.<br> If both ‘margin-left’ and ‘margin-right’ are ‘auto’, their used values are equal. This horizontally centers the element with respect to the edges of the containing block.</p>
+</blockquote>
+<p>那现在我们再来看看position:absolute;</p>
+<blockquote>
+<p>The box’s position (and possibly size) is specified with the ‘top’, ‘right’, ‘bottom’, and ‘left’ properties. These properties specify offsets with respect to the box’s containing block. </p>
+</blockquote>
+<p> 下面是对于top的计算规则，其他三个属性同理</p>
+<blockquote>
+<p>This property specifies how far an absolutely positioned box’s <strong>top margin edge</strong> is offset below the <strong>top edge of the box’s containing block</strong>. For relatively positioned boxes, the offset is with respect to the top edges of the box itself (i.e., the box is given a position in the normal flow, then offset from that position according to these properties).</p>
+</blockquote>
+<p> 从上面可以看出，top是子元素的margin-top相对于其父元素的padding-top的的偏离距离。所以当设置了position:absolute并同时设置了四个偏移值top:0;left:0;bottom:0;right:0的时候，实际上此时只有top和left值起作用。此时我们再设置了margin:auto，两者就会同时起作用，四个偏移值就会一起配合margin:auto在相应的方向平分剩余空间。</p>
+<p> 比如，根据上面规则，而此时(若padding和border为0)margin的left和right就会计算为(width of containing block - width)/2。</p>
+<p> 这样一来，就是可以按需求实现水平居中或垂直居中，或者同时实现水平垂直居中啦~</p>
+<p> 其中，绝对定位元素具有流体特性，如果该元素没有设置宽高，那么它的将会填充离他最近的定位父元素(如relative，若没有则填充整个浏览器)</p>
+<p> 具有流体特性绝对定位元素的margin:auto的填充规则和普通流体元素一模一样：</p>
+<ol>
+<li>如果一侧定值，一侧auto，auto为剩余空间大小；</li>
+<li>如果两侧均是auto, 则平分剩余空间；</li>
+</ol>
+</li>
+</ul>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><ul>
+<li><strong>vertical-align：middle</strong><br>  vertical-align属性只会对inline box有效，所以要想使用vertical-align实现<strong>垂直居中</strong>，由以下几个方法<ul>
+<li><code>display：inline</code><br>使用该属性可以使元素变为inline element并生成inline box。<br>注意并不是<code>display:inline-block</code>，详情看另一篇文章<a href="/css学习笔记-可视化格式模型和vertical-align/" title="[css学习笔记] 可视化格式模型和vertical-align">[css学习笔记] 可视化格式模型和vertical-align</a></li>
+</ul>
+</li>
+<li><strong>line-height</strong><br>若需要单行文字垂直居中，对块状包含块设置line-height即可，此时line-height撑开了inline box，继而撑开了line box(取其包含的inlinebox最大line-height)，继而使包含块有了高度。(可以无需设置height)<br>但是如果有多种复杂的行内元素，baseline就很容易发生变化，很难取得真正的垂直居中</li>
+<li>如何实现图片垂直居中？<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">div &#123; line-height: 300px;&#125;</div><div class="line">img &#123; vertical-align: middle; height:150px;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中div设置的line-height是作用于该div中的line box，则img就可以在这个line box中垂直居中(?)了<br>但实际上图片并不是绝对居中，还是有一点小偏差的。<br><img src="/img/vertical-align0.png" style="width:500px;"><br>从上图可以看到img是明显下移了。</p>
+<p>因为img垂直中心(vertical-align：middle参照的位置）是参照某字符content area的中心，而这个位置是相比于实际绝对居中的位置要往下一点的，即这个参照字符在其所在的匿名行内框中并不是绝对居中的。所以我自己对这个现象有以下的猜测。<br>我们都知道line-height是两行文字的<strong>基线</strong>之间的距离。但是除了基线baseline，还有其他标准线：顶线topline、中线middleline、底线bottomline。那现在我们来想象一个情景，浏览器对于文字四条标准都有一个默认的位置。当我们对div设置了<code>line-height</code>的时候，那个参照字符所在的匿名行内框的lineheight也为相应的数值，但是在这个匿名行内框里面，我们无法对这个字符设置<code>vertical-align:middle</code>，也无法对这个匿名行内狂设置<code>line-height</code>而且也无效，因为文档中提到</p>
+<blockquote>
+<p>On a block container element whose content is composed of inline-level elements, ‘line-height’ specifies the minimal height of line boxes within the element.<br>On a <strong>non-replaced</strong> inline element, ‘line-height’ specifies the height that is used in the calculation of the line box height.</p>
+</blockquote>
+<p>之前我们在<a href="/css学习笔记-可视化格式模型和vertical-align/" title="[css学习笔记] 可视化格式模型和vertical-align">[css学习笔记] 可视化格式模型和vertical-align</a>提到，非置换行内元素都是可以生成inline box，而置换元素通常是img、input等(详情可以看这里)。自然span是妥妥的非置换行内元素，对其设置line-height只会影响到它所在的line box而不是自身的高度。而上面也提到给块状包含块中设置line-height是给它包含的line box设置最小高度，而line box的高度也是影响块状包含块高度的一个要素，所以是直接影响height的。有兴趣可以分别给span和div加background-color和line-height测试一下~<br>所以这个字符在包裹它的匿名行内框内并不是垂直居中的，或许这也就是为什么文字的中线与实际中绝对居中的位置不同。而img设置<code>vertical-align:middle</code>的时候，它参照的中心点也就不对了。<br>为此我测试了一下，看下图~<br><img src="/img/vertical-align.png" style="width:500px;"><br>这次我们增加了<code>&lt;span&gt;x&lt;/span&gt;</code>并设置了白色的背景颜色，而span因为div设置了<code>line-height</code>的原因也进行了偏移，span实际上只是作为inline box在line box中垂直居中，但文字并没有实现垂直居中。因此img设置了<code>vertical-align:middle</code>之后进行垂直居中的标准是有偏差的。</p>
+<p>当然以上居中出现偏差的原因都是我的猜测，如果有不对的请指正~</p>
+<p>那要怎么实现完美的垂直居中呢?</p>
+<p>让这个参照字符消失:)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">div &#123; line-height: 240px;font-size:0&#125;</div><div class="line">img &#123; vertical-align: middle; &#125;</div></pre></td></tr></table></figure></p>
+<p>噔噔噔~<br><img src="/img/vertical-align2.png" style="width:500px;"></p>
+<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><ul>
+<li><strong>margin: 0 auto</strong></li>
+<li><strong>text-align:center</strong><ul>
+<li>只对于行内元素有效，方法同上</li>
+</ul>
+</li>
+</ul>
+<h4 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续~"></a>未完待续~</h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vertical-align/" rel="tag"># vertical-align</a>
+          
+            <a href="/tags/margin/" rel="tag"># margin</a>
+          
+            <a href="/tags/line-height/" rel="tag"># line-height</a>
+          
+            <a href="/tags/垂直居中/" rel="tag"># 垂直居中</a>
+          
+            <a href="/tags/absolute/" rel="tag"># absolute</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/js的单线程和异步/" rel="next" title="js的单线程和异步">
+                <i class="fa fa-chevron-left"></i> js的单线程和异步
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/css学习笔记-可视化格式模型和vertical-align/" rel="prev" title="[css学习笔记] 可视化格式模型和vertical-align">
+                [css学习笔记] 可视化格式模型和vertical-align <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直水平居中"><span class="nav-number">1.</span> <span class="nav-text">垂直水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直居中"><span class="nav-number">2.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">3.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#未完待续"><span class="nav-number">4.</span> <span class="nav-text">未完待续~</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

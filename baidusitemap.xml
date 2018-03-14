@@ -4,72 +4,8 @@
 
     
   <url>
-    <loc>http://chellhooo.com/git%E6%8E%89%E5%9D%91%E9%94%A6%E5%9B%8A/</loc>
-    <lastmod>2017-08-13T08:48:36.653Z</lastmod>
-    <data>
-        <display>
-        <title>git掉坑锦囊</title>
-        <pubTime>2017-08-13T07:43:17.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-             
-              <breadCrumb title="git" url="http://chellhooo.com/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/hexo-github-blog/</loc>
-    <lastmod>2017-08-13T08:48:31.470Z</lastmod>
-    <data>
-        <display>
-        <title>hexo+github blog(一)：搭建</title>
-        <pubTime>2017-07-24T06:01:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo blog" url="http://chellhooo.com/categories/hexo-blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/hexo-github-blog-%E4%BA%8C-%EF%BC%9Ahexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2017-08-13T08:48:15.750Z</lastmod>
-    <data>
-        <display>
-        <title>hexo+github blog(二)：hexo常用命令及用法</title>
-        <pubTime>2017-07-27T11:41:52.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>命令</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo blog" url="http://chellhooo.com/categories/hexo-blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chellhooo.com/hexo+github%20blog%EF%BC%9A%E5%B0%8F%E5%9D%91%E9%9B%86%E5%90%88/</loc>
-    <lastmod>2017-08-13T08:47:56.207Z</lastmod>
+    <lastmod>2018-03-14T13:09:26.956Z</lastmod>
     <data>
         <display>
         <title>hexo+github blog：小坑集合</title>
@@ -82,7 +18,439 @@
          
            
              
-              <breadCrumb title="hexo blog" url="http://chellhooo.com/categories/hexo-blog/"/>
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+          
+             
+              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/Vue-Spa%E5%BA%94%E7%94%A8%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2018-03-14T13:03:29.837Z</lastmod>
+    <data>
+        <display>
+        <title>vue单页面应用的简单实现</title>
+        <pubTime>2017-11-19T07:41:32.000Z</pubTime>
+        
+        <tag>Vue.js</tag>
+         
+        <tag>单页面应用功能</tag>
+         
+        <tag>新手搭建</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</loc>
+    <lastmod>2018-03-14T12:38:54.008Z</lastmod>
+    <data>
+        <display>
+        <title>变量提升和函数提升</title>
+        <pubTime>2018-02-01T09:24:34.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-inline-box-vertical-align/</loc>
+    <lastmod>2018-03-14T12:32:12.923Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] inline box & vertical-align</title>
+        <pubTime>2018-03-14T08:12:12.000Z</pubTime>
+        
+        <tag>inline box</tag>
+         
+        <tag>vertical-align</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%B1%85%E4%B8%AD%E9%82%A3%E4%BA%9B%E4%BA%8B/</loc>
+    <lastmod>2018-03-14T12:30:38.666Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] 居中那些事</title>
+        <pubTime>2018-03-11T06:46:27.000Z</pubTime>
+        
+        <tag>vertical-align</tag>
+         
+        <tag>margin</tag>
+         
+        <tag>line-height</tag>
+         
+        <tag>垂直居中</tag>
+         
+        <tag>absolute</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A0%BC%E5%BC%8F%E6%A8%A1%E5%9E%8B%E5%92%8Cvertical-align/</loc>
+    <lastmod>2018-03-14T12:28:51.488Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] 可视化格式模型和vertical-align</title>
+        <pubTime>2018-03-13T10:32:56.000Z</pubTime>
+        
+        <tag>vertical-align</tag>
+         
+        <tag>可视化格式模型</tag>
+         
+        <tag>line-height</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8F%AF%E7%BD%AE%E6%8D%A2%E5%85%83%E7%B4%A0%E5%92%8C%E9%9D%9E%E7%BD%AE%E6%8D%A2%E5%85%83%E7%B4%A0/</loc>
+    <lastmod>2018-03-14T11:14:45.659Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] 可置换元素和非置换元素</title>
+        <pubTime>2017-07-29T14:20:10.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>inline</tag>
+         
+        <tag>box</tag>
+         
+        <tag>margin</tag>
+         
+        <tag>padding</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/git%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/</loc>
+    <lastmod>2018-03-14T10:16:24.797Z</lastmod>
+    <data>
+        <display>
+        <title>git掉坑集锦</title>
+        <pubTime>2017-08-13T07:43:17.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="掉坑集锦" url="http://chellhooo.com/categories/%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/"/>
+          
+             
+              <breadCrumb title="git" url="http://chellhooo.com/categories/%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/hexo-github-blog-%E4%BA%8C-%EF%BC%9Ahexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2018-03-14T07:01:35.415Z</lastmod>
+    <data>
+        <display>
+        <title>hexo+github blog(二)：hexo常用命令及用法</title>
+        <pubTime>2017-07-27T11:41:52.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+          
+             
+              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-w3c%E8%A7%84%E8%8C%83/</loc>
+    <lastmod>2018-03-14T04:12:39.083Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] w3c标准</title>
+        <pubTime>2017-07-29T14:50:05.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>w3c</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/vue-js%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-03-14T04:05:18.022Z</lastmod>
+    <data>
+        <display>
+        <title>vue.js笔记</title>
+        <pubTime>2017-11-25T04:07:33.000Z</pubTime>
+        
+        <tag>Vue.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/npm%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/</loc>
+    <lastmod>2018-03-14T04:01:01.150Z</lastmod>
+    <data>
+        <display>
+        <title>npm掉坑集锦</title>
+        <pubTime>2017-08-14T13:53:23.000Z</pubTime>
+        
+        <tag>npm</tag>
+         
+         
+           
+             
+              <breadCrumb title="掉坑集锦" url="http://chellhooo.com/categories/%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/"/>
+          
+             
+              <breadCrumb title="npm" url="http://chellhooo.com/categories/%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/npm/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/node-js%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-03-14T04:00:36.841Z</lastmod>
+    <data>
+        <display>
+        <title>node.js笔记</title>
+        <pubTime>2018-02-01T08:18:38.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/npm-webpack-error-1/</loc>
+    <lastmod>2018-03-14T03:51:38.324Z</lastmod>
+    <data>
+        <display>
+        <title>error:loaderUtils.getOptions is not a function</title>
+        <pubTime>2017-08-31T18:31:23.000Z</pubTime>
+        
+        <tag>npm</tag>
+         
+        <tag>vue</tag>
+         
+        <tag>webpack</tag>
+         
+         
+           
+             
+              <breadCrumb title="掉坑集锦" url="http://chellhooo.com/categories/%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/"/>
+          
+             
+              <breadCrumb title="webpack" url="http://chellhooo.com/categories/%E6%8E%89%E5%9D%91%E9%9B%86%E9%94%A6/webpack/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9AMVC%E5%92%8CMVP%E5%92%8CMVVM/</loc>
+    <lastmod>2018-03-14T03:50:28.224Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式：MVC和MVP和MVVM</title>
+        <pubTime>2018-01-25T05:36:19.000Z</pubTime>
+        
+        <tag>MVC</tag>
+         
+        <tag>MVP</tag>
+         
+        <tag>MVVM</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/js%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%BC%82%E6%AD%A5/</loc>
+    <lastmod>2018-03-14T03:48:20.714Z</lastmod>
+    <data>
+        <display>
+        <title>js的单线程和异步</title>
+        <pubTime>2018-03-05T10:40:46.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+        <tag>单线程</tag>
+         
+        <tag>Event Loop</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/hexo-github-blog-%E5%9B%9B-%EF%BC%9Aseo%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2018-03-14T03:27:54.509Z</lastmod>
+    <data>
+        <display>
+        <title>hexo+github blog(四)：seo优化</title>
+        <pubTime>2017-07-28T16:39:55.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+        <tag>blog</tag>
+         
+        <tag>seo</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+          
+             
+              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/hexo-github-blog/</loc>
+    <lastmod>2018-03-14T03:27:41.741Z</lastmod>
+    <data>
+        <display>
+        <title>hexo+github blog(一)：搭建</title>
+        <pubTime>2017-07-24T06:01:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+          
+             
+              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
           
         </display>
     </data>
@@ -91,7 +459,7 @@
     
   <url>
     <loc>http://chellhooo.com/hexo-github-blog-%E4%B8%89-%EF%BC%9A%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</loc>
-    <lastmod>2017-08-13T08:47:40.525Z</lastmod>
+    <lastmod>2018-03-14T03:27:16.011Z</lastmod>
     <data>
         <display>
         <title>hexo+github blog(三)：评论功能</title>
@@ -110,57 +478,10 @@
          
            
              
-              <breadCrumb title="hexo blog" url="http://chellhooo.com/categories/hexo-blog/"/>
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E5%92%8C%E5%85%B6marigin%E3%80%81padding/</loc>
-    <lastmod>2017-08-13T08:41:16.020Z</lastmod>
-    <data>
-        <display>
-        <title>[css学习笔记]行内元素和其marigin、padding</title>
-        <pubTime>2017-07-29T14:20:10.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>inline</tag>
-         
-        <tag>box</tag>
-         
-        <tag>margin</tag>
-         
-        <tag>padding</tag>
-         
-         
-           
              
-              <breadCrumb title="css" url="http://chellhooo.com/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-w3c%E8%A7%84%E8%8C%83/</loc>
-    <lastmod>2017-08-13T08:40:42.155Z</lastmod>
-    <data>
-        <display>
-        <title>[css学习笔记] w3c标准</title>
-        <pubTime>2017-07-29T14:50:05.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>w3c</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="http://chellhooo.com/categories/css/"/>
+              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
           
         </display>
     </data>
@@ -168,27 +489,4 @@
 
     
     
-    
-  <url>
-    <loc>http://chellhooo.com/hexo-github-blog-%E5%9B%9B-%EF%BC%9Aseo%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2017-07-30T13:38:59.172Z</lastmod>
-    <data>
-        <display>
-        <title>hexo+github blog(四)：seo优化</title>
-        <pubTime>2017-07-28T16:39:55.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github</tag>
-         
-        <tag>blog</tag>
-         
-        <tag>seo</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

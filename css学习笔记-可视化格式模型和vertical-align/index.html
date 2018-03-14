@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vertical-align,可视化格式模型,line-height," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定   box dimensions and type. //盒子的类型 positioning scheme (normal flow, f">
+<meta name="keywords" content="vertical-align,可视化格式模型,line-height">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[css学习笔记] 可视化格式模型和vertical-align">
+<meta property="og:url" content="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定   box dimensions and type. //盒子的类型 positioning scheme (normal flow, float, and absolute positioning). //定位 re">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-14T12:28:51.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[css学习笔记] 可视化格式模型和vertical-align">
+<meta name="twitter:description" content="可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定   box dimensions and type. //盒子的类型 positioning scheme (normal flow, float, and absolute positioning). //定位 re">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/"/>
+
+
+
+
+
+  <title>[css学习笔记] 可视化格式模型和vertical-align | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">[css学习笔记] 可视化格式模型和vertical-align</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T18:32:56+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="可视化格式模型"><a href="#可视化格式模型" class="headerlink" title="可视化格式模型"></a>可视化格式模型</h4><p><a href="https://www.w3.org/TR/CSS2/visuren.html" target="_blank" rel="noopener">visual formatting model</a><br>在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定</p>
+<blockquote>
+<ul>
+<li>box dimensions and type. //盒子的类型</li>
+<li>positioning scheme (normal flow, float, and absolute positioning). //定位</li>
+<li>relationships between elements in the document tree. //元素与文档树的关系</li>
+<li>external information (e.g., viewport size, intrinsic dimensions of images, etc.). //其他</li>
+</ul>
+</blockquote>
+<h4 id="Block-level-elements-and-block-boxes"><a href="#Block-level-elements-and-block-boxes" class="headerlink" title="Block-level elements and block boxes"></a>Block-level elements and block boxes</h4><p>display：’block’, ‘list-item’, and ‘table’.</p>
+<blockquote>
+<p>Block-level boxes that are also block containers are called block boxes.</p>
+</blockquote>
+<p>即Block-level boxes和block boxes是一样的</p>
+<h4 id="Inline-level-elements-and-inline-boxes"><a href="#Inline-level-elements-and-inline-boxes" class="headerlink" title="Inline-level elements and inline boxes"></a>Inline-level elements and inline boxes</h4><ul>
+<li>Inline-level elements<br>display： ‘inline’，’inline-table’和’inline-block’ </li>
+</ul>
+<p>但是！请注意，inline-level elements生成的是inline-level box，<strong>而inline-level box并不代表是inline box</strong>！</p>
+<blockquote>
+<p>Inline-level boxes that are not inline boxes (such as <strong>replaced inline-level elements</strong>, <strong>inline-block elements</strong>, and <strong>inline-table elements</strong>) are called atomic inline-level boxes because they participate in their inline formatting context as a single opaque box.</p>
+</blockquote>
+<p>不是inline box的inline-level boxes被称为atomic inline-level boxes(原子内联级元素?原谅我的辣鸡翻译..)，比如：replaced inline-level elements（即inline-level的置换元素）,inline-block elements和inline-table elements(还是英文比较容易理解..)所以<strong>display:inline-block并不会生成inline box</strong>！</p>
+<ul>
+<li>inline box<blockquote>
+<p>A non-replaced element with a ‘display’ value of ‘inline’ generates an inline box.</p>
+</blockquote>
+</li>
+</ul>
+<p>因此，要想把元素变为inline box，该元素需要是<strong>非替换元素</strong>(详情可以看这里)要把<code>display</code>值设置为<code>inline</code>。<br>在同一行的inline box会被同一个line box包裹着。</p>
+<h4 id="Positioning-schemes"><a href="#Positioning-schemes" class="headerlink" title="Positioning schemes"></a>Positioning schemes</h4><blockquote>
+<ul>
+<li><a href="https://www.w3.org/TR/CSS2/visuren.html#normal-flow" target="_blank" rel="noopener">Normal flow</a> <ul>
+<li>block formatting of block-level boxes //块格式上下文</li>
+<li>inline formatting of inline-level boxes //内联格式上下文</li>
+<li>relative positioning of block-level and inline-level boxes. //定位为relative的元素</li>
+</ul>
+</li>
+<li>Floats. </li>
+<li>Absolute positioning.</li>
+</ul>
+</blockquote>
+<ul>
+<li>块格式上下文 block formatting of block-level boxes<br>浮动，绝对定位的元素，块容器（如inline-blocks,table-cells,table-captions）并不是block box，而是由具有除了display为visible的块框为其内容建立新的块格式上下文。<br>块格式化上下文中相邻块级别框之间的<strong>垂直margin折叠</strong>。</li>
+<li><p><a href="https://www.w3.org/TR/CSS2/visuren.html#floats" target="_blank" rel="noopener">浮动 float</a><br>一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。<br>浮动元素之后的元素将围绕它。<br>浮动元素之前的元素将不会受到影响。</p>
+<blockquote>
+<p>Since a float is not in the flow, non-positioned block boxes created before and after the float box flow vertically as if the float did not exist. However, the current and subsequent line boxes created next to the float are shortened as necessary to make room for the margin box of the float.</p>
+</blockquote>
+<p>浮动元素并<strong>不在文档流</strong>中(这也就是为什么父元素容易出现高度坍塌的原因)，所以没有定位的块元素位置不会收到影响，但是相邻的line box就会在浮动元素之后被创建，而且它的宽度可能会减小以满足浮动元素margin box所需的空间，而真的没有空间了，该line box就会移至下一行</p>
+<ul>
+<li>大名鼎鼎的clear:both<br>可能很多人都不知都它有什么用的，只知道<code>clear:both</code><strong>清除浮动</strong>，并能解决大部分奇难杂症，比如父元素高度坍塌。那么它的实现原理是什么呢？现在我们先来看看clear有哪些属性值~<br>clear: none | left | right | both | inherit<br>该属性是让元素的某条边不与前面的浮动框相邻，但不会作用于该元素内部浮动元素。也可以简单理解为清除左/右/全部浮动，但不是很准确。<br>因为它除了能解决高度坍塌问题之外，还可以实现垂直环绕布局，例子可以戳<a href="http://www.zhangxinxu.com/study/201406/clear-left-right-both.html" target="_blank" rel="noopener">这里</a>。张鑫旭老师的例子中两张float：right的图片本应一起并排浮动到右边，但当第二张图片<code>clear:right</code>的时候，第二张图片就会落在第一张图片的正下方，也就文档中对clear的描述：让元素的某条边不与前面的浮动框相邻。    </li>
+</ul>
+</li>
+</ul>
+<h4 id="position"><a href="#position" class="headerlink" title="position"></a>position</h4><ul>
+<li>relative<br>relative元素会以上述normal flow中的元素位置定位</li>
+<li>absolute<br>脱离文本流，相对于relative元素进行定位</li>
+<li>fixed &amp; static &amp; inherit</li>
+<li>top left right bottom<br>该定位元素的<strong>margin值</strong>离其包含框的对应方向的边的偏移值</li>
+</ul>
+<h4 id="display-和-position-和-float的关系"><a href="#display-和-position-和-float的关系" class="headerlink" title="display 和 position 和 float的关系"></a>display 和 position 和 float的关系</h4><p><strong>当position为absolute和fixed时，float不起作用</strong>，其位置将有top left right bottom决定<br>三者的表现效果可以看一下<a href="https://www.w3.org/TR/CSS2/visuren.html#dis-pos-flo" target="_blank" rel="noopener">文档</a>，里面配合着代码和讲解图会解释得比较详细~</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vertical-align/" rel="tag"># vertical-align</a>
+          
+            <a href="/tags/可视化格式模型/" rel="tag"># 可视化格式模型</a>
+          
+            <a href="/tags/line-height/" rel="tag"># line-height</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/css学习笔记-居中那些事/" rel="next" title="[css学习笔记] 居中那些事">
+                <i class="fa fa-chevron-left"></i> [css学习笔记] 居中那些事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/css学习笔记-inline-box-vertical-align/" rel="prev" title="[css学习笔记] inline box & vertical-align">
+                [css学习笔记] inline box & vertical-align <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#可视化格式模型"><span class="nav-number">1.</span> <span class="nav-text">可视化格式模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block-level-elements-and-block-boxes"><span class="nav-number">2.</span> <span class="nav-text">Block-level elements and block boxes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inline-level-elements-and-inline-boxes"><span class="nav-number">3.</span> <span class="nav-text">Inline-level elements and inline boxes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Positioning-schemes"><span class="nav-number">4.</span> <span class="nav-text">Positioning schemes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position"><span class="nav-number">5.</span> <span class="nav-text">position</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#display-和-position-和-float的关系"><span class="nav-number">6.</span> <span class="nav-text">display 和 position 和 float的关系</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
