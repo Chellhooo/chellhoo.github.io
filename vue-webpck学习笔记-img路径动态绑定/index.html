@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="背景  这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下   1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &a">
+<meta name="description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[vue&amp;webpck学习笔记] webpack项目的img路径动态绑定">
 <meta property="og:url" content="http://chellhooo.com/vue-webpck学习笔记-img路径动态绑定/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
-<meta property="og:description" content="背景  这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下   1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt;img :src=&amp;apos;../assets/&amp;apos;+item.img&amp;quot;&amp;gt;    // ……&amp;l">
+<meta property="og:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt;img :src=&amp;apos;../assets/&amp;apos;+item.img&amp;quot;&amp;gt;    // ……&amp;lt;/div">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://chellhooo.com/img/2018-03-29_195605.png">
-<meta property="og:updated_time" content="2018-03-29T15:39:31.943Z">
+<meta property="og:updated_time" content="2018-03-31T20:12:40.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[vue&amp;webpck学习笔记] webpack项目的img路径动态绑定">
-<meta name="twitter:description" content="背景  这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下   1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt;img :src=&amp;apos;../assets/&amp;apos;+item.img&amp;quot;&amp;gt;    // ……&amp;l">
+<meta name="twitter:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt;img :src=&amp;apos;../assets/&amp;apos;+item.img&amp;quot;&amp;gt;    // ……&amp;lt;/div">
 <meta name="twitter:image" content="http://chellhooo.com/img/2018-03-29_195605.png">
 
 
@@ -322,27 +322,21 @@
       
 
       
-        <ul>
-<li><p>背景<br>  这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给<code>&lt;img&gt;</code>动态绑定路径，可是我发现怎么无法解析路径，代码如下</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div v-for=&quot;item in bookList&quot;&gt;</div><div class="line">    &lt;img :src=&apos;../assets/&apos;+item.img&quot;&gt;</div><div class="line">    // ……</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>  最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析<br>  <img src="/img/2018-03-29_195605.png"> </p>
-</li>
-<li>解决过程<ol>
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给<code>&lt;img&gt;</code>动态绑定路径，可是我发现怎么无法解析路径，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div v-for=&quot;item in bookList&quot;&gt;</div><div class="line">    &lt;img :src=&apos;../assets/&apos;+item.img&quot;&gt;</div><div class="line">    // ……</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析<br><img src="/img/2018-03-29_195605.png"> </p>
+<h4 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h4><ol>
 <li>一开始我在想会不会是相对路径写错了，可是当不是动态绑定<code>:src</code>的时候，路径前缀是没有问题的。</li>
 <li>然后我把图片放在<code>static/img</code>目录下，并把路径前缀改为<code>/static/img/xx.png</code>的时候，图片可以显示成功</li>
-<li>我又尝试在data绑定路径或者methods中返回路径，使用相对路径<code>../assets</code>还是不能获取图片，但是获取<code>static</code>文件下的静态资源是可以的<br>这时我想到了之前一个没有使用webpack打包的项目中，用<code>:src</code>绑定相对路径可以的，无论是在img标签直接绑定路径，还是用data绑定变量返回路径，都是成功获取图片的。<br>所以我在想应该是webpack打包文件的某些编译过程导致不是我们所希望的结果。<br>然后，我在<a href="https://vuejs-templates.github.io/webpack/static.html" target="_blank" rel="noopener">webpack文档</a>找到了webpack是如何处理这些资源的。</li>
+<li>我又尝试在data绑定路径或者methods中返回路径，使用相对路径<code>../assets</code>还是不能获取图片，但是获取<code>static</code>文件下的静态资源是可以的<br>这时我想到了之前一个没有使用webpack打包的项目中，用<code>:src</code>绑定相对路径可以的，无论是在img标签直接绑定路径，还是用data绑定变量返回路径，都是成功获取图片的。<br>所以我在想应该是webpack打包文件的某些编译过程导致不是我们所希望的结果。<br>然后，我在<a href="https://vuejs-templates.github.io/webpack/static.html" target="_blank" rel="noopener">webpack文档</a>找到了webpack是如何处理这些资源的。<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4></li>
 </ol>
-</li>
-<li>解决方法<ul>
+<ul>
 <li>方法一：把图片放在<code>static</code>文件夹下，使用的时候用其<strong>绝对路径</strong>，即<code>/static/xxx</code></li>
 <li>方法二：使用require(‘../xxx/xxx’)<ul>
 <li>在img标签中直接require,或在data/函数中返回</li>
-<li>需要计算路径的时候，可以使用字符串拼接的方式如<code>&lt;img :src=&quot;require(&#39;../assets/&#39; + xxx)&quot;&gt;</code></li>
+<li>需要计算路径的时候，可以使用字符串拼接的方式如<code>&lt;img :src=&quot;require(&#39;../assets/&#39; + xxx)&quot;&gt;</code><h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4>看完上述文档链接基本就可以解决啦，这里简单划一下重点~</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>原因分析<br>看完上述文档链接基本就可以解决啦，这里简单划一下重点~</p>
 <ol>
 <li><p>webpack怎么处理静态资源文件？</p>
 <ul>
@@ -376,8 +370,6 @@
 <p>   其实<code>alias</code>配置只是相当于给上述路径取了一个别名，并不是必须的。</p>
 </li>
 </ol>
-</li>
-</ul>
 
       
     </div>
@@ -476,8 +468,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -539,6 +540,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决过程"><span class="nav-number">2.</span> <span class="nav-text">解决过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原因分析"><span class="nav-number">4.</span> <span class="nav-text">原因分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

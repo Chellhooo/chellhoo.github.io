@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="背景  最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)  &amp;lt;el-input-number :value=&amp;quot;scope.row.amount&amp;quot; @chan">
+<meta name="description" content="背景最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)&amp;lt;el-input-number :value=&amp;quot;scope.row.amount&amp;quot; @change=&">
 <meta name="keywords" content="数据双向绑定,响应式,vue.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue学习笔记 v-bind和v-model">
 <meta property="og:url" content="http://chellhooo.com/vue学习笔记-v-bind和v-model/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
-<meta property="og:description" content="背景  最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)  &amp;lt;el-input-number :value=&amp;quot;scope.row.amount&amp;quot; @change=&amp;quot;changeAmount&amp;quot; size=&amp;quot;mini&amp;quot; c">
+<meta property="og:description" content="背景最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)&amp;lt;el-input-number :value=&amp;quot;scope.row.amount&amp;quot; @change=&amp;quot;changeAmount&amp;quot; size=&amp;quot;mini&amp;quot; contro">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-31T20:03:26.850Z">
+<meta property="og:updated_time" content="2018-03-31T20:11:44.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue学习笔记 v-bind和v-model">
-<meta name="twitter:description" content="背景  最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)  &amp;lt;el-input-number :value=&amp;quot;scope.row.amount&amp;quot; @change=&amp;quot;changeAmount&amp;quot; size=&amp;quot;mini&amp;quot; c">
+<meta name="twitter:description" content="背景最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)&amp;lt;el-input-number :value=&amp;quot;scope.row.amount&amp;quot; @change=&amp;quot;changeAmount&amp;quot; size=&amp;quot;mini&amp;quot; contro">
 
 
 
@@ -354,17 +354,15 @@
       
 
       
-        <ul>
-<li>背景<br>  最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)<br>  <code>&lt;el-input-number :value=&quot;scope.row.amount&quot; @change=&quot;changeAmount&quot; size=&quot;mini&quot; controls-position=&quot;right&quot;  :min=&quot;1&quot; :max=&quot;10&quot;&gt;&lt;/el-input-number&gt;</code><br>  可是它的change事件只能传入最后修改值作参数，那我怎么修改原数据。然后我纠结了很久，突然想起这其实不就是表单控件的双向绑定吗..然后我修改为下面代码，成功了..<br>  <code>&lt;el-input-number v-model=&quot;scope.row.amount&quot; @change=&quot;changeAmount&quot; size=&quot;mini&quot; controls-position=&quot;right&quot;  :min=&quot;1&quot; :max=&quot;10&quot;&gt;&lt;/el-input-number&gt;</code><br>  莫名有点生气还是要保持微笑：) 不过其实我是弄混了property和attribute的概念<br>  除此以外我对数据的双向绑定还有vue的响应式原理概念的模糊不清，所以现在来捋一捋</li>
-<li><p>首先，attribute 和 property 有什么不同？</p>
-<blockquote>
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)<br><code>&lt;el-input-number :value=&quot;scope.row.amount&quot; @change=&quot;changeAmount&quot; size=&quot;mini&quot; controls-position=&quot;right&quot;  :min=&quot;1&quot; :max=&quot;10&quot;&gt;&lt;/el-input-number&gt;</code><br>可是它的change事件只能传入最后修改值作参数，那我怎么修改原数据。然后我纠结了很久，突然想起这其实不就是表单控件的双向绑定吗..然后我修改为下面代码，成功了..<br><code>&lt;el-input-number v-model=&quot;scope.row.amount&quot; @change=&quot;changeAmount&quot; size=&quot;mini&quot; controls-position=&quot;right&quot;  :min=&quot;1&quot; :max=&quot;10&quot;&gt;&lt;/el-input-number&gt;</code><br>莫名有点生气还是要保持微笑：) 不过其实我是弄混了property和attribute的概念<br>除此以外我对数据的双向绑定还有vue的响应式原理概念的模糊不清，所以现在来捋一捋</p>
+<h4 id="首先，attribute-和-property-有什么不同？"><a href="#首先，attribute-和-property-有什么不同？" class="headerlink" title="首先，attribute 和 property 有什么不同？"></a>首先，attribute 和 property 有什么不同？</h4><blockquote>
 <p>For a given DOM node object, properties are the <strong>properties</strong> of that object, and attributes are the elements of the <strong>attributes property</strong> of that object.</p>
 </blockquote>
-<p>  对于一个DOM节点(object)来说，attributes也是object的其中一个property，而attributes就是attribute的集合。</p>
+<p>对于一个DOM节点(object)来说，attributes也是object的其中一个property，而attributes就是attribute的集合。</p>
 <blockquote>
 <p>When a DOM node is created for a given HTML element, many of its properties relate to attributes with the same or similar names, but it’s not a one-to-one relationship. </p>
 </blockquote>
-<p>  当DOM节点生成对应的HTML元素后，它的很多properties就会和它相同(似)名字的attributes有关，但并不都是一一对应关系。<br>  我们看看下面一段html代码会可能比较容易理解一点~<br>  <code>&lt;input id=&quot;the-input&quot; type=&quot;text&quot; value=&quot;Name:&quot;&gt;</code><br>  这个DOM节点有id、type、value和其他properties。</p>
+<p>当DOM节点生成对应的HTML元素后，它的很多properties就会和它相同(似)名字的attributes有关，但并不都是一一对应关系。<br>我们看看下面一段html代码会可能比较容易理解一点~<br><code>&lt;input id=&quot;the-input&quot; type=&quot;text&quot; value=&quot;Name:&quot;&gt;</code><br>这个DOM节点有id、type、value和其他properties。</p>
 <ul>
 <li>id property 反映到 id attributey，且一一对应</li>
 <li>type property<ul>
@@ -374,22 +372,18 @@
 </li>
 <li>value property<ul>
 <li><code>theInput.value</code>为随着输入值改变而改变，即当前值</li>
-<li><code>theInput.getAttribute(&quot;value&quot;)</code>一直为Name:，即初始值<br>其实看到这里，可能很多人都会有一种感觉，property更趋于某object的<strong>共性</strong>(代表着内部专属的意义)，而attribute则是我们主观给它加的<strong>特性</strong>(人为的拓展)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>v-bind</code>绑定的到底是什么？<br>  现在我们看回本文背景中第一条代码，其中的<code>:value</code>其实是<code>v-bind:value</code>的缩写。<br>  而<a href="https://cn.vuejs.org/v2/api/#v-bind" target="_blank" rel="noopener">文档</a>对<code>v-bind</code>的用法是这样说的：</p>
-<blockquote>
-<p>动态地绑定一个或多个特性，或一个组件 prop 到表达式。<br>  所以我更觉得<code>v-bind</code>绑定的是attribute，给组件传prop就是一个很明显的例子</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;myComponent :yy=&quot;someprop&quot;&gt;&lt;/mycomponent&gt;</div></pre></td></tr></table></figure>
+<li><code>theInput.getAttribute(&quot;value&quot;)</code>一直为Name:，即初始值<br>其实看到这里，可能很多人都会有一种感觉，property更趋于某object的<strong>共性</strong>(代表着内部专属的意义)，而attribute则是我们主观给它加的<strong>特性</strong>(人为的拓展)<h4 id="v-bind绑定的到底是什么？"><a href="#v-bind绑定的到底是什么？" class="headerlink" title="v-bind绑定的到底是什么？"></a><code>v-bind</code>绑定的到底是什么？</h4>现在我们看回本文背景中第一条代码，其中的<code>:value</code>其实是<code>v-bind:value</code>的缩写。<br>而<a href="https://cn.vuejs.org/v2/api/#v-bind" target="_blank" rel="noopener">文档</a>对<code>v-bind</code>的用法是这样说的：<blockquote>
+<p>动态地绑定一个或多个特性，或一个组件 prop 到表达式。<br>所以我更觉得<code>v-bind</code>绑定的是attribute，给组件传prop就是一个很明显的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;myComponent :yy=&quot;someprop&quot;&gt;&lt;/mycomponent&gt;</div></pre></td></tr></table></figure>
 </blockquote>
-<p>  因为这个yy属性真的是我们yy出来的，因为我们在使用一个我们自定义的组件，给它传送的属性自然也是我们自定义出来的，我们赋予它意义并通过它其创造更大的意义。<br>  因此，<strong>v-bind默认绑定的就是attribute</strong>，而<code>v-bind:value</code>绑定的是value attribute，即初始值。<br>  v-bind有三个修饰符：<code>.prop</code>、<code>.camel</code>、<code>.sync</code>，<br>  <strong>当加上<code>.prop</code>的时候就是用来绑定DOM property</strong>。<br>  看到这里，应该看得出v-bind并不是用来实现数据双向绑定的。<br>  不过，你以为的数据双向绑定就是真的数据双向绑定吗(嗯?)</p>
 </li>
-<li><p>数据的双向绑定<br>  数据初始化绑定(vue实例属性(在data定义)初始化输入框的原始值, 并渲染文本节点)-》响应式的数据绑定(输入框的value变化会影响与其绑定的vue实例属性) -》订阅/发布模式(观测者检测到数据变化，告知文本节点，节点则相应更新)</p>
-<p>  时间太晚了+ +… 具体原理稍后再补</p>
+</ul>
 </li>
-<li><p>vue的响应式系统<br>  data对象里面的属性才是响应式的。</p>
+</ul>
+<p>因为这个yy属性真的是我们yy出来的，因为我们在使用一个我们自定义的组件，给它传送的属性自然也是我们自定义出来的，我们赋予它意义并通过它其创造更大的意义。<br>因此，<strong>v-bind默认绑定的就是attribute</strong>，而<code>v-bind:value</code>绑定的是value attribute，即初始值。<br>v-bind有三个修饰符：<code>.prop</code>、<code>.camel</code>、<code>.sync</code>，<br><strong>当加上<code>.prop</code>的时候就是用来绑定DOM property</strong>。<br>看到这里，应该看得出v-bind并不是用来实现数据双向绑定的。<br>不过，你以为的数据双向绑定就是真的数据双向绑定吗(嗯?)</p>
+<h4 id="数据的双向绑定"><a href="#数据的双向绑定" class="headerlink" title="数据的双向绑定"></a>数据的双向绑定</h4><p>数据初始化绑定(vue实例属性(在data定义)初始化输入框的原始值, 并渲染文本节点)-》响应式的数据绑定(输入框的value变化会影响与其绑定的vue实例属性) -》订阅/发布模式(观测者检测到数据变化，告知文本节点，节点则相应更新)</p>
+<p>时间太晚了+ +… 具体原理稍后再补</p>
+<h4 id="vue的响应式系统"><a href="#vue的响应式系统" class="headerlink" title="vue的响应式系统"></a>vue的响应式系统</h4><p>data对象里面的属性才是响应式的。</p>
 <blockquote>
 <p>Vue 会在初始化实例时对属性执行 getter/setter 转化过程，所以属性必须在 data 对象上存在才能让 Vue 转换它，这样才能让它是响应的。</p>
 </blockquote>
@@ -409,14 +403,9 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;example&apos;, &#123;</div><div class="line">    template: &apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;,</div><div class="line">    data: function () &#123;</div><div class="line">        return &#123;</div><div class="line">        message: &apos;没有更新&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    methods: &#123;</div><div class="line">        updateMessage: function () &#123;</div><div class="line">        this.message = &apos;更新完成&apos;</div><div class="line">        console.log(this.$el.textContent) // =&gt; &apos;没有更新&apos;</div><div class="line">        this.$nextTick(function () &#123;</div><div class="line">            console.log(this.$el.textContent) // =&gt; &apos;更新完成&apos;</div><div class="line">        &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-<li><p><code>v-model</code>才是用来数据的双向绑定的正主<br>  一开始<code>v-model</code>主要用以表单控件的数据的双向绑定<br>  vue2.2.0新增，自定义组件也可以用<code>v-model</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;my-checkbox&apos;, &#123;</div><div class="line">    model: &#123;</div><div class="line">        prop: &apos;checked&apos;,</div><div class="line">        event: &apos;change&apos;</div><div class="line">    &#125;,</div><div class="line">    props: &#123;</div><div class="line">        checked: Boolean,</div><div class="line">        // 这样就允许拿 `value` 这个 prop 做其它事了</div><div class="line">        value: String</div><div class="line">    &#125;,</div><div class="line">    // ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>  <code>&lt;my-checkbox v-model=&quot;foo&quot; value=&quot;some value&quot;&gt;&lt;/my-checkbox&gt;</code><br>  等价于：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;my-checkbox</div><div class="line">:checked=&quot;foo&quot;</div><div class="line">@change=&quot;val =&gt; &#123; foo = val &#125;&quot;</div><div class="line">value=&quot;some value&quot;&gt;</div><div class="line">&lt;/my-checkbox&gt;</div></pre></td></tr></table></figure>
-<p>  是不是觉得很眼熟:) ?</p>
-</li>
-</ul>
+<h4 id="v-model才是用来数据的双向绑定的正主"><a href="#v-model才是用来数据的双向绑定的正主" class="headerlink" title="v-model才是用来数据的双向绑定的正主"></a><code>v-model</code>才是用来数据的双向绑定的正主</h4><p>一开始<code>v-model</code>主要用以表单控件的数据的双向绑定<br>vue2.2.0新增，自定义组件也可以用<code>v-model</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;my-checkbox&apos;, &#123;</div><div class="line">    model: &#123;</div><div class="line">        prop: &apos;checked&apos;,</div><div class="line">        event: &apos;change&apos;</div><div class="line">    &#125;,</div><div class="line">    props: &#123;</div><div class="line">        checked: Boolean,</div><div class="line">        // 这样就允许拿 `value` 这个 prop 做其它事了</div><div class="line">        value: String</div><div class="line">    &#125;,</div><div class="line">    // ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><code>&lt;my-checkbox v-model=&quot;foo&quot; value=&quot;some value&quot;&gt;&lt;/my-checkbox&gt;</code><br>等价于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;my-checkbox</div><div class="line">:checked=&quot;foo&quot;</div><div class="line">@change=&quot;val =&gt; &#123; foo = val &#125;&quot;</div><div class="line">value=&quot;some value&quot;&gt;</div><div class="line">&lt;/my-checkbox&gt;</div></pre></td></tr></table></figure></p>
+<p>是不是觉得很眼熟:) ?</p>
 
       
     </div>
@@ -519,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -582,6 +580,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首先，attribute-和-property-有什么不同？"><span class="nav-number">2.</span> <span class="nav-text">首先，attribute 和 property 有什么不同？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-bind绑定的到底是什么？"><span class="nav-number">3.</span> <span class="nav-text">v-bind绑定的到底是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据的双向绑定"><span class="nav-number">4.</span> <span class="nav-text">数据的双向绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue的响应式系统"><span class="nav-number">5.</span> <span class="nav-text">vue的响应式系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-model才是用来数据的双向绑定的正主"><span class="nav-number">6.</span> <span class="nav-text">v-model才是用来数据的双向绑定的正主</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

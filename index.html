@@ -355,8 +355,7 @@
       
         
           
-          
-背景  最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)  &lt;el-input-number :value=&quot;scope.row.amount&quot; @change=&quot;changeAmount&quot; size=&quot;mini&quot; controls-position=&quot;right&quot;  :min=&quot;1&quot; :max=&quot;10&quot;&gt;&lt;/el-input-number&g
+          背景最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)&lt;el-input-number :value=&quot;scope.row.amount&quot; @change=&quot;changeAmount&quot; size=&quot;mini&quot; controls-position=&quot;right&quot;  :min=&quot;1&quot; :max=&quot;10&quot;&gt;&lt;/el-input-number&gt;可是它
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -474,13 +473,11 @@
       
         
           
-          
-背景  这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&lt;img&gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下
-  1234&lt;div v-for=&quot;item in bookList&quot;&gt;    &lt;img :src=&apos;../assets/&apos;+item.img&quot;&gt;    // ……&lt;/div&gt;
-  最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析   
-
+          背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&lt;img&gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&lt;div v-for=&quot;item in bookList&quot;&gt;    &lt;img :src=&apos;../assets/&apos;+item.img&quot;&gt;    // ……&lt;/div&gt;
+最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析 
 解决过程
-一开始我在想会不会是相对路径写错了，可是当不是动态绑定:src的时候，路径前缀
+一开始我在想会不会是相对路径写错了，可是当不是动态绑定:src的时候，路径前缀是没有问题的。
+然后我
           ...
           <!--noindex-->
           <div class="post-button text-center">
