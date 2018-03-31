@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>http://chellhooo.com/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-v-bind%E5%92%8Cv-model/</loc>
+    <lastmod>2018-03-31T20:03:26.850Z</lastmod>
+    <data>
+        <display>
+        <title>vue学习笔记 v-bind和v-model</title>
+        <pubTime>2018-03-31T16:45:45.000Z</pubTime>
+        
+        <tag>数据双向绑定</tag>
+         
+        <tag>vue的响应式</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/vue-js%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-03-31T19:59:51.222Z</lastmod>
+    <data>
+        <display>
+        <title>vue.js笔记</title>
+        <pubTime>2017-11-25T04:07:33.000Z</pubTime>
+        
+        <tag>Vue.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chellhooo.com/vue-webpck%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-img%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A/</loc>
     <lastmod>2018-03-29T15:39:31.943Z</lastmod>
     <data>
@@ -125,9 +173,9 @@
         
         <tag>vertical-align</tag>
          
-        <tag>line-height</tag>
-         
         <tag>margin</tag>
+         
+        <tag>line-height</tag>
          
         <tag>垂直居中</tag>
          
@@ -271,29 +319,6 @@
           
              
               <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/vue-js%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-03-14T04:05:18.022Z</lastmod>
-    <data>
-        <display>
-        <title>vue.js笔记</title>
-        <pubTime>2017-11-25T04:07:33.000Z</pubTime>
-        
-        <tag>Vue.js</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
           
         </display>
     </data>
