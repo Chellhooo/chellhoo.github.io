@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://chellhooo.com/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-v-bind%E5%92%8Cv-model/</loc>
+    <lastmod>2018-04-01T07:55:44.414Z</lastmod>
+    <data>
+        <display>
+        <title>[vue学习笔记] v-bind和v-model</title>
+        <pubTime>2018-03-31T16:45:45.000Z</pubTime>
+        
+        <tag>数据双向绑定</tag>
+         
+        <tag>vue的响应式</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chellhooo.com/js%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%BC%82%E6%AD%A5/</loc>
     <lastmod>2018-04-01T07:51:28.498Z</lastmod>
     <data>
@@ -185,31 +210,6 @@
           
              
               <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-v-bind%E5%92%8Cv-model/</loc>
-    <lastmod>2018-04-01T07:42:16.600Z</lastmod>
-    <data>
-        <display>
-        <title>[vue学习笔记] v-bind和v-model</title>
-        <pubTime>2018-03-31T16:45:45.000Z</pubTime>
-        
-        <tag>数据双向绑定</tag>
-         
-        <tag>vue的响应式</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
           
         </display>
     </data>
