@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://chellhooo.com/img/vertical-align0.png">
 <meta property="og:image" content="http://chellhooo.com/img/vertical-align.png">
 <meta property="og:image" content="http://chellhooo.com/img/vertical-align2.png">
-<meta property="og:updated_time" content="2018-03-14T12:30:38.666Z">
+<meta property="og:updated_time" content="2018-04-01T07:47:59.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[css学习笔记] 居中那些事">
 <meta name="twitter:description" content="垂直水平居中 margin:auto &amp;amp;&amp;amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述  Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-righ">
@@ -392,7 +392,7 @@
 </ul>
 </li>
 <li><strong>line-height</strong><br>若需要单行文字垂直居中，对块状包含块设置line-height即可，此时line-height撑开了inline box，继而撑开了line box(取其包含的inlinebox最大line-height)，继而使包含块有了高度。(可以无需设置height)<br>但是如果有多种复杂的行内元素，baseline就很容易发生变化，很难取得真正的垂直居中</li>
-<li>如何实现图片垂直居中？<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">div &#123; line-height: 300px;&#125;</div><div class="line">img &#123; vertical-align: middle; height:150px;&#125;</div></pre></td></tr></table></figure>
+<li>如何实现图片垂直居中？<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">line-height</span>: <span class="number">300px</span>;&#125;</div><div class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">vertical-align</span>: middle; <span class="attribute">height</span>:<span class="number">150px</span>;&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>其中div设置的line-height是作用于该div中的line box，则img就可以在这个line box中垂直居中(?)了<br>但实际上图片并不是绝对居中，还是有一点小偏差的。<br><img src="/img/vertical-align0.png" style="width:500px;"><br>从上图可以看到img是明显下移了。</p>
@@ -403,7 +403,7 @@
 <p>之前我们在<a href="/css学习笔记-可视化格式模型和vertical-align/" title="[css学习笔记] 可视化格式模型和vertical-align">[css学习笔记] 可视化格式模型和vertical-align</a>提到，非置换行内元素都是可以生成inline box，而置换元素通常是img、input等(详情可以看这里)。自然span是妥妥的非置换行内元素，对其设置line-height只会影响到它所在的line box而不是自身的高度。而上面也提到给块状包含块中设置line-height是给它包含的line box设置最小高度，而line box的高度也是影响块状包含块高度的一个要素，所以是直接影响height的。有兴趣可以分别给span和div加background-color和line-height测试一下~<br>所以这个字符在包裹它的匿名行内框内并不是垂直居中的，或许这也就是为什么文字的中线与实际中绝对居中的位置不同。而img设置<code>vertical-align:middle</code>的时候，它参照的中心点也就不对了。<br>为此我测试了一下，看下图~<br><img src="/img/vertical-align.png" style="width:500px;"><br>这次我们增加了<code>&lt;span&gt;x&lt;/span&gt;</code>并设置了白色的背景颜色，而span因为div设置了<code>line-height</code>的原因也进行了偏移，span实际上只是作为inline box在line box中垂直居中，但文字并没有实现垂直居中。因此img设置了<code>vertical-align:middle</code>之后进行垂直居中的标准是有偏差的。</p>
 <p>当然以上居中出现偏差的原因都是我的猜测，如果有不对的请指正~</p>
 <p>那要怎么实现完美的垂直居中呢?</p>
-<p>让这个参照字符消失:)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">div &#123; line-height: 240px;font-size:0&#125;</div><div class="line">img &#123; vertical-align: middle; &#125;</div></pre></td></tr></table></figure></p>
+<p>让这个参照字符消失:)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">line-height</span>: <span class="number">240px</span>;<span class="attribute">font-size</span>:<span class="number">0</span>&#125;</div><div class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">vertical-align</span>: middle; &#125;</div></pre></td></tr></table></figure></p>
 <p>噔噔噔~<br><img src="/img/vertical-align2.png" style="width:500px;"></p>
 <h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><ul>
 <li><strong>margin: 0 auto</strong></li>

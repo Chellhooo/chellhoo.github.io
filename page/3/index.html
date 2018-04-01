@@ -355,9 +355,9 @@
       
         
           
-          变量提升 和 函数提升只有使用var声明的变量才会变量提升，let和const声明的变量不存在。函数提升优先级高于变量提升1234567foo();function foo()&#123;    console.log(&apos;1&apos;);&#125;var foo=function()&#123;    console.log(&apos;2&apos;);&#125;
+          变量提升 和 函数提升只有使用var声明的变量才会变量提升，let和const声明的变量不存在。函数提升优先级高于变量提升1234567foo();function foo()&#123;    console.log('1');&#125;var foo=function()&#123;    console.log('2');&#125;
 实际上会变成
-12345678function foo()&#123;    console.log(&apos;1&apos;);&#125;var foo;foo(); // 1foo=function()&#
+12345678function foo()&#123;    console.log('1');&#125;var foo;foo(); // 1foo=function()&#123;    console.log('2');&#125
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -502,9 +502,9 @@
 但是如果想对外暴露模块中的变量（如函数）
 
 用法  模块hello.js
-  1234hi(name)&#123;    console.log(&apos;hello &apos;+ name );&#125;module.exports=hi; // 对外暴露函数变量
+  1234hi(name)&#123;    console.log('hello '+ name );&#125;module.exports=hi; // 对外暴露函数变量
   调用模块的外部环境
-  12var hello=require(&apos;./hello&apos;); //模块作为变量保存在当前作用域,相对路
+  12var hello=require('./hello'); //模块作为变量保存在当前作用域,相对路径hi(chellh); //调用模块中
           ...
           <!--noindex-->
           <div class="post-button text-center">

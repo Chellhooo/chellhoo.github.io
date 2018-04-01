@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt">
+<meta name="description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&quot;item in bookList&quot;&amp;gt;    &amp;lt;img :sr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[vue&amp;webpck学习笔记] webpack项目的img路径动态绑定">
 <meta property="og:url" content="http://chellhooo.com/vue-webpck学习笔记-img路径动态绑定/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
-<meta property="og:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt;img :src=&amp;apos;../assets/&amp;apos;+item.img&amp;quot;&amp;gt;    // ……&amp;lt;/div">
+<meta property="og:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&quot;item in bookList&quot;&amp;gt;    &amp;lt;img :src=&apos;../assets/&apos;+item.img&quot;&amp;gt;    // ……&amp;lt;/div&amp;gt; 最后浏览器渲染的结果是这样的，感觉是直接">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://chellhooo.com/img/2018-03-29_195605.png">
-<meta property="og:updated_time" content="2018-03-31T20:12:40.966Z">
+<meta property="og:updated_time" content="2018-04-01T07:46:22.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[vue&amp;webpck学习笔记] webpack项目的img路径动态绑定">
-<meta name="twitter:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&amp;quot;item in bookList&amp;quot;&amp;gt;    &amp;lt;img :src=&amp;apos;../assets/&amp;apos;+item.img&amp;quot;&amp;gt;    // ……&amp;lt;/div">
+<meta name="twitter:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&quot;item in bookList&quot;&amp;gt;    &amp;lt;img :src=&apos;../assets/&apos;+item.img&quot;&amp;gt;    // ……&amp;lt;/div&amp;gt; 最后浏览器渲染的结果是这样的，感觉是直接">
 <meta name="twitter:image" content="http://chellhooo.com/img/2018-03-29_195605.png">
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给<code>&lt;img&gt;</code>动态绑定路径，可是我发现怎么无法解析路径，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div v-for=&quot;item in bookList&quot;&gt;</div><div class="line">    &lt;img :src=&apos;../assets/&apos;+item.img&quot;&gt;</div><div class="line">    // ……</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给<code>&lt;img&gt;</code>动态绑定路径，可是我发现怎么无法解析路径，代码如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in bookList"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">'../assets/'</span>+<span class="attr">item.img</span>"&gt;</span></div><div class="line">    // ……</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析<br><img src="/img/2018-03-29_195605.png"> </p>
 <h4 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h4><ol>
 <li>一开始我在想会不会是相对路径写错了，可是当不是动态绑定<code>:src</code>的时候，路径前缀是没有问题的。</li>
@@ -342,7 +342,7 @@
 <ul>
 <li>图片等静态资源并不是JavaScript。所以，在<code>*.vue</code>组件中所有模板和css中的资源都是由vue-html-loader and css-loader解析路径的，比如<code>&lt;img src=&quot;./logo.png&quot;&gt;</code>或<code>background: url(./logo.png)</code>中的相对路径会被webpack处理为模块依赖<code>module dependency</code>。</li>
 <li>当然静态资源并不是一定需要放在<code>src/assets</code>中，你也可以和组件所在目录放在一起。不同写法的路径的解析规则可以看上述文档单元中的<code>Asset Resolving Rules</code>~</li>
-<li>上面提到静态资源文件需要由<code>file-loader</code>解析路径，所以需要在JavaScript中返回路径的时候，需要用<code>require(&#39;xxx&#39;)</code>引入文件。但是当需要计算路径的时候会在构建的时候加入资源所在路径(如下图的<code>./bg</code>)中所有图片，因为它不知道你运行的时候需要用到哪些图片 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background () &#123;</div><div class="line">    return require(&apos;./bgs/&apos; + this.id + &apos;.jpg&apos;) </div><div class="line">    //也可在html标签绑定路径的时候用require()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>上面提到静态资源文件需要由<code>file-loader</code>解析路径，所以需要在JavaScript中返回路径的时候，需要用<code>require(&#39;xxx&#39;)</code>引入文件。但是当需要计算路径的时候会在构建的时候加入资源所在路径(如下图的<code>./bg</code>)中所有图片，因为它不知道你运行的时候需要用到哪些图片<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background () &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">'./bgs/'</span> + <span class="keyword">this</span>.id + <span class="string">'.jpg'</span>) </div><div class="line">    <span class="comment">//也可在html标签绑定路径的时候用require()</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
