@@ -78,9 +78,9 @@
         <title>js的单线程和异步</title>
         <pubTime>2018-03-05T10:40:46.000Z</pubTime>
         
-        <tag>单线程</tag>
-         
         <tag>node.js</tag>
+         
+        <tag>单线程</tag>
          
         <tag>Event Loop</tag>
          
@@ -174,11 +174,11 @@
         
         <tag>vertical-align</tag>
          
+        <tag>margin</tag>
+         
         <tag>line-height</tag>
          
         <tag>垂直居中</tag>
-         
-        <tag>margin</tag>
          
         <tag>absolute</tag>
          
@@ -305,11 +305,11 @@
         
         <tag>css</tag>
          
-        <tag>margin</tag>
-         
         <tag>inline</tag>
          
         <tag>box</tag>
+         
+        <tag>margin</tag>
          
         <tag>padding</tag>
          
