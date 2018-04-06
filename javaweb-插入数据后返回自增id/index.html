@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="execute、executeQuery和executeUpdate之间的区别 execute如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false。也就是说如果是查询的话返回true，如果是更新或插入的话就返回false了。  可用于执行返回多个结果集、多个更新计数或二者组合的语句。 调用 getResultSet 或 getUpd">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-06T18:07:35.241Z">
+<meta property="og:updated_time" content="2018-04-06T18:37:59.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaweb学习笔记 插入数据后返回自增id">
 <meta name="twitter:description" content="execute、executeQuery和executeUpdate之间的区别 execute如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false。也就是说如果是查询的话返回true，如果是更新或插入的话就返回false了。  可用于执行返回多个结果集、多个更新计数或二者组合的语句。 调用 getResultSet 或 getUpd">
@@ -361,7 +361,7 @@
 <li>调用 getResultSet 或 getUpdateCount 方法来检索结果</li>
 <li>调用 getMoreResults 移动到任何后面的结果。</li>
 <li>调用方法 getUpdateCount，将返回一个整数。这个整数为调用语句所影响的行数；如果为 -1 则表示结果是结果集或没有结果。<ul>
-<li>若返回值为-1，且getResultSet() 已返回 null，则表是没有结果<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// int rowCount = stmt.getUpdateCount(); </span></div><div class="line">ResultSet rs = stmt.getResultSet;  </div><div class="line"><span class="keyword">if</span> (rs != <span class="keyword">null</span>) &#123;  </div><div class="line">. . . <span class="comment">// 使用元数据获得关于结果集列的信息  </span></div><div class="line"><span class="keyword">while</span> (rs.next()) &#123;  </div><div class="line">. . . <span class="comment">// 处理结果  </span></div><div class="line">stmt.getMoreResults();  </div><div class="line"><span class="keyword">continue</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>若返回值为-1，且getResultSet() 已返回 null，则表是没有结果<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// int rowCount = stmt.getUpdateCount(); </span></div><div class="line">ResultSet rs = stmt.getResultSet();  </div><div class="line"><span class="keyword">if</span> (rs != <span class="keyword">null</span>) &#123;  </div><div class="line">. . . <span class="comment">// 使用元数据获得关于结果集列的信息  </span></div><div class="line"><span class="keyword">while</span> (rs.next()) &#123;  </div><div class="line">. . . <span class="comment">// 处理结果  </span></div><div class="line">stmt.getMoreResults();  </div><div class="line"><span class="keyword">continue</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
