@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://chellhooo.com/img/node_libuv0.png">
 <meta property="og:image" content="http://chellhooo.com/img/node_libuv.png">
 <meta property="og:image" content="http://chellhooo.com/img/异步io流程.png">
-<meta property="og:updated_time" content="2018-04-09T10:23:06.630Z">
+<meta property="og:updated_time" content="2018-04-09T10:24:53.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js学习笔记 异步I&#x2F;O与回调">
 <meta name="twitter:description" content="背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。 node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile(&apos;/path&apos;,(err,file)=&amp;gt;&amp;#123;    console.log(&apos;读">
@@ -366,7 +366,7 @@
 <ul>
 <li>为什么要异步I/O<br>首先，我们假设有一组互不相关的任务需要完成，那我们可以使用单线程或多线程<ul>
 <li>多线程并行完成<br>  当创建多线程的开销小于并行执行，那么多线程自然更有优势。因为它在创建线程和执行期线程上下文切换的开销较大，而且经常面临死锁、状态同步的问题。但是多线程在多核CPU上能够有效提升CPU的利用率，这个优势也是毋庸置疑的。</li>
-<li>单线程串行依次执行<br>  顺序执行任务的表达更容易让人接受和理解，但是它会造成很多性能问题，I/O的进行会阻塞后续的任务，造成资源的浪费，降低了资源的利用率。<br>综上，单线程同步编程模型会阻塞I/O导致硬件资源得不到更优的利用。多线程编程模型也因为编程中的死锁、状态同步的问题让人困扰。<br>而node则基于js本身的单线程，规避多线程易发生的死锁等问题，使用异步I/O规避单线程带来的任务阻塞，易更好的利用CPU。异步I/O的提出是期望I/O的调用不在阻塞后续运算，将原有等待I/O完成的这段时间分配给其余需要的任务去执行。<br><img src="/img/异步IO.png"></li>
+<li>单线程串行依次执行<br>  顺序执行任务的表达更容易让人接受和理解，但是它会造成很多性能问题，I/O的进行会阻塞后续的任务，造成资源的浪费，降低了资源的利用率。<br>综上，单线程同步编程模型会阻塞I/O导致硬件资源得不到更优的利用。多线程编程模型也因为编程中的死锁、状态同步的问题让人困扰。<br>而node则基于js本身的单线程，规避多线程易发生的死锁等问题，使用异步I/O规避单线程带来的任务阻塞，易更好的利用CPU。异步I/O的提出是期望I/O的调用不在阻塞后续运算，将原有等待I/O完成的这段时间分配给其余需要的任务去执行。<br><img src="/img/异步IO.png" style="width:80%"></li>
 </ul>
 </li>
 <li>注意，node的异步I/O不同于操作系统对异步I/O的实现<br>  在上文我们提到node是在底层构建了很多api实现异步I/O的。而操作系统本质上也是一个计算机软件，操作系统内核对于I/O有两种方式：阻塞和非阻塞。<blockquote>
