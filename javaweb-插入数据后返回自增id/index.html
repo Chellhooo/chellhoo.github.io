@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="execute、executeQuery和executeUpdate之间的区别 execute如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false。也就是说如果是查询的话返回true，如果是更新或插入的话就返回false了。  可用于执行返回多个结果集、多个更新计数或二者组合的语句。 调用 getResultSet 或 getUpd">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-06T19:17:24.527Z">
+<meta property="og:updated_time" content="2018-04-06T19:27:01.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaweb学习笔记 插入数据后返回自增id">
 <meta name="twitter:description" content="execute、executeQuery和executeUpdate之间的区别 execute如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false。也就是说如果是查询的话返回true，如果是更新或插入的话就返回false了。  可用于执行返回多个结果集、多个更新计数或二者组合的语句。 调用 getResultSet 或 getUpd">
@@ -380,6 +380,8 @@
 </li>
 </ul>
 <h3 id="如何执行插入操作后返回自增id"><a href="#如何执行插入操作后返回自增id" class="headerlink" title="如何执行插入操作后返回自增id"></a>如何执行插入操作后返回自增id</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Statement.RETURN_GENERATED_KEYS表示返回自动生成的键的标志</span></div><div class="line"><span class="comment">// Statement.NO_GENERATED_KEYS表示不返回</span></div><div class="line">PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);</div><div class="line">pstmt.executeUpdate();</div><div class="line">ResultSet rs=ps.getGeneratedKeys();<span class="comment">//获取自动生成的键</span></div><div class="line"><span class="keyword">while</span>(rs.next())&#123;</div><div class="line">    id=rs.getInt(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://blog.csdn.net/m_hahahaha1994/article/details/51752370" target="_blank" rel="noopener">JDBC介绍（详细版）</a><br><a href="https://blog.csdn.net/myxx520/article/details/6710218" target="_blank" rel="noopener">理解JBDC更新计数行以及调用存储过程返回多个结果集</a></p>
+
       
     </div>
 
@@ -424,6 +426,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/node学习笔记-处理异步回调/" rel="prev" title="node.js学习笔记 异步I/O与回调">
+                node.js学习笔记 异步I/O与回调 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -498,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -509,7 +515,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -555,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#execute、executeQuery和executeUpdate之间的区别"><span class="nav-number">1.</span> <span class="nav-text">execute、executeQuery和executeUpdate之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何执行插入操作后返回自增id"><span class="nav-number">2.</span> <span class="nav-text">如何执行插入操作后返回自增id</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#execute、executeQuery和executeUpdate之间的区别"><span class="nav-number">1.</span> <span class="nav-text">execute、executeQuery和executeUpdate之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何执行插入操作后返回自增id"><span class="nav-number">2.</span> <span class="nav-text">如何执行插入操作后返回自增id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
