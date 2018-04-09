@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Chellhoo博客,何巧珠,前端" />
+  <meta name="keywords" content="异步I/O,try catch,线程池,多线程,node,IOCP,非阻塞" />
 
 
 
@@ -94,22 +94,23 @@
 
 
 <meta name="description" content="背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。 node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile(&apos;/">
+<meta name="keywords" content="异步I&#x2F;O,try catch,线程池,多线程,node,IOCP,非阻塞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node.js学习笔记 异步I&#x2F;O与回调">
 <meta property="og:url" content="http://chellhooo.com/node学习笔记-处理异步回调/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。 node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile(&apos;/path&apos;,(err,file)=&amp;gt;&amp;#123;    console.log(&apos;读">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://chellhooo.com/node学习笔记-处理异步回调/img/nodeo/png">
+<meta property="og:image" content="http://chellhooo.com/img/nodeio/png">
 <meta property="og:image" content="http://chellhooo.com/img/异步IO.png">
 <meta property="og:image" content="http://chellhooo.com/img/node_libuv0.png">
-<meta property="og:image" content="http://chellhooo.com/node学习笔记-处理异步回调/node_libuv.png">
-<meta property="og:image" content="http://chellhooo.com/node学习笔记-处理异步回调/异步io流程.png">
-<meta property="og:updated_time" content="2018-04-09T10:10:34.288Z">
+<meta property="og:image" content="http://chellhooo.com/img/node_libuv.png">
+<meta property="og:image" content="http://chellhooo.com/img/异步io流程.png">
+<meta property="og:updated_time" content="2018-04-09T10:17:31.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js学习笔记 异步I&#x2F;O与回调">
 <meta name="twitter:description" content="背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。 node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile(&apos;/path&apos;,(err,file)=&amp;gt;&amp;#123;    console.log(&apos;读">
-<meta name="twitter:image" content="http://chellhooo.com/node学习笔记-处理异步回调/img/nodeo/png">
+<meta name="twitter:image" content="http://chellhooo.com/img/nodeio/png">
 
 
 
@@ -361,7 +362,7 @@
       
         <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。</p>
 <h3 id="node的非阻塞异步I-O"><a href="#node的非阻塞异步I-O" class="headerlink" title="node的非阻塞异步I/O"></a>node的非阻塞异步I/O</h3><p>调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fs.readfile(<span class="string">'/path'</span>,(err,file)=&gt;&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'读取文件完成'</span>)</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'我会先执行哦'</span>);</div></pre></td></tr></table></figure></p>
-<p>第二条字符串会先输出，而第一条字符串的执行取决于读取文件的异步调用何时结束。<br><img src="img/nodeo/png"><br>在node的底层构建很多异步I/O的API，从文件读取到网络请求等，则在node中我们可以从语言层面很自然的进行并行I/O操作。每个调用之间无需等待之前的I/O调用结束。在编程模型上可以极大提升效率，其次也能极大调高用户体验，尽可能减少UI阻塞的现象并能继续相应用户的交互行为。<br>在下面的两个文件读取任务的耗时为MAX(m,n)(在同步I/O中它们的耗时为m+n)：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fs.readFile(<span class="string">'/path1'</span>,(err,file)=&gt;&#123; <span class="comment">//耗时m毫秒</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'读取文件1完成'</span>)</div><div class="line">&#125;)</div><div class="line">fs.readFile(<span class="string">'/path2'</span>,(err,file)=&gt;&#123; <span class="comment">// 耗时n毫秒</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'读取文件2完成'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>第二条字符串会先输出，而第一条字符串的执行取决于读取文件的异步调用何时结束。<br><img src="/img/nodeio/png"><br>在node的底层构建很多异步I/O的API，从文件读取到网络请求等，则在node中我们可以从语言层面很自然的进行并行I/O操作。每个调用之间无需等待之前的I/O调用结束。在编程模型上可以极大提升效率，其次也能极大调高用户体验，尽可能减少UI阻塞的现象并能继续相应用户的交互行为。<br>在下面的两个文件读取任务的耗时为MAX(m,n)(在同步I/O中它们的耗时为m+n)：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fs.readFile(<span class="string">'/path1'</span>,(err,file)=&gt;&#123; <span class="comment">//耗时m毫秒</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'读取文件1完成'</span>)</div><div class="line">&#125;)</div><div class="line">fs.readFile(<span class="string">'/path2'</span>,(err,file)=&gt;&#123; <span class="comment">// 耗时n毫秒</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'读取文件2完成'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <ul>
 <li>为什么要异步I/O<br>首先，我们假设有一组互不相关的任务需要完成，那我们可以使用单线程或多线程<ul>
 <li>多线程并行完成<br>  当创建多线程的开销小于并行执行，那么多线程自然更有优势。因为它在创建线程和执行期线程上下文切换的开销较大，而且经常面临死锁、状态同步的问题。但是多线程在多核CPU上能够有效提升CPU的利用率，这个优势也是毋庸置疑的。</li>
@@ -382,7 +383,7 @@
 <li>对线程进行一些简单的管理（延时执行、定时循环执行的策略等）</li>
 </ul>
 </li>
-<li><p>node的单线程仅仅是指JavaScript执行在单线程<br>  那再回到本文，我们需要注意的是，我们平时提到node是单线程的，但<strong>这里的单线程仅仅只是JavaScript执行在单线程</strong>。事实上，在node.js中，除了JavaScript是单线程外，node自身其实多线程。无论是<em>nix还是Windows平台，<em>*node内部完成I/O任务的是在线程池</em></em>。<br>  <img src="node_libuv.png"><br>  从上图可以看到，libuv实现了一套自己的线程池来处理所有同步操作（从而模拟出异步的效果）。比如在下面代码中，<code>fs.open()</code>的作用是根据指定路径和参数去打开一个文件，从而得到一个文件描述符，这是后续所有I/O操作的初始操作。</p>
+<li><p>node的单线程仅仅是指JavaScript执行在单线程<br>  那再回到本文，我们需要注意的是，我们平时提到node是单线程的，但<strong>这里的单线程仅仅只是JavaScript执行在单线程</strong>。事实上，在node.js中，除了JavaScript是单线程外，node自身其实多线程。无论是<em>nix还是Windows平台，<em>*node内部完成I/O任务的是在线程池</em></em>。<br>  <img src="/img/node_libuv.png"><br>  从上图可以看到，libuv实现了一套自己的线程池来处理所有同步操作（从而模拟出异步的效果）。比如在下面代码中，<code>fs.open()</code>的作用是根据指定路径和参数去打开一个文件，从而得到一个文件描述符，这是后续所有I/O操作的初始操作。</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fs.open=<span class="function"><span class="keyword">function</span>(<span class="params">path,flags,mode,callback</span>)</span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>  上面的代码中，</p>
 <ul>
@@ -390,7 +391,7 @@
 <li>由libuv判断平台并调用相应的方法(该例子是调用<code>uv_fs_open()</code>)，在这个过程中，我们创建一个请求对象(FSReqWrap)，JavaScript层传入的参数和当前方法都被封装在这个请求对象中，其中回调函数就设置在这个对象的oncomplete_sym属性上。</li>
 <li><p>对象包装完成后，在Windows下，则先调用QueueUserWorkItem()方法将这个请求对象推入线程池中等待执行。</p>
 <p>至此，JavaScript调用立即返回，由JavaScript层面发起的异步调用的第一阶段就此结束，JavaScript线程可以继续执行当前任务的后续操作。而当前的I/O操作在线程池中等待执行，不管它是否阻塞I/O，都不会影响JavaScript线程的后续执行，因而达到了异步的目的。</p>
-<h3 id="执行回调"><a href="#执行回调" class="headerlink" title="执行回调"></a>执行回调</h3><p>线程池中的I/O操作调用完毕后，会将获取的结果储存在<code>req-&gt;result</code>属性上，然后调用<code>PostQueuedCompletionStatus()</code>通知IOCP当前对象操作已完成(提交执行状态)，并将线程归还线程池，而且通过<code>PostQueuedCompletionStatus()</code>提交的状态可以通过<code>GetQueuedCompletionStatus()</code>提取。<br>在每次eventLoop的执行中，他会调用IOCP相关的<code>GetQueuedCompletionStatus()</code>检查线程池中是否有执行完的请求，如果有就会把请求对象加入<strong>I/O观察者</strong>的队列中，然后把其当时间处理。<br>I/O观察者回调函数的行为就是取出请求对象的result属性作为参数，取出oncomplete_sym属性作为方法，然后调用执行，以此就达到了调用JavaScript中传入的回调函数的目的。<br>至此，整个异步I/O的流程完全结束。<br><img src="异步io流程.png"></p>
+<h3 id="执行回调"><a href="#执行回调" class="headerlink" title="执行回调"></a>执行回调</h3><p>线程池中的I/O操作调用完毕后，会将获取的结果储存在<code>req-&gt;result</code>属性上，然后调用<code>PostQueuedCompletionStatus()</code>通知IOCP当前对象操作已完成(提交执行状态)，并将线程归还线程池，而且通过<code>PostQueuedCompletionStatus()</code>提交的状态可以通过<code>GetQueuedCompletionStatus()</code>提取。<br>在每次eventLoop的执行中，他会调用IOCP相关的<code>GetQueuedCompletionStatus()</code>检查线程池中是否有执行完的请求，如果有就会把请求对象加入<strong>I/O观察者</strong>的队列中，然后把其当时间处理。<br>I/O观察者回调函数的行为就是取出请求对象的result属性作为参数，取出oncomplete_sym属性作为方法，然后调用执行，以此就达到了调用JavaScript中传入的回调函数的目的。<br>至此，整个异步I/O的流程完全结束。<br><img src="/img/异步io流程.png"></p>
 </li>
 </ul>
 </li>
