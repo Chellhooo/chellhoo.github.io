@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://chellhooo.com/node%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83/</loc>
-    <lastmod>2018-04-09T10:51:29.111Z</lastmod>
+    <lastmod>2018-04-09T11:05:19.677Z</lastmod>
     <data>
         <display>
         <title>node.js学习笔记 异步I/O与回调</title>
@@ -99,9 +99,9 @@
         <title>js的单线程和异步</title>
         <pubTime>2018-03-05T10:40:46.000Z</pubTime>
         
-        <tag>node.js</tag>
-         
         <tag>单线程</tag>
+         
+        <tag>node.js</tag>
          
         <tag>Event Loop</tag>
          
@@ -195,9 +195,9 @@
         
         <tag>vertical-align</tag>
          
-        <tag>line-height</tag>
-         
         <tag>margin</tag>
+         
+        <tag>line-height</tag>
          
         <tag>垂直居中</tag>
          
