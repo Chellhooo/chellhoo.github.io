@@ -216,11 +216,11 @@
         
         <tag>vertical-align</tag>
          
+        <tag>margin</tag>
+         
         <tag>line-height</tag>
          
         <tag>垂直居中</tag>
-         
-        <tag>margin</tag>
          
         <tag>absolute</tag>
          
@@ -347,11 +347,11 @@
         
         <tag>css</tag>
          
-        <tag>margin</tag>
-         
         <tag>inline</tag>
          
         <tag>box</tag>
+         
+        <tag>margin</tag>
          
         <tag>padding</tag>
          
