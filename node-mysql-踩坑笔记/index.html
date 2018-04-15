@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.id])[22,&amp;apos;00006&amp;apos;] 第二个数据为什么显示是字符">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-10T15:17:09.812Z">
+<meta property="og:updated_time" content="2018-04-11T11:26:14.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node+mysql 踩坑笔记">
 <meta name="twitter:description" content="关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.id])[22,&amp;apos;00006&amp;apos;] 第二个数据为什么显示是字符">
@@ -357,6 +357,7 @@
 <p>第二个数据为什么显示是<strong>字符串</strong>呢，但我写的明明是int类型。然后发现是字段自动补零的锅。<br>我传入的数据是由<code>book</code>表搜索而来的，然后传入当前sql语句执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into orderDetail(oID,bID) values(?,?)</div></pre></td></tr></table></figure></p>
 <p><code>book</code>表的<code>bid</code>加了<code>zerofill</code>属性，<code>orderDetail</code>依赖前面表中的<code>bid</code>，但没有写<code>zerofill</code>，而mysql也没有报错，我以为也不会有问题。但事实是：) ,自己坑了自己。</p>
 <h3 id="数据库提交和回滚"><a href="#数据库提交和回滚" class="headerlink" title="数据库提交和回滚"></a>数据库提交和回滚</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 执行sql出错，数据回滚</span></div><div class="line">conneciton.rollback(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">// 若成功修改数据，提交</span></div><div class="line">connction.commit(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;  </div><div class="line">    <span class="keyword">if</span> (err) &#123;   </div><div class="line">        connection.rollback(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">        <span class="comment">// ... </span></div><div class="line">    &#125;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="sql嵌套执行的是要要注意异步回调问题"><a href="#sql嵌套执行的是要要注意异步回调问题" class="headerlink" title="sql嵌套执行的是要要注意异步回调问题"></a>sql嵌套执行的是要要注意异步回调问题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pool.query(sql,[],(err1,r1)=&gt;&#123;</div><div class="line">    <span class="keyword">let</span> results=[]</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;r1.length;i++)&#123;</div><div class="line">        pool.query(sql2,[],(err2,r2)=&gt;&#123;</div><div class="line">            results.push(r2)</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// result会先发送，此时result为空</span></div><div class="line">    res.json(&#123;</div><div class="line">        data:results <span class="comment">// [] </span></div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -401,6 +402,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hibernate学习笔记/" rel="prev" title="hibernate学习笔记">
+                hibernate学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -475,7 +480,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -532,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于字段自动补零zerofill"><span class="nav-number">1.</span> <span class="nav-text">关于字段自动补零zerofill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库提交和回滚"><span class="nav-number">2.</span> <span class="nav-text">数据库提交和回滚</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于字段自动补零zerofill"><span class="nav-number">1.</span> <span class="nav-text">关于字段自动补零zerofill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库提交和回滚"><span class="nav-number">2.</span> <span class="nav-text">数据库提交和回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql嵌套执行的是要要注意异步回调问题"><span class="nav-number">3.</span> <span class="nav-text">sql嵌套执行的是要要注意异步回调问题</span></a></li></ol></div>
             
 
           </div>
