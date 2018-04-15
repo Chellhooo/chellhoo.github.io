@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="ERROR：javax.naming.NoInitialContextException:Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file: java.naming.factory.initialorg">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-15T06:31:53.923Z">
+<meta property="og:updated_time" content="2018-04-15T06:33:26.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hibernate学习笔记">
 <meta name="twitter:description" content="ERROR：javax.naming.NoInitialContextException:Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file: java.naming.factory.initialorg">
@@ -322,7 +322,7 @@
       
         <h3 id="ERROR：javax-naming-NoInitialContextException-Need-to-specify-class-name-in-environment-or-system-property-or-as-an-applet-parameter-or-in-an-application-resource-file-java-naming-factory-initial"><a href="#ERROR：javax-naming-NoInitialContextException-Need-to-specify-class-name-in-environment-or-system-property-or-as-an-applet-parameter-or-in-an-application-resource-file-java-naming-factory-initial" class="headerlink" title="ERROR：javax.naming.NoInitialContextException:Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file: java.naming.factory.initial"></a>ERROR：javax.naming.NoInitialContextException:Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file: java.naming.factory.initial</h3><p><code>org.hibernate.dialect.MySQLDialect</code>是MySQL 4.x之前的版本.  TYPE=MYISAM是MySQL 4.0方言构建的，但在5.5版本已经废除了。</p>
 <ul>
-<li>如果用的是 MariaDB，则用以下其中之一代替<br>Given that you use MariaDB, you need to use (depending on the version of MariaDB and - maybe - the version of Hibernate) one of:<br><code>org.hibernate.dialect.MariaDBDialect</code><br><code>org.hibernate.dialect.MariaDB53Dialect</code></li>
+<li>如果用的是 MariaDB，则用以下其中之一代替<br><code>org.hibernate.dialect.MariaDBDialect</code><br><code>org.hibernate.dialect.MariaDB53Dialect</code></li>
 <li>如果你用的是mysql(或在MariaDB中上面不行)，则用以下其中之一代替<br><code>org.hibernate.dialect.MySQL5Dialect</code><br><code>org.hibernate.dialect.MySQL55Dialect</code><br><code>org.hibernate.dialect.MySQL57Dialect</code><br><a href="https://stackoverflow.com/questions/43716068/invalid-syntax-error-type-myisam-in-ddl-generated-by-hibernate" target="_blank" rel="noopener">参考链接</a></li>
 </ul>
 <h3 id="ERROR：Could-not-unbind-factory-from-JNDI"><a href="#ERROR：Could-not-unbind-factory-from-JNDI" class="headerlink" title="ERROR：Could not unbind factory from JNDI"></a>ERROR：Could not unbind factory from JNDI</h3><p>或提示下列错误<br><code>javax.naming.NoInitialContextException:  Need to specify class name in environment or system property,  or as an applet parameter, or in an application resource file:  java.naming.factory.initial</code><br>这个错误是因为我们在配置hibernate.cfg.xml时给sessionFactory设了name属性。该name属性的作用是“/jndi/name绑定到JNDI的SessionFactory实例”，而若配置了JNDI则需要添加对应的属性。但在hibernate容器初始化时找不到JNDI服务提供商的默认属性和JNDI服务器没有被显式的配置时发生，所以出错。所以在xxx.cfg.xml将sessionFactory的name属性去掉即可。<br><a href="https://blog.csdn.net/mimica247706624/article/details/48001767" target="_blank" rel="noopener">参考链接</a><br>如果是在tomcat下调试出现这个错误的，<a href="http://www.3lian.com/edu/2013/04-06/63816.html" target="_blank" rel="noopener">看这里</a></p>
