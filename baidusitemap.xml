@@ -4,15 +4,48 @@
 
     
   <url>
+    <loc>http://chellhooo.com/js-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
+    <lastmod>2018-05-30T15:31:56.607Z</lastmod>
+    <data>
+        <display>
+        <title>js学习笔记 词法分析和作用域</title>
+        <pubTime>2018-05-04T11:17:35.000Z</pubTime>
+        
+        <tag>词法作用域</tag>
+         
+        <tag>语法分析</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chellhooo.com/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2018-05-30T15:26:17.686Z</lastmod>
+    <lastmod>2018-05-30T15:29:49.455Z</lastmod>
     <data>
         <display>
         <title>js学习笔记 函数</title>
         <pubTime>2018-05-04T07:08:35.000Z</pubTime>
         
+        <tag>函数</tag>
+         
          
            
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
         </display>
     </data>
     </url>
@@ -20,29 +53,22 @@
     
   <url>
     <loc>http://chellhooo.com/js-%E9%97%AD%E5%8C%85/</loc>
-    <lastmod>2018-05-30T15:04:17.339Z</lastmod>
+    <lastmod>2018-05-30T15:29:21.420Z</lastmod>
     <data>
         <display>
         <title>js学习笔记 闭包</title>
         <pubTime>2018-03-29T16:21:05.000Z</pubTime>
         
+        <tag>闭包</tag>
+         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/js-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
-    <lastmod>2018-05-30T14:59:26.266Z</lastmod>
-    <data>
-        <display>
-        <title>js学习笔记 词法分析和作用域</title>
-        <pubTime>2018-05-04T11:17:35.000Z</pubTime>
-        
-         
-           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
         </display>
     </data>
     </url>
@@ -278,11 +304,11 @@
          
         <tag>margin</tag>
          
-        <tag>line-height</tag>
-         
         <tag>垂直居中</tag>
          
         <tag>absolute</tag>
+         
+        <tag>line-height</tag>
          
          
            
@@ -380,9 +406,9 @@
         
         <tag>vertical-align</tag>
          
-        <tag>可视化格式模型</tag>
-         
         <tag>line-height</tag>
+         
+        <tag>可视化格式模型</tag>
          
          
            
