@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Chellhoo博客,何巧珠,前端" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="[前言] 在大三下学期我选了编译原理，在某一天的学习中发现它可以让我更深层地了解我所接触的编程语言，很多零碎的知识点好像开始串联成线。下面主要为学习笔记和自己的一些小理解。 词法作用域和动态作用域程序设计语言的作用域可以分为静态作用域和动态作用域。而静态作用域在js中又称为词法作用域。静态作用域，声明的作用域是在 定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js学习笔记 词法分析和作用域">
+<meta property="og:url" content="http://chellhooo.com/js-词法分析和作用域/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="[前言] 在大三下学期我选了编译原理，在某一天的学习中发现它可以让我更深层地了解我所接触的编程语言，很多零碎的知识点好像开始串联成线。下面主要为学习笔记和自己的一些小理解。 词法作用域和动态作用域程序设计语言的作用域可以分为静态作用域和动态作用域。而静态作用域在js中又称为词法作用域。静态作用域，声明的作用域是在 定义 的时候确定的。如果在当前作用域找不到则会在 定义该函数的作用域 中查找，若没有">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-30T14:59:26.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js学习笔记 词法分析和作用域">
+<meta name="twitter:description" content="[前言] 在大三下学期我选了编译原理，在某一天的学习中发现它可以让我更深层地了解我所接触的编程语言，很多零碎的知识点好像开始串联成线。下面主要为学习笔记和自己的一些小理解。 词法作用域和动态作用域程序设计语言的作用域可以分为静态作用域和动态作用域。而静态作用域在js中又称为词法作用域。静态作用域，声明的作用域是在 定义 的时候确定的。如果在当前作用域找不到则会在 定义该函数的作用域 中查找，若没有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/js-词法分析和作用域/"/>
+
+
+
+
+
+  <title>js学习笔记 词法分析和作用域 | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js-词法分析和作用域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">js学习笔记 词法分析和作用域</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-04T19:17:35+08:00">
+                2018-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[前言] 在大三下学期我选了编译原理，在某一天的学习中发现它可以让我更深层地了解我所接触的编程语言，很多零碎的知识点好像开始串联成线。下面主要为学习笔记和自己的一些小理解。</p>
+<h3 id="词法作用域和动态作用域"><a href="#词法作用域和动态作用域" class="headerlink" title="词法作用域和动态作用域"></a>词法作用域和动态作用域</h3><p>程序设计语言的作用域可以分为静态作用域和动态作用域。而静态作用域在js中又称为词法作用域。<br>静态作用域，声明的作用域是在 <strong>定义</strong> 的时候确定的。如果在当前作用域找不到则会在 <strong>定义该函数的作用域</strong> 中查找，若没有则按此顺序往外查询。<br>动态作用域，声明的作用域是在 <strong>调用</strong> 的时候确定的。如果在当前作用域找不到则会在 <strong>调用该函数的作用域</strong> 中查找，若没有则按此顺序往外查询。<br>大多数现在程序设计语言都是采用静态作用域规则，而只有为数不多的几种语言采用动态作用域规则，包括APL、Snobol和Lisp的早期方言。<br>举个栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cal</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a+x); <span class="comment">// 3</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> x=<span class="number">2</span>;</div><div class="line">    <span class="built_in">console</span>.log(x); <span class="comment">// 2 </span></div><div class="line">    <span class="keyword">return</span> cal(x);</div><div class="line">&#125;</div><div class="line">test()</div></pre></td></tr></table></figure></p>
+<p>javascript是遵循词法作用域的，在函数test中调用函数cal，并传入参数x，此时词法作用域会现在当前函数test查找x(如果没有，则会在定义函数test的地方的作用域中寻找，也即是全局作用域)，而函数test中定义了x=2，所以函数cal的参数为x=2。接着我们在函数cal中要计算a+x，a即为参数值2，而在该函数体内没有变量x的定义，所以我们在定义函数cal的地方查找，也即是全局作用域，所以x为全局变量x=1，a+x的结果就是3而不是4。</p>
+<h4 id="词法绑定和动态绑定"><a href="#词法绑定和动态绑定" class="headerlink" title="词法绑定和动态绑定"></a>词法绑定和动态绑定</h4><p>词法作用域和动态作用于分别的使用的是词法绑定和动态绑定。<br>动态绑定的特点是它内部的变量对于其调用的子程序都是 <strong>可见</strong> 的，也即是说在使用动态绑定的程序语言中，父函数定义的变量对于子函数来说类似全局变量，也可以直接使用的，例子如下<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// lisp使用的是动态作用域</div><div class="line">(defun foo1(x)(foo2)) // foo1中传入参数x，并调用foo2</div><div class="line">(defun foo2()(+ x 5)) // foo2中可以直接使用x</div></pre></td></tr></table></figure></p>
+<p>而词法绑定，它内部的变量对于其调用的子程序都是 <strong>不可见</strong> 的，<strong>定义它的地方</strong> 所定义的变量才是全局变量，通常来说，我们接触的语言大多使用的都是词法绑定。<br>我自己的理解是，词法绑定可以避免变量逃出词法上下文，尽管动态绑定某种程度上看似容易理解，但父子函数间的数据耦合度过高，变量一不小心就会相互影响，在多人合作的大型项目中很容易会出错，而这错误可能还很难找到。而JavaScript中的es6标准中推荐使用let取代var某种程度考虑也有相同的地方，因为var会有变量提升的问题，在同一作用域中，就算在定义变量之前也可以使用该变量；而如果使用let定义变量，在该定义之前使用该变量会报错。其实这正正是让我们提前发现错误，减少犯错并以后找出错误的成本。所以我们更提倡显示说明，减少理所当然。<br>而在可拓展性语言中通常运用动态绑定规则，<a href="http://www.gnu.org/software/emacs/emacs-paper.html#SEC17" target="_blank" rel="noopener">这里</a>在动态绑定的角度分析它利弊的，有兴趣可以了解一下~</p>
+<p>关于词法绑定和动态绑定的利弊，我接触不深所以可能还不能很透彻的分析，只能说一些浅显的理解，希望之后我还可以回来补充。</p>
+<h3 id="js中的语法分析"><a href="#js中的语法分析" class="headerlink" title="js中的语法分析"></a>js中的语法分析</h3><p>下列知识点整理自<a href="https://www.teakki.com/p/57dfbe41d3a7507f975f10bc" target="_blank" rel="noopener">javascript 词法作用域和闭包分析说明</a>。<br>我们知道JavaScript是解析型语言，而编译型语言和解析型语言有什么不一样呢</p>
+<ul>
+<li>编译型语言：主要步骤为词法分析、语法分析、语义检查、代码优化和目标代码生成。  </li>
+<li>解析型语言：通过词法分析和语法分析得到语法分析树后，就可以开始解释执行了。这里是一个简单原始的关于解析过程的原理，仅作为参考，详细的解析过程（各种JS引擎还有不同）还需要更深一步的研究<br>当然上面的解析只是传统意义上的介绍，深入的研究可以参考这里<a href="http://rednaxelafx.iteye.com/blog/492667" target="_blank" rel="noopener">虚拟机随谈（一）：解释器，树遍历解释器，基于栈与基于寄存器，大杂烩</a></li>
+</ul>
+<p>那以JavaScript为例，它的执行过程是怎样的呢</p>
+<ul>
+<li>步骤1. 读入第一个代码段（js执行引擎并非一行一行地执行程序，而是一段一段地分析执行的）  </li>
+<li>步骤2. 做词法分析和语法分析，有错则报语法错误（比如括号不匹配等），并跳转到步骤5  </li>
+<li>步骤3. 对【var】变量和【function】定义做“预解析”（永远不会报错的，因为只解析正确的声明）  </li>
+<li>步骤4. 执行代码段，有错则报错</li>
+<li>步骤5. 如果还有下一个代码段，则读入下一个代码段，重复步骤2  </li>
+<li>步骤6. 结束<br>我们知道JavaScript都是一段段代码读入的，那什么是一个代码段呢？一个js文件、一个script标签等。<h4 id="语法分析树"><a href="#语法分析树" class="headerlink" title="语法分析树"></a>语法分析树</h4>语法分析和预解析会共同构成语法分析树，其中</li>
+<li>变量集（variables）中，只有变量定义，没有变量值，这时候的变量值全部为undefined</li>
+<li>作用域（scope），根据词法作用域的特点，这个时候每个变量的作用域就已经明确了，而不会随执行时的环境而改变。【这就是我们上文所说的静态作用域。我们经常将一个方法 return 回去，然后在另外一个方法中去执行，执行时，方法中变量的作用域是按照方法定义时的作用域走。】</li>
+<li>语法分析完之后，我们调用每一个方法的时候，JS 引擎都会自动为其建立一个运行期上下文Execution Context和一个活动对象Activation Object，它们和方法实例的生命周期保持一致。</li>
+</ul>
+<p>现在我们尝试构建一棵简易版语法分析树（伪代码）加深理解。<br>（<a href="http://esprima.org/demo/parse.html#" target="_blank" rel="noopener">Espsrima</a>这里可以构建抽象语法树。）</p>
+<ul>
+<li><p>代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcA</span>(<span class="params">i,j</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i)<span class="comment">//undefined</span></div><div class="line">    <span class="keyword">var</span> i=<span class="number">100</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">funcB</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> k=<span class="number">200</span>;</div><div class="line">        <span class="built_in">console</span>.log(i)<span class="comment">//100</span></div><div class="line">        <span class="built_in">console</span>.log(k);<span class="comment">//200</span></div><div class="line">    &#125;</div><div class="line">    funcB()</div><div class="line">&#125;</div><div class="line">funcA(<span class="number">300</span>,<span class="number">400</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>语法分析树</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SyntaxTree =&#123;</div><div class="line">    <span class="comment">// 全局环境</span></div><div class="line">    <span class="built_in">window</span>:&#123;</div><div class="line">        variables:&#123;</div><div class="line">            x:&#123;<span class="attr">value</span>:<span class="number">1</span>&#125;</div><div class="line">        &#125;,</div><div class="line">        functions:&#123;</div><div class="line">            funcA:<span class="keyword">this</span>.funcA</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//……</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 函数funcA</span></div><div class="line">    funcA:&#123;</div><div class="line">        params：&#123;</div><div class="line">            i,</div><div class="line">            j,</div><div class="line">        &#125;,</div><div class="line">        variables:&#123;</div><div class="line">            i:<span class="number">100</span></div><div class="line">        &#125;,</div><div class="line">        functions:&#123;</div><div class="line">            funcB:<span class="keyword">this</span>.funcB</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//……</span></div><div class="line">    &#125;,</div><div class="line">    funcB:&#123;</div><div class="line">        variables&#123;</div><div class="line">            k:<span class="number">200</span></div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//……</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行期上下文</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ExecutionContext =&#123;</div><div class="line">    <span class="built_in">window</span>:&#123;</div><div class="line">        type: <span class="string">"global"</span>, </div><div class="line">        name: <span class="string">"global"</span>, </div><div class="line">        body: ActiveObject.window</div><div class="line">    &#125;,</div><div class="line">    funcA:&#123;</div><div class="line">        type: <span class="string">"function"</span>, </div><div class="line">        name: <span class="string">"funcA"</span>, </div><div class="line">        body: ActiveObject.funcA, </div><div class="line">        scopeChain: <span class="keyword">this</span>.window.body </div><div class="line">    &#125;,</div><div class="line">    funcB:&#123;</div><div class="line">        type: <span class="string">"function"</span>, </div><div class="line">        name: <span class="string">"funcB"</span>, </div><div class="line">        body: ActiveObject.funcB, </div><div class="line">        scopeChain: <span class="keyword">this</span>.funcA.body </div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>活动对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ActiveObject =&#123;</div><div class="line">    <span class="built_in">window</span>:&#123;</div><div class="line">        variables:&#123;</div><div class="line">            x:&#123;<span class="attr">value</span>:<span class="number">1</span>&#125;</div><div class="line">        &#125;,</div><div class="line">        functions:&#123;</div><div class="line">            funcA:<span class="keyword">this</span>.funcA</div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">    funcA:&#123; </div><div class="line">        variables:&#123; </div><div class="line">            i:&#123;<span class="attr">value</span>:<span class="number">100</span>&#125;</div><div class="line">        &#125;, </div><div class="line">        functions:&#123; </div><div class="line">            funcB: SyntaxTree.funcB </div><div class="line">        &#125;, </div><div class="line">        parameters:&#123; </div><div class="line">        i: &#123;<span class="attr">value</span>: <span class="number">300</span>&#125;, </div><div class="line">        j: <span class="keyword">this</span>.variables.j</div><div class="line">        &#125;, </div><div class="line">        <span class="built_in">arguments</span>:[<span class="keyword">this</span>.parameters.i,<span class="keyword">this</span>.parameters.j] </div><div class="line">    &#125;,</div><div class="line">    funcB:&#123; </div><div class="line">        variables:&#123; </div><div class="line">            k:&#123;<span class="attr">value</span>:<span class="number">200</span>&#125;</div><div class="line">        &#125;, </div><div class="line">        functions:&#123;&#125;, </div><div class="line">        parameters:&#123;&#125;, </div><div class="line">        <span class="built_in">arguments</span>:[] </div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="现在来看一个例子"><a href="#现在来看一个例子" class="headerlink" title="现在来看一个例子"></a>现在来看一个例子</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i=<span class="number">2</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i)</div><div class="line">    <span class="keyword">var</span> i=<span class="number">10</span>;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>很多人可以第一反应输出的是<code>2 10</code><br>然而正确答案应该是<code>undefine 10</code><br>看到这里可能你也很快就反应过来了：因为 <strong>变量提升</strong>。<br>可是JavaScript为什么会有变量声明提升呢？答案就是 JavaScript的预解析。</p>
+<h3 id="JavaScript的预解析-和-变量-函数声明提升"><a href="#JavaScript的预解析-和-变量-函数声明提升" class="headerlink" title="JavaScript的预解析 和 变量/函数声明提升"></a>JavaScript的预解析 和 变量/函数声明提升</h3><p>在上文中分析中，一段js代码段在进行词法分析和语法分析之后，都会首先处理var关键字和function定义式(函数定义式和函数表达式)再执行该段代码段。<br>所以在调用函数执行之前, 会首先创建一个活动对象, 然后搜寻这个函数中的局部变量定义和函数定义, 将变量名和函数名都做为这个活动对象的同名属性。对于局部变量定义,变量的值会在真正执行的时候才计算, 此时只是简单的赋为undefined。<br>而这就是我们常说的变量声明提升和函数声明提升的实现原理。而这也是函数定义式和函数表达式的不同, 对于函数定义式, 会将函数定义提前. 而函数表达式, 会在执行过程中才计算。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> eve); <span class="comment">//结果:function</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> walle); <span class="comment">//结果:undefined</span></div><div class="line">walle(); <span class="comment">// 结果：报错，walle is not a function</span></div><div class="line">eve(); <span class="comment">// 结果：I am Laruence</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eve</span>(<span class="params"></span>) </span>&#123; <span class="comment">//函数定义式</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I am Laruence'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> walle = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//函数表达式 ，walle仅作为变量声明提升，而不是函数声明提升</span></div><div class="line">                         <span class="comment">// 执行的时候才会知道它是函数</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> walle); <span class="comment">//结果:function</span></div></pre></td></tr></table></figure></p>
+<p>当我们对一个变量没有用<code>var</code>定义的时候，会跃升为全局变量。对该变量做标识符解析的时候, 因为是写操作, 所以当找到到全局的window活动对象的时候都没有找到这个标识符的时候, 会在window活动对象的基础上, 返回一个值为undefined的该变量同名属性.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> hi=<span class="string">"hello"</span>;</div><div class="line">age=<span class="number">18</span>; <span class="comment">// age为全局变量</span></div></pre></td></tr></table></figure></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.emacswiki.org/emacs/DynamicBindingVsLexicalBinding" target="_blank" rel="noopener">DynamicBinding Vs LexicalBinding</a><br><a href="http://www.gnu.org/software/emacs/emacs-paper.html#SEC17" target="_blank" rel="noopener">Dynamic Binding explained in emacs</a><br><a href="http://www.ecma-international.org/ecma-262/8.0/index.html#sec-ecmascript-language-lexical-grammar" target="_blank" rel="noopener">ECMAScript® 2017 Language Specification</a><br><a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="noopener">Javascript作用域原理</a><br><a href="https://www.teakki.com/p/57dfbe41d3a7507f975f10bc" target="_blank" rel="noopener">javascript 词法作用域和闭包分析说明</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/js学习笔记-函数/" rel="next" title="js学习笔记 函数">
+                <i class="fa fa-chevron-left"></i> js学习笔记 函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法作用域和动态作用域"><span class="nav-number">1.</span> <span class="nav-text">词法作用域和动态作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#词法绑定和动态绑定"><span class="nav-number">1.1.</span> <span class="nav-text">词法绑定和动态绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js中的语法分析"><span class="nav-number">2.</span> <span class="nav-text">js中的语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法分析树"><span class="nav-number">2.1.</span> <span class="nav-text">语法分析树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在来看一个例子"><span class="nav-number">2.2.</span> <span class="nav-text">现在来看一个例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript的预解析-和-变量-函数声明提升"><span class="nav-number">3.</span> <span class="nav-text">JavaScript的预解析 和 变量/函数声明提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

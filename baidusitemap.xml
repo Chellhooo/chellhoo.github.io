@@ -4,6 +4,78 @@
 
     
   <url>
+    <loc>http://chellhooo.com/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2018-05-30T15:26:17.686Z</lastmod>
+    <data>
+        <display>
+        <title>js学习笔记 函数</title>
+        <pubTime>2018-05-04T07:08:35.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/js-%E9%97%AD%E5%8C%85/</loc>
+    <lastmod>2018-05-30T15:04:17.339Z</lastmod>
+    <data>
+        <display>
+        <title>js学习笔记 闭包</title>
+        <pubTime>2018-03-29T16:21:05.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/js-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
+    <lastmod>2018-05-30T14:59:26.266Z</lastmod>
+    <data>
+        <display>
+        <title>js学习笔记 词法分析和作用域</title>
+        <pubTime>2018-05-04T11:17:35.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/js%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%BC%82%E6%AD%A5/</loc>
+    <lastmod>2018-05-18T12:01:04.564Z</lastmod>
+    <data>
+        <display>
+        <title>js的单线程和异步</title>
+        <pubTime>2018-03-05T10:40:46.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+        <tag>单线程</tag>
+         
+        <tag>Event Loop</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chellhooo.com/hibernate%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2018-04-15T06:33:26.341Z</lastmod>
     <data>
@@ -121,33 +193,6 @@
           
              
               <breadCrumb title="webpack" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/webpack/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/js%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%BC%82%E6%AD%A5/</loc>
-    <lastmod>2018-04-01T07:51:28.498Z</lastmod>
-    <data>
-        <display>
-        <title>js的单线程和异步</title>
-        <pubTime>2018-03-05T10:40:46.000Z</pubTime>
-        
-        <tag>node.js</tag>
-         
-        <tag>单线程</tag>
-         
-        <tag>Event Loop</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
           
         </display>
     </data>
