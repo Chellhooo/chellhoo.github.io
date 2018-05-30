@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.">
+<meta name="description" content="JavaScript中有两种垃圾回收策略，标记清除和引用计数。 引用计数  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node+mysql 踩坑笔记">
-<meta property="og:url" content="http://chellhooo.com/node-mysql-踩坑笔记/index.html">
+<meta property="og:title" content="js学习笔记 循环引用">
+<meta property="og:url" content="http://chellhooo.com/js学习笔记-循环引用的解析和解决方法/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
-<meta property="og:description" content="关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.id])[22,&amp;apos;00006&amp;apos;] 第二个数据为什么显示是字符">
+<meta property="og:description" content="JavaScript中有两种垃圾回收策略，标记清除和引用计数。 引用计数  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0 时，则说明没有办法再访问这个值了，因而就可以将其占">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-11T11:26:14.420Z">
+<meta property="og:updated_time" content="2018-05-30T15:48:34.785Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node+mysql 踩坑笔记">
-<meta name="twitter:description" content="关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.id])[22,&amp;apos;00006&amp;apos;] 第二个数据为什么显示是字符">
+<meta name="twitter:title" content="js学习笔记 循环引用">
+<meta name="twitter:description" content="JavaScript中有两种垃圾回收策略，标记清除和引用计数。 引用计数  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0 时，则说明没有办法再访问这个值了，因而就可以将其占">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://chellhooo.com/node-mysql-踩坑笔记/"/>
+  <link rel="canonical" href="http://chellhooo.com/js学习笔记-循环引用的解析和解决方法/"/>
 
 
 
 
 
-  <title>node+mysql 踩坑笔记 | Chellhoooo_abyss</title>
+  <title>js学习笔记 循环引用 | Chellhoooo_abyss</title>
   
 
 
@@ -256,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node-mysql-踩坑笔记/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-循环引用的解析和解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">node+mysql 踩坑笔记</h2>
+          <h2 class="post-title" itemprop="name headline">js学习笔记 循环引用</h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T22:49:40+08:00">
-                2018-04-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T23:44:27+08:00">
+                2018-05-30
               </time>
             
 
@@ -295,39 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">node.js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -353,11 +320,21 @@
       
 
       
-        <h3 id="关于字段自动补零zerofill"><a href="#关于字段自动补零zerofill" class="headerlink" title="关于字段自动补零zerofill"></a>关于字段自动补零<code>zerofill</code></h3><p>在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至<strong>直接在mysql中以该语句插入数据都是可以的</strong>，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// console.log([order.id,good.id])</div><div class="line">[22,&apos;00006&apos;]</div></pre></td></tr></table></figure></p>
-<p>第二个数据为什么显示是<strong>字符串</strong>呢，但我写的明明是int类型。然后发现是字段自动补零的锅。<br>我传入的数据是由<code>book</code>表搜索而来的，然后传入当前sql语句执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into orderDetail(oID,bID) values(?,?)</div></pre></td></tr></table></figure></p>
-<p><code>book</code>表的<code>bid</code>加了<code>zerofill</code>属性，<code>orderDetail</code>依赖前面表中的<code>bid</code>，但没有写<code>zerofill</code>，而mysql也没有报错，我以为也不会有问题。但事实是：) ,自己坑了自己。</p>
-<h3 id="数据库提交和回滚"><a href="#数据库提交和回滚" class="headerlink" title="数据库提交和回滚"></a>数据库提交和回滚</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 执行sql出错，数据回滚</span></div><div class="line">conneciton.rollback(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">// 若成功修改数据，提交</span></div><div class="line">connction.commit(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;  </div><div class="line">    <span class="keyword">if</span> (err) &#123;   </div><div class="line">        connection.rollback(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">        <span class="comment">// ... </span></div><div class="line">    &#125;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="sql嵌套执行的是要要注意异步回调问题"><a href="#sql嵌套执行的是要要注意异步回调问题" class="headerlink" title="sql嵌套执行的是要要注意异步回调问题"></a>sql嵌套执行的是要要注意异步回调问题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">pool.query(sql,[],(err1,r1)=&gt;&#123;</div><div class="line">    <span class="keyword">let</span> results=[]</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;r1.length;i++)&#123;</div><div class="line">        pool.query(sql2,[],(err2,r2)=&gt;&#123;</div><div class="line">            results.push(r2)</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// result会先发送，此时result为空</span></div><div class="line">    res.json(&#123;</div><div class="line">        data:results <span class="comment">// [] </span></div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <p>JavaScript中有两种垃圾回收策略，标记清除和引用计数。</p>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3><p>  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。</p>
+<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><h4 id="js对象之间的循环引用"><a href="#js对象之间的循环引用" class="headerlink" title="js对象之间的循环引用"></a>js对象之间的循环引用</h4><p>  但引用计数有一个很严重的问题，循环引用。循环引用指的是对象A 中包含一个指向对象B的指针，而对象B中也包含一个指向对象A的引用。比如下面这个例子：</p>
+<p>function problem(){<br>    var objectA = new Object();<br>    var objectB = new Object();<br>    objectA.someOtherObject = objectB;<br>    objectB.anotherObject = objectA;<br>}<br>  当函数执行完毕后，objectA和objectB还将继续存在，因为它们的引用次数永远不会是0。假如这个函数被重复多次调用，就会导致大量内存得不到回收。</p>
+<h4 id="js对象和COM对象的循环引用"><a href="#js对象和COM对象的循环引用" class="headerlink" title="js对象和COM对象的循环引用"></a>js对象和COM对象的循环引用</h4><p>我们知道，IE中有一部分对象并不是原生JavaScript对象。例如，其BOM和DOM中的对象就是使用C++以COM（Component Object Model，组件对象模型）对象的形式实现的，而COM对象的垃圾收集机制采用的就是引用计数策略。因此，即使IE的JavaScript引擎是使用标记清除策略来实现的，但JavaScript访问的COM对象依然是基于引用计数策略的。换句话说，只要在IE中涉及COM对象，就会存在循环引用的问题。</p>
+<p>var element = document.getElementById(“some_element”);<br>var myObject = new Object();<br>myObject.element = element;<br>element.someObject = myObject;<br>  这个例子在一个DOM元素（element）与一个原生JavaScript对象（myObject）之间创建了循环引用。其中，变量myObject有一个名为element的属性指向element对象；而变量element也有一个属性名叫someObject回指myObject。由于存在这个循环引用，即使将例子中的DOM 从页面中移除，它也永远不会被回收。</p>
+<p>  为了避免类似这样的循环引用问题，最好是在不使用它们的时候手工断开原生JavaScript对象与DOM元素之间的连接。例如，可以使用下面的代码消除前面例子创建的循环引用：</p>
+<p>myObject.element = null;<br>element.someObject = null;</p>
+<h3 id="循环引用的解决"><a href="#循环引用的解决" class="headerlink" title="循环引用的解决"></a>循环引用的解决</h3><p>  Douglas Crockford提供了额外的JSON支持，cycle.js中包括两个函数，JSON.decycle和JSON.retrocycle，用来消除/恢复JSON中的环和图结构，JSONPath用来表示数据关系。GitHub原址：<a href="https://github.com/douglascrockford/JSON-js。这个功能利用了ES6的WeakMap。" target="_blank" rel="noopener">https://github.com/douglascrockford/JSON-js。这个功能利用了ES6的WeakMap。</a></p>
+<h3 id="IE内存泄漏补充：关于循环引用的详细解释"><a href="#IE内存泄漏补充：关于循环引用的详细解释" class="headerlink" title="IE内存泄漏补充：关于循环引用的详细解释"></a>IE内存泄漏补充：关于循环引用的详细解释</h3><p>Internet Explorer Web 浏览器（在 IE 4 到 IE 6 中核实）的垃圾收集系统中存在一个问题，即如果 ECMAScript 和某些宿主对象构成了 “循环引用”，那么这些对象将不会被当作垃圾收集。此时所谓的宿主对象指的是任何 DOM 节点（包括 document 对象及其后代元素）和 ActiveX 对象。如果在一个循环引用中包含了一或多个这样的对象，那么这些对象直到浏览器关闭都不会被释放，而它们所占用的内存同样在浏览器关闭之前都不会交回系统重用。</p>
+<p>当两个或多个对象以首尾相连的方式相互引用时，就构成了循环引用。比如对象 1 的一个属性引用了对象 2 ，对象 2 的一个属性引用了对象 3，而对象 3 的一个属性又引用了对象 1。对于纯粹的 ECMAScript 对象而言，只要没有其他对象引用对象 1、2、3，也就是说它们只是相互之间的引用，那么仍然会被垃圾收集系统识别并处理。但是，在 Internet Explorer 中，如果循环引用中的任何对象是 DOM 节点或者 ActiveX 对象，垃圾收集系统则不会发现它们之间的循环关系与系统中的其他对象是隔离的并释放它们。最终它们将被保留在内存中，直到浏览器关闭。</p>
+<p>闭包非常容易构成循环引用。如果一个构成闭包的函数对象被指定给，比如一个 DOM 节点的事件处理器，而对该节点的引用又被指定给函数对象作用域中的一个活动（或可变）对象，那么就存在一个循环引用。DOM_Node.onevent -&gt;function_object.[[scope]] -&gt;scope_chain -&gt;Activation_object.nodeRef -&gt;DOM_Node。形成这样一个循环引用是轻而易举的，而且稍微浏览一下包含类似循环引用代码的网站（通常会出现在网站的每个页面中），就会消耗大量（甚至全部）系统内存。</p>
+<p>多加注意可以避免形成循环引用，而在无法避免时，也可以使用补偿的方法，比如使用 IE 的 onunload 事件来来清空（null）事件处理函数的引用。时刻意识到这个问题并理解闭包的工作机制是在 IE 中避免此类问题的关键。</p>
+<h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://blog.csdn.net/Shauna_Wu/article/details/79938692" target="_blank" rel="noopener">js 循环引用的解析和解决方法</a><br><a href="https://blog.csdn.net/damon_king/article/details/2200285" target="_blank" rel="noopener">IE内存泄漏补充：关于循环引用的详细解释</a></p>
+
       
     </div>
 
@@ -393,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/node学习笔记-处理异步回调/" rel="next" title="node.js学习笔记 异步I/O与回调">
-                <i class="fa fa-chevron-left"></i> node.js学习笔记 异步I/O与回调
+              <a href="/hibernate学习笔记/" rel="next" title="hibernate学习笔记">
+                <i class="fa fa-chevron-left"></i> hibernate学习笔记
               </a>
             
           </div>
@@ -402,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/hibernate学习笔记/" rel="prev" title="hibernate学习笔记">
-                hibernate学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -537,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于字段自动补零zerofill"><span class="nav-number">1.</span> <span class="nav-text">关于字段自动补零zerofill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库提交和回滚"><span class="nav-number">2.</span> <span class="nav-text">数据库提交和回滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql嵌套执行的是要要注意异步回调问题"><span class="nav-number">3.</span> <span class="nav-text">sql嵌套执行的是要要注意异步回调问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数"><span class="nav-number">1.</span> <span class="nav-text">引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环引用"><span class="nav-number">2.</span> <span class="nav-text">循环引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js对象之间的循环引用"><span class="nav-number">2.1.</span> <span class="nav-text">js对象之间的循环引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js对象和COM对象的循环引用"><span class="nav-number">2.2.</span> <span class="nav-text">js对象和COM对象的循环引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环引用的解决"><span class="nav-number">3.</span> <span class="nav-text">循环引用的解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE内存泄漏补充：关于循环引用的详细解释"><span class="nav-number">4.</span> <span class="nav-text">IE内存泄漏补充：关于循环引用的详细解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未完待续"><span class="nav-number">5.</span> <span class="nav-text">未完待续</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
