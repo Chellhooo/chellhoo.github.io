@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue学习笔记-v-bind和v-model/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-inline-box-vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/vue学习笔记-v-bind和v-model/" itemprop="url">[vue学习笔记] v-bind和v-model</a></h2>
+                <a class="post-title-link" href="/css学习笔记-inline-box-vertical-align/" itemprop="url">[css学习笔记] inline box & vertical-align</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T00:45:45+08:00">
-                2018-04-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T16:12:12+08:00">
+                2018-03-14
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/vue-js/" itemprop="url" rel="index">
-                    <span itemprop="name">vue.js</span>
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -355,12 +355,13 @@
       
         
           
-          背景最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)1&lt;el-input-number :value="scope.row.amount" @change="changeAmount" size="mini" controls-position="right"  :min="1" :max="10"&gt;&lt;/el-input-number&gt;
-可是它的change事件只能传入最后修改值作参数，那我怎么修改原数据。然后我纠结了很久，突然想起这其实不就是表单控件的双向
+          line box &amp; vertical-align下面是文档中一段关于line box的介绍：
+
+A line box is always tall enough for all of the boxes it contains. However, it may be taller than the tallest box it contains (if, for example, boxes are aligned so that baselines line up). When the height of a box B is less than the height of the
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/vue学习笔记-v-bind和v-model/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-inline-box-vertical-align/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -406,7 +407,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js-闭包/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -425,7 +426,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js-闭包/" itemprop="url">js学习笔记 闭包</a></h2>
+                <a class="post-title-link" href="/css学习笔记-可视化格式模型和vertical-align/" itemprop="url">[css学习笔记] 可视化格式模型和vertical-align</a></h2>
         
 
         <div class="post-meta">
@@ -437,8 +438,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T00:21:05+08:00">
-                2018-03-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T18:32:56+08:00">
+                2018-03-13
               </time>
             
 
@@ -471,8 +472,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -507,20 +508,17 @@
       
         
           
-          什么是闭包MDN中对闭包的描述是
+          可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定
 
-闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。
 
-而es2017文档对词法环境的描述是这样的
-
-A Lexical Environment consists of an Environment Record and a possibly null reference to an outer Lexical Environment. 
-
-environment record（环境记录）记录相应环境中的形参，函数声明，变量声明等。外部的词法环境的引用可以为null，比如全局词法环境。
-所以，其实我们可以这样理解
+box dimensions and type. //盒子的类型
+positioning scheme (normal flow, float, and absolute positioning). //定位
+relationships between elements in the document tree. //元素与文档树的关系
+external information (e.g., viewport 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js-闭包/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-可视化格式模型和vertical-align/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -566,7 +564,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue-webpck学习笔记-img路径动态绑定/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-居中那些事/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -585,7 +583,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/vue-webpck学习笔记-img路径动态绑定/" itemprop="url">[vue&webpck学习笔记] webpack项目的img路径动态绑定</a></h2>
+                <a class="post-title-link" href="/css学习笔记-居中那些事/" itemprop="url">[css学习笔记] 居中那些事</a></h2>
         
 
         <div class="post-meta">
@@ -597,8 +595,8 @@ environment record（环境记录）记录相应环境中的形参，函数声�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T20:42:04+08:00">
-                2018-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T14:46:27+08:00">
+                2018-03-11
               </time>
             
 
@@ -631,8 +629,8 @@ environment record（环境记录）记录相应环境中的形参，函数声�
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/webpack/" itemprop="url" rel="index">
-                    <span itemprop="name">webpack</span>
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -667,15 +665,16 @@ environment record（环境记录）记录相应环境中的形参，函数声�
       
         
           
-          背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&lt;img&gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&lt;div v-for="item in bookList"&gt;    &lt;img :src='../assets/'+item.img"&gt;    // ……&lt;/div&gt;
-最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析 
-解决过程
-一开始我在想会不会是相对路径写错了，可是当不是动态绑定:src的时候，路径前缀是没有问题的。
-然后我把图片放在static/img目录下，并把路径前缀
+          垂直水平居中
+margin:auto &amp;&amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述
+
+Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-right-width’ + ‘margin-right’ = width of containing block
+
+当margin-left和margin-right值为auto的时候，则他们的使用值是相同
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/vue-webpck学习笔记-img路径动态绑定/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-居中那些事/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -716,7 +715,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -762,7 +761,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -784,7 +783,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
