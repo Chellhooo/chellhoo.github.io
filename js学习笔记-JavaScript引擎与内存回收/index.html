@@ -102,7 +102,7 @@
 <meta property="og:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://chellhooo.com/img/ChromeNode.png">
-<meta property="og:updated_time" content="2018-06-05T11:10:57.208Z">
+<meta property="og:updated_time" content="2018-06-05T11:12:59.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[js学习笔记] JavaScript引擎与内存管理">
 <meta name="twitter:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
@@ -358,7 +358,7 @@
       
         <p>JavaScript，和node.js、Chrome、V8等到底有什么关系呢？</p>
 <h3 id="JavaScript和node-js"><a href="#JavaScript和node-js" class="headerlink" title="JavaScript和node.js"></a>JavaScript和node.js</h3><p>JavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的Web服务器以达到更好的性能，而node由此诞生称为后端JavaScript的运行平台。<br>所以浏览器和node在某种程度上来说，是JavaScript适应不同需求所对应的运行平台。<br>node打破了过去JavaScript只能在浏览中运行的局面。前后端变成环境统一，可以大大降低前后端转换所需要的上下文交换代价。同时node的出现让JavaScript的使用场景有了更多的可能。</p>
-<p>关于V8，是Chrome浏览器的JavaScript引擎，而node也是由Chrome提供的V8引擎驱动，V8的性能优势使得用JavaScript写高性能后台服务程序称为可能。（当然浏览器除了JavaScript引擎，还有其他引擎比如WebKit布局引擎等）。以下为Chrome浏览器和node的组件构成。<br><img src="/img/ChromeNode.png"><br>除了HTML、WebKit和显卡这些UI相关技术没有支持外，node的结构与Chrome非常相似。它们都是基于事件驱动的异步结构，浏览器通过事件驱动来服务界面上的交互，node通过事件驱动来服务I/O。在node中JavaScript可以随心所以地访问本地文件，可以搭建websock服务器端，可以连接数据库，可以像web wokers一样玩转多进程。</p>
+<p>关于V8，是Chrome浏览器的JavaScript引擎，而node也是由Chrome提供的V8引擎驱动，V8的性能优势使得用JavaScript写高性能后台服务程序称为可能。（当然浏览器除了JavaScript引擎，还有其他引擎比如WebKit布局引擎等）。以下为Chrome浏览器和node的组件构成。<br><img src="/img/ChromeNode.png" style="width:80%"><br>除了HTML、WebKit和显卡这些UI相关技术没有支持外，node的结构与Chrome非常相似。它们都是基于事件驱动的异步结构，浏览器通过事件驱动来服务界面上的交互，node通过事件驱动来服务I/O。在node中JavaScript可以随心所以地访问本地文件，可以搭建websock服务器端，可以连接数据库，可以像web wokers一样玩转多进程。</p>
 <h3 id="关于JavaScript引擎"><a href="#关于JavaScript引擎" class="headerlink" title="关于JavaScript引擎"></a>关于JavaScript引擎</h3><p>“JavaScript 引擎”通常被称作一种 虚拟机。JavaScript 虚拟机是一种进程虚拟机，专门设计来解释和执行的 JavaScript 代码。进程虚拟机”不具备全部的功能，能运行一个程序或者进程。<br>JavaScript引擎会加载你的源代码，把它分解成字符串（又叫做分词），再 把这些字符串转换 成编译器可以理解的字节码，然后执行这些字节码。而不同的JavaScript引擎都有不同的处理方式以适应于对应的浏览器运行平台。</p>
 <p>比如WebKit 的 JavaScriptCore有六个“构建模块”可以分析、解释、优化、垃圾回收 JavaScript 代码。JavaScriptCore 执行一系列步骤 来解释和优化脚本：</p>
 <ol>
