@@ -102,7 +102,7 @@
 <meta property="og:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://chellhooo.com/img/ChromeNode.png">
-<meta property="og:updated_time" content="2018-06-05T11:12:59.455Z">
+<meta property="og:updated_time" content="2018-06-05T11:23:09.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[js学习笔记] JavaScript引擎与内存管理">
 <meta name="twitter:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
@@ -373,7 +373,53 @@
 <li>如果 Crankshaft 确定需要优化的代码是由 Full-codegen 生成的未优化代码，它就会取代 Full-codegen，这个过程叫做“crankshafting”。</li>
 </ol>
 <p>JavaScript是一种动态类型语言，在编译时并不能准确知道变量的类型，只可以在运行时确定，这就不像c++或者java等静态类型语言，在编译时候就可以确切知道变量的类型。然而，在运行时计算和决定类型，会严重影响语言性能，这也就是JavaScript运行效率比C++或者JAVA低很多的原因之一。一旦编译过程中产生了机器代码，引擎就会向浏览器暴露所有的数据类型、操作符、对象、在 ECMA 标准中指定的函数、或任何运行时需要使用的东西，NativeScript 就是如此。</p>
-<h4 id="不同的JavaScript引擎"><a href="#不同的JavaScript引擎" class="headerlink" title="不同的JavaScript引擎"></a>不同的JavaScript引擎</h4><p>不同的浏览器都各自有自己的JavaScript引擎，而在第二次浏览器大战中，Chrome浏览器的V8引擎取得性能第一的桂冠。这也是为什么同一段代码在不同浏览器的运行性能可能会有所不同。<br>Browser, Headless Browser, or Runtime|JavaScript Engine<br>|:-|:-|<br>Mozilla | Spidermonkey<br>Chrome | V8<br>Safari | JavaScriptCore<br>IE and Edge    | Chakra<br>PhantomJS | JavaScriptCore<br>HTMLUnit | Rhino<br>TrifleJS | V8<br>Node.js | V8<br>Io.js* | V8</p>
+<h4 id="不同的JavaScript引擎"><a href="#不同的JavaScript引擎" class="headerlink" title="不同的JavaScript引擎"></a>不同的JavaScript引擎</h4><p>不同的浏览器都各自有自己的JavaScript引擎，而在第二次浏览器大战中，Chrome浏览器的V8引擎取得性能第一的桂冠。这也是为什么同一段代码在不同浏览器的运行性能可能会有所不同。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Browser, Headless Browser, or Runtime</th>
+<th style="text-align:center">JavaScript Engine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Mozilla</td>
+<td style="text-align:center">Spidermonkey</td>
+</tr>
+<tr>
+<td style="text-align:center">Chrome</td>
+<td style="text-align:center">V8</td>
+</tr>
+<tr>
+<td style="text-align:center">Safari</td>
+<td style="text-align:center">JavaScriptCore</td>
+</tr>
+<tr>
+<td style="text-align:center">IE and Edge</td>
+<td style="text-align:center">Chakra</td>
+</tr>
+<tr>
+<td style="text-align:center">PhantomJS</td>
+<td style="text-align:center">JavaScriptCore</td>
+</tr>
+<tr>
+<td style="text-align:center">HTMLUnit</td>
+<td style="text-align:center">Rhino</td>
+</tr>
+<tr>
+<td style="text-align:center">TrifleJS</td>
+<td style="text-align:center">V8</td>
+</tr>
+<tr>
+<td style="text-align:center">Node.js</td>
+<td style="text-align:center">V8</td>
+</tr>
+<tr>
+<td style="text-align:center">Io.js*</td>
+<td style="text-align:center">V8</td>
+</tr>
+</tbody>
+</table>
 <h3 id="V8的内存限制"><a href="#V8的内存限制" class="headerlink" title="V8的内存限制"></a>V8的内存限制</h3><p>鉴于V8最初是为浏览器而设计，很少会遇到用大量内存的情景，因而V8的堆内存在64位系统只有约1.4GB，在32位系统下约有0.7GB。虽然对于网页来说绰绰有余，但对于后端node来说，会无法直接操作大内存对象，比如无法将一个2GB的文件读入内存中进行字符串分析处理，及时物理内存有32GB。</p>
 <p>而V8在内存使用上的限制，其深层原因由于V8的垃圾回收机制。按官方的说法，以1.5GB的垃圾回收对内存为例，V8做一次小的垃圾回收需要50毫秒以上，做一次非增量式的辣鸡回收甚至要1秒以上。这是垃圾回收中引起JavaScript线程暂停执行的时间，在这样的时间花销下，应用的性能和响应能力都会直线下降。这样的情况不仅仅后端服务无法接受，前端浏览器也无法接受。因此在当时的考虑下直接限制堆内存是一个好的选择。</p>
 <ul>
@@ -445,11 +491,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/闭包/" rel="tag"># 闭包</a>
-          
             <a href="/tags/JavaScript引擎/" rel="tag"># JavaScript引擎</a>
           
             <a href="/tags/内存泄漏/" rel="tag"># 内存泄漏</a>
+          
+            <a href="/tags/闭包/" rel="tag"># 闭包</a>
           
         </div>
       
