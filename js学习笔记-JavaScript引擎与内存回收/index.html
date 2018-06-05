@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="v8,JavaScript引擎,node,内存泄漏,闭包" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提">
+<meta name="keywords" content="v8,JavaScript引擎,node,内存泄漏,闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[js学习笔记] JavaScript引擎与内存管理">
+<meta property="og:url" content="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/img/ChromeNode.png">
+<meta property="og:updated_time" content="2018-06-05T11:06:04.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[js学习笔记] JavaScript引擎与内存管理">
+<meta name="twitter:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
+<meta name="twitter:image" content="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/img/ChromeNode.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/"/>
+
+
+
+
+
+  <title>[js学习笔记] JavaScript引擎与内存管理 | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">[js学习笔记] JavaScript引擎与内存管理</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T13:39:25+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JavaScript，和node.js、Chrome、V8等到底有什么关系呢？</p>
+<h3 id="JavaScript和node-js"><a href="#JavaScript和node-js" class="headerlink" title="JavaScript和node.js"></a>JavaScript和node.js</h3><p>JavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的Web服务器以达到更好的性能，而node由此诞生称为后端JavaScript的运行平台。<br>所以浏览器和node在某种程度上来说，是JavaScript适应不同需求所对应的运行平台。<br>node打破了过去JavaScript只能在浏览中运行的局面。前后端变成环境统一，可以大大降低前后端转换所需要的上下文交换代价。同时node的出现让JavaScript的使用场景有了更多的可能。</p>
+<p>关于V8，是Chrome浏览器的JavaScript引擎，而node也是由Chrome提供的V8引擎驱动，V8的性能优势使得用JavaScript写高性能后台服务程序称为可能。（当然浏览器除了JavaScript引擎，还有其他引擎比如WebKit布局引擎等）。以下为Chrome浏览器和node的组件构成。<br><img src="img/ChromeNode.png"><br>除了HTML、WebKit和显卡这些UI相关技术没有支持外，node的结构与Chrome非常相似。它们都是基于事件驱动的异步结构，浏览器通过事件驱动来服务界面上的交互，node通过事件驱动来服务I/O。在node中JavaScript可以随心所以地访问本地文件，可以搭建websock服务器端，可以连接数据库，可以像web wokers一样玩转多进程。</p>
+<h3 id="关于JavaScript引擎"><a href="#关于JavaScript引擎" class="headerlink" title="关于JavaScript引擎"></a>关于JavaScript引擎</h3><p>“JavaScript 引擎”通常被称作一种 虚拟机。JavaScript 虚拟机是一种进程虚拟机，专门设计来解释和执行的 JavaScript 代码。进程虚拟机”不具备全部的功能，能运行一个程序或者进程。<br>JavaScript引擎会加载你的源代码，把它分解成字符串（又叫做分词），再 把这些字符串转换 成编译器可以理解的字节码，然后执行这些字节码。而不同的JavaScript引擎都有不同的处理方式以适应于对应的浏览器运行平台。</p>
+<p>比如WebKit 的 JavaScriptCore有六个“构建模块”可以分析、解释、优化、垃圾回收 JavaScript 代码。JavaScriptCore 执行一系列步骤 来解释和优化脚本：</p>
+<ol>
+<li>它进行词法分析，就是将源代码分解成一系列具有明确含义的符号或字符串。</li>
+<li>然后用语法分析器分析这些符号，将其构建成语法树。</li>
+<li>接着四个 JIT（Just-In-Time）进程开始参与进来，分析和执行解析器所生成的字节码。</li>
+</ol>
+<p>而Google 的 V8 引擎 是用 C++ 编写的，它也能够编译并执行 JavaScript 源代码、处理内存分配和垃圾回收。它被设计成由两个编译器组成，可以 <strong>把源码直接编译成机器码</strong>，相比传统的“中间代码+解释器”的引擎解析速度会更快些：</p>
+<ol>
+<li>Full-codegen：输出未优化代码的快速编译器</li>
+<li>Crankshaft: 输出执行效率高、优化过的代码的慢速编译器</li>
+<li>如果 Crankshaft 确定需要优化的代码是由 Full-codegen 生成的未优化代码，它就会取代 Full-codegen，这个过程叫做“crankshafting”。</li>
+</ol>
+<p>JavaScript是一种动态类型语言，在编译时并不能准确知道变量的类型，只可以在运行时确定，这就不像c++或者java等静态类型语言，在编译时候就可以确切知道变量的类型。然而，在运行时计算和决定类型，会严重影响语言性能，这也就是JavaScript运行效率比C++或者JAVA低很多的原因之一。一旦编译过程中产生了机器代码，引擎就会向浏览器暴露所有的数据类型、操作符、对象、在 ECMA 标准中指定的函数、或任何运行时需要使用的东西，NativeScript 就是如此。</p>
+<h4 id="不同的JavaScript引擎"><a href="#不同的JavaScript引擎" class="headerlink" title="不同的JavaScript引擎"></a>不同的JavaScript引擎</h4><p>不同的浏览器都各自有自己的JavaScript引擎，而在第二次浏览器大战中，Chrome浏览器的V8引擎取得性能第一的桂冠。这也是为什么同一段代码在不同浏览器的运行性能可能会有所不同。<br>Browser, Headless Browser, or Runtime|JavaScript Engine<br>|:-|:-|<br>Mozilla | Spidermonkey<br>Chrome | V8<br>Safari | JavaScriptCore<br>IE and Edge    | Chakra<br>PhantomJS | JavaScriptCore<br>HTMLUnit | Rhino<br>TrifleJS | V8<br>Node.js | V8<br>Io.js* | V8</p>
+<h3 id="V8的内存限制"><a href="#V8的内存限制" class="headerlink" title="V8的内存限制"></a>V8的内存限制</h3><p>鉴于V8最初是为浏览器而设计，很少会遇到用大量内存的情景，因而V8的堆内存在64位系统只有约1.4GB，在32位系统下约有0.7GB。虽然对于网页来说绰绰有余，但对于后端node来说，会无法直接操作大内存对象，比如无法将一个2GB的文件读入内存中进行字符串分析处理，及时物理内存有32GB。</p>
+<p>而V8在内存使用上的限制，其深层原因由于V8的垃圾回收机制。按官方的说法，以1.5GB的垃圾回收对内存为例，V8做一次小的垃圾回收需要50毫秒以上，做一次非增量式的辣鸡回收甚至要1秒以上。这是垃圾回收中引起JavaScript线程暂停执行的时间，在这样的时间花销下，应用的性能和响应能力都会直线下降。这样的情况不仅仅后端服务无法接受，前端浏览器也无法接受。因此在当时的考虑下直接限制堆内存是一个好的选择。</p>
+<ul>
+<li><p>能不能改变堆内存的限制？<br>  node在启动的时候可以传递<code>--max-old-space-size</code>或<code>--max-new-space-size</code>调整内存限制的大小。例如</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node --max-old-space-size==1700 test.js // 单位为MB</div><div class="line">// 或者</div><div class="line">node --max-new-space-size==1024 test.js // 单位为KB</div></pre></td></tr></table></figure>
+<p>  上述参数在V8初始化是生效，一旦生效就不能再动态改变。</p>
+</li>
+</ul>
+<h3 id="V8的垃圾回收机制"><a href="#V8的垃圾回收机制" class="headerlink" title="V8的垃圾回收机制"></a>V8的垃圾回收机制</h3><p>V8的垃圾回收策略主要基于分代式垃圾回收机制。不同的对象有不同的生存周期，一种垃圾回收算法无法完全满足所有的应用场景。为此，现在的垃圾回收算法中按对象的存活时间将内存的垃圾回收进行不同的分代，然后 <strong>分别对不同的分代的内存施以更高效的算法</strong>。<br>而在V8中主要讲内存分为新生代和老生代两代。新生代中的对象为存活事件较短的对象，老生代的对象为存活事件较长或常驻内存的对象。在上文中使用参数<code>--max-old-space-size</code>或<code>--max-new-space-size</code>修改内存限制需要在启动时指定，这意味着V8使用的内存没有办法根据使用情况自动扩充，当内存分配过程中超过极限值就会引起进程出错。</p>
+<ul>
+<li>Scavenge算法<br>  新生代对象主要使用Scavenge算法进行垃圾回收。它将新生代内存空间一分为二，分别为from空间和to空间。当分配内存的时候会在from空间分配。当进行垃圾回收的时候会把from空间中存活对象复制到to空间，然后把非存活对象占用空间释放。最后把from空间和to空间的角色发生交换。该算法是典型的空间换时间算法，只能用到新生代内存的一半。<ul>
+<li>在分代式垃圾回收的前提下，在复制对象前，检查对象是否经理过Scavenge回收，若是则会移到老生代空间中采用新的算法进行管理，称为晋升。或者检查to空间是否已经使用了超过25%，则会直接晋升到老生代空间。</li>
+<li>25%的限制值是因为to空间和from空间会不停身份互换，如果占比过高，可能会影响在该空间中的乃至后续的内存分配。</li>
+</ul>
+</li>
+<li>Mark-Sweep &amp; Mark-Compart<br>  这两种算法用于老生代对象。Mark-Sweep在标记阶段会遍历并标记活着的对象，然后在清除阶段清除没被标记的对象。但Mark-Sweep在进行一次标记清除回收内存空间会出现不连续的状态（即 <strong>有碎片</strong>）。因此Mark-Compart诞生，在完成标记后，在整理的过程中将活着的对象往一段移动，移动完成后会清掉边界外的内存。 <ul>
+<li>但Mark-Sweep比 Mark-Compart回收速度会 <strong>更快</strong>，V8中会将二者结合使用，心思空间不足以对新生代晋升过来的对象进行分配时才会使用Mark-Compart。</li>
+</ul>
+</li>
+</ul>
+<p>对于V8的垃圾回收特点和JavaScript在单线程上的执行情况，垃圾回收是影响性能的因素之一。想要高性能的执行效率，需要注意让垃圾回收尽量少地进行，尤其是全堆垃圾回收。但在访问量大的时候会导致老生代中的存活对象骤增，不仅会造成清理、整理过程费时，还会造成内存紧张，甚至溢出。</p>
+<p>想要了解更多V8引擎可以戳<a href="https://zhuanlan.zhihu.com/p/27628685" target="_blank" rel="noopener">这里</a></p>
+<h3 id="在node中高效使用内存"><a href="#在node中高效使用内存" class="headerlink" title="在node中高效使用内存"></a>在node中高效使用内存</h3><h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>全局变量需要在进程退出才能释放。在非全局作用域中不再使用的变量引用，要及时将其通过delete删除对象或重新赋值为null/undefined。但是在V8中通过delete删除对象的属性有可能会干扰V8的优化，所以最好用 <strong>赋值方式</strong>解除引用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">global.foo=<span class="string">"im global object"</span>;</div><div class="line"><span class="comment">// delete global.foo;</span></div><div class="line">global.foo=<span class="literal">null</span>; <span class="comment">// 或 undefined</span></div></pre></td></tr></table></figure></p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>在闭包中可以实现外部作用域访问内部作用域中变量，因为函数可以作为参数或者返回值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test =<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> local=<span class="string">"local varible"</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> local;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo=test();</div></pre></td></tr></table></figure></p>
+<p>上述代码中在函数test()执行完之后，局部变量local不会随着作用域而销毁而被回收，因为test()函数的返回值为匿名函数,也就是说foo变量引用这匿名函数，而该匿名函数又引用的test()函数的私有变量local，也就是存在local变量的活动引用，所以除非foo释放对匿名函数的引用，匿名函数才能释放对local变量的引用，则函数test()占用的内存才能被回收。<br>其中 <strong>同一个对象共享同一个词法作用域</strong>，另一方面说明作用域不会得到释放和内存也没有被释放。以下代码可以验证这点。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        a+=<span class="number">1</span>;</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">        <span class="comment">// a = undefined; 释放活动引用</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> add;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> test=foo();</div><div class="line">test(); <span class="comment">// 2</span></div><div class="line">test(); <span class="comment">// 3</span></div><div class="line">test(); <span class="comment">// 4</span></div></pre></td></tr></table></figure></p>
+<p>所以在闭包中不再用的变量需要将变量引用 <strong>赋值为undefined或null</strong>。</p>
+<h3 id="node中的内存泄漏"><a href="#node中的内存泄漏" class="headerlink" title="node中的内存泄漏"></a>node中的内存泄漏</h3><p>造成内存泄漏通常有以下几个</p>
+<ul>
+<li>缓存</li>
+<li>队列消费不及时</li>
+<li><p>作用域未释放</p>
+<h4 id="慎把内存当缓存"><a href="#慎把内存当缓存" class="headerlink" title="慎把内存当缓存"></a>慎把内存当缓存</h4><p>我们都知道缓存和访问效率要比I/O的效率高，一旦命中缓存就可以节省一次I/O的时间，<br>但是在node中，有内存使用限制，一旦一个对象被当做缓存使用就会常驻在老生代内存空间中。那么缓存中存储的键越多，长期存活的对象就会越多，这将导致垃圾回收在进行扫描和整理时，对这些对象做无用功。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cache=&#123;&#125;;</div><div class="line"><span class="keyword">var</span> get=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(cache[key])<span class="keyword">return</span> cache[key];</div><div class="line">    <span class="keyword">else</span> <span class="comment">//……</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>我们最好制定一些缓存限制策略，比如限制缓存大小，一旦超过限制的数量就采取先进先出的方式进行淘汰。</p>
+</li>
+<li>模块常驻老生代，设计模块的时候注意内存泄漏</li>
+<li>使用进程外的缓存软件，不影响node进程的性能的同时，进程间可以共享缓存<h4 id="关注队列状态"><a href="#关注队列状态" class="headerlink" title="关注队列状态"></a>关注队列状态</h4>在消费者-生产者模型中，一旦消费速度低于生产速度就会产生堆积，JavaScript相关的作用域得不到释放，内存占用也不会回落，因而造成内存泄漏。比如采用数据库记录日记，写入效率远低于文件直接写入，造成数据库写入操作的堆积。</li>
+<li>换用消费速度更高的技术</li>
+<li>监控队列的长队</li>
+<li>任意异步调用都应该包含超时机制，给消费速度一个下限值</li>
+</ul>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>《深入浅出node.js》 朴灵著<br><a href="https://zhuanlan.zhihu.com/p/27628685" target="_blank" rel="noopener">认识 V8 引擎</a><br><a href="http://web.jobbole.com/84351/" target="_blank" rel="noopener">一篇给小白看的 JavaScript 引擎指南</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript引擎/" rel="tag"># JavaScript引擎</a>
+          
+            <a href="/tags/内存泄漏/" rel="tag"># 内存泄漏</a>
+          
+            <a href="/tags/闭包/" rel="tag"># 闭包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/js学习笔记-循环引用的解析和解决方法/" rel="next" title="[js学习笔记] 循环引用">
+                <i class="fa fa-chevron-left"></i> [js学习笔记] 循环引用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript和node-js"><span class="nav-number">1.</span> <span class="nav-text">JavaScript和node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于JavaScript引擎"><span class="nav-number">2.</span> <span class="nav-text">关于JavaScript引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不同的JavaScript引擎"><span class="nav-number">2.1.</span> <span class="nav-text">不同的JavaScript引擎</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V8的内存限制"><span class="nav-number">3.</span> <span class="nav-text">V8的内存限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V8的垃圾回收机制"><span class="nav-number">4.</span> <span class="nav-text">V8的垃圾回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在node中高效使用内存"><span class="nav-number">5.</span> <span class="nav-text">在node中高效使用内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域"><span class="nav-number">5.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">5.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node中的内存泄漏"><span class="nav-number">6.</span> <span class="nav-text">node中的内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#慎把内存当缓存"><span class="nav-number">6.1.</span> <span class="nav-text">慎把内存当缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关注队列状态"><span class="nav-number">6.2.</span> <span class="nav-text">关注队列状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
