@@ -36,11 +36,11 @@
         <title>[js学习笔记] JavaScript引擎与内存管理</title>
         <pubTime>2018-06-05T05:39:25.000Z</pubTime>
         
+        <tag>闭包</tag>
+         
         <tag>JavaScript引擎</tag>
          
         <tag>内存泄漏</tag>
-         
-        <tag>闭包</tag>
          
          
            
@@ -377,11 +377,11 @@
          
         <tag>margin</tag>
          
+        <tag>line-height</tag>
+         
         <tag>垂直居中</tag>
          
         <tag>absolute</tag>
-         
-        <tag>line-height</tag>
          
          
            
@@ -454,9 +454,9 @@
         
         <tag>vertical-align</tag>
          
-        <tag>line-height</tag>
-         
         <tag>可视化格式模型</tag>
+         
+        <tag>line-height</tag>
          
          
            
