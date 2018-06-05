@@ -102,7 +102,7 @@
 <meta property="og:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/img/ChromeNode.png">
-<meta property="og:updated_time" content="2018-06-05T11:06:04.115Z">
+<meta property="og:updated_time" content="2018-06-05T11:08:38.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[js学习笔记] JavaScript引擎与内存管理">
 <meta name="twitter:description" content="JavaScript，和node.js、Chrome、V8等到底有什么关系呢？ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的">
@@ -404,12 +404,11 @@
 <ul>
 <li>缓存</li>
 <li>队列消费不及时</li>
-<li><p>作用域未释放</p>
-<h4 id="慎把内存当缓存"><a href="#慎把内存当缓存" class="headerlink" title="慎把内存当缓存"></a>慎把内存当缓存</h4><p>我们都知道缓存和访问效率要比I/O的效率高，一旦命中缓存就可以节省一次I/O的时间，<br>但是在node中，有内存使用限制，一旦一个对象被当做缓存使用就会常驻在老生代内存空间中。那么缓存中存储的键越多，长期存活的对象就会越多，这将导致垃圾回收在进行扫描和整理时，对这些对象做无用功。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cache=&#123;&#125;;</div><div class="line"><span class="keyword">var</span> get=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(cache[key])<span class="keyword">return</span> cache[key];</div><div class="line">    <span class="keyword">else</span> <span class="comment">//……</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>我们最好制定一些缓存限制策略，比如限制缓存大小，一旦超过限制的数量就采取先进先出的方式进行淘汰。</p>
-</li>
+<li>作用域未释放</li>
+</ul>
+<h4 id="慎把内存当缓存"><a href="#慎把内存当缓存" class="headerlink" title="慎把内存当缓存"></a>慎把内存当缓存</h4><p>我们都知道缓存和访问效率要比I/O的效率高，一旦命中缓存就可以节省一次I/O的时间，<br>但是在node中，有内存使用限制，一旦一个对象被当做缓存使用就会常驻在老生代内存空间中。那么缓存中存储的键越多，长期存活的对象就会越多，这将导致垃圾回收在进行扫描和整理时，对这些对象做无用功。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cache=&#123;&#125;;</div><div class="line"><span class="keyword">var</span> get=<span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(cache[key])<span class="keyword">return</span> cache[key];</div><div class="line">    <span class="keyword">else</span> <span class="comment">//……</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>我们最好制定一些缓存限制策略，比如限制缓存大小，一旦超过限制的数量就采取先进先出的方式进行淘汰。</li>
 <li>模块常驻老生代，设计模块的时候注意内存泄漏</li>
 <li>使用进程外的缓存软件，不影响node进程的性能的同时，进程间可以共享缓存<h4 id="关注队列状态"><a href="#关注队列状态" class="headerlink" title="关注队列状态"></a>关注队列状态</h4>在消费者-生产者模型中，一旦消费速度低于生产速度就会产生堆积，JavaScript相关的作用域得不到释放，内存占用也不会回落，因而造成内存泄漏。比如采用数据库记录日记，写入效率远低于文件直接写入，造成数据库写入操作的堆积。</li>
 <li>换用消费速度更高的技术</li>
