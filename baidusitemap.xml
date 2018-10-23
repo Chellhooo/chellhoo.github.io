@@ -4,24 +4,306 @@
 
     
   <url>
-    <loc>http://chellhooo.com/hexo+github%20blog%EF%BC%9A%E5%B0%8F%E5%9D%91%E9%9B%86%E5%90%88/</loc>
-    <lastmod>2018-06-05T11:28:19.344Z</lastmod>
+    <loc>http://chellhooo.com/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%97%AD%E5%8C%85%E4%B8%8E%E5%85%B1%E4%BA%AB%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
+    <lastmod>2018-10-23T12:30:03.287Z</lastmod>
     <data>
         <display>
-        <title>hexo+github blog：小坑集合</title>
-        <pubTime>2017-07-28T14:43:22.000Z</pubTime>
+        <title>js学习笔记-闭包与共享作用域</title>
+        <pubTime>2018-10-23T07:22:25.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>闭包</tag>
          
-        <tag>github</tag>
+        <tag>内存泄漏</tag>
          
          
            
              
-              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
              
-              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</loc>
+    <lastmod>2018-10-23T12:28:43.397Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器缓存机制</title>
+        <pubTime>2018-07-26T08:54:57.000Z</pubTime>
+        
+        <tag>浏览器缓存</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/hibernate%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-10-23T12:25:31.579Z</lastmod>
+    <data>
+        <display>
+        <title>hibernate学习笔记</title>
+        <pubTime>2018-04-15T06:03:12.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="java" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/node%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-express-%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2018-10-23T12:24:31.641Z</lastmod>
+    <data>
+        <display>
+        <title>node学习笔记 express中间件</title>
+        <pubTime>2018-04-09T12:11:26.000Z</pubTime>
+        
+        <tag>node</tag>
+         
+        <tag>express框架</tag>
+         
+        <tag>中间件</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/node-js%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-10-23T12:18:57.126Z</lastmod>
+    <data>
+        <display>
+        <title>node.js笔记</title>
+        <pubTime>2018-02-01T08:18:38.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/%E5%88%9D%E8%AF%86%E5%8A%A8%E7%94%BB/</loc>
+    <lastmod>2018-10-23T12:16:19.615Z</lastmod>
+    <data>
+        <display>
+        <title>初识动画</title>
+        <pubTime>2018-05-18T11:43:17.000Z</pubTime>
+        
+        <tag>js动画</tag>
+         
+        <tag>css动画</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/js-%E9%97%AD%E5%8C%85/</loc>
+    <lastmod>2018-10-23T12:05:29.750Z</lastmod>
+    <data>
+        <display>
+        <title>[js学习笔记] 闭包</title>
+        <pubTime>2018-05-11T16:21:05.000Z</pubTime>
+        
+        <tag>闭包</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/node%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83/</loc>
+    <lastmod>2018-08-16T16:22:09.332Z</lastmod>
+    <data>
+        <display>
+        <title>node.js学习笔记 异步I/O与回调</title>
+        <pubTime>2018-04-09T03:25:16.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="node.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/node-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8F%AF%E7%BD%AE%E6%8D%A2%E5%85%83%E7%B4%A0%E5%92%8C%E9%9D%9E%E7%BD%AE%E6%8D%A2%E5%85%83%E7%B4%A0/</loc>
+    <lastmod>2018-08-16T16:22:06.303Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] 可置换元素和非置换元素</title>
+        <pubTime>2017-07-29T14:20:10.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>inline</tag>
+         
+        <tag>box</tag>
+         
+        <tag>margin</tag>
+         
+        <tag>padding</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-inline-box-vertical-align/</loc>
+    <lastmod>2018-08-16T11:48:55.596Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] inline box & vertical-align</title>
+        <pubTime>2018-03-14T08:12:12.000Z</pubTime>
+        
+        <tag>inline box</tag>
+         
+        <tag>vertical-align</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A0%BC%E5%BC%8F%E6%A8%A1%E5%9E%8B%E5%92%8Cvertical-align/</loc>
+    <lastmod>2018-08-16T11:41:20.323Z</lastmod>
+    <data>
+        <display>
+        <title>[css学习笔记] 可视化格式模型和vertical-align</title>
+        <pubTime>2018-03-13T10:32:56.000Z</pubTime>
+        
+        <tag>vertical-align</tag>
+         
+        <tag>可视化格式模型</tag>
+         
+        <tag>line-height</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/vue-webpck%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-img%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A/</loc>
+    <lastmod>2018-08-14T12:13:15.329Z</lastmod>
+    <data>
+        <display>
+        <title>[vue&webpck学习笔记] webpack项目的img路径动态绑定</title>
+        <pubTime>2018-03-29T12:42:04.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="webpack" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/webpack/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/js%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%BC%82%E6%AD%A5/</loc>
+    <lastmod>2018-08-14T10:36:54.706Z</lastmod>
+    <data>
+        <display>
+        <title>js的单线程和异步</title>
+        <pubTime>2018-03-05T10:40:46.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+        <tag>单线程</tag>
+         
+        <tag>Event Loop</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
           
         </display>
     </data>
@@ -30,7 +312,7 @@
     
   <url>
     <loc>http://chellhooo.com/js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-JavaScript%E5%BC%95%E6%93%8E%E4%B8%8E%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6/</loc>
-    <lastmod>2018-06-05T11:23:09.286Z</lastmod>
+    <lastmod>2018-08-14T08:23:16.389Z</lastmod>
     <data>
         <display>
         <title>[js学习笔记] JavaScript引擎与内存管理</title>
@@ -49,6 +331,31 @@
           
              
               <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chellhooo.com/hexo+github%20blog%EF%BC%9A%E5%B0%8F%E5%9D%91%E9%9B%86%E5%90%88/</loc>
+    <lastmod>2018-06-05T11:28:19.344Z</lastmod>
+    <data>
+        <display>
+        <title>hexo+github blog：小坑集合</title>
+        <pubTime>2017-07-28T14:43:22.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目搭建" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/"/>
+          
+             
+              <breadCrumb title="hexo" url="http://chellhooo.com/categories/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/hexo/"/>
           
         </display>
     </data>
@@ -125,98 +432,12 @@
 
     
   <url>
-    <loc>http://chellhooo.com/js-%E9%97%AD%E5%8C%85/</loc>
-    <lastmod>2018-05-30T15:51:04.931Z</lastmod>
-    <data>
-        <display>
-        <title>[js学习笔记] 闭包</title>
-        <pubTime>2018-05-11T16:21:05.000Z</pubTime>
-        
-        <tag>闭包</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/js%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%BC%82%E6%AD%A5/</loc>
-    <lastmod>2018-05-18T12:01:04.564Z</lastmod>
-    <data>
-        <display>
-        <title>js的单线程和异步</title>
-        <pubTime>2018-03-05T10:40:46.000Z</pubTime>
-        
-        <tag>node.js</tag>
-         
-        <tag>单线程</tag>
-         
-        <tag>Event Loop</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/hibernate%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-04-15T06:33:26.341Z</lastmod>
-    <data>
-        <display>
-        <title>hibernate学习笔记</title>
-        <pubTime>2018-04-15T06:03:12.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chellhooo.com/node-mysql-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2018-04-11T11:26:14.420Z</lastmod>
     <data>
         <display>
         <title>node+mysql 踩坑笔记</title>
         <pubTime>2018-04-10T14:49:40.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="node.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/node-js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/node%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83/</loc>
-    <lastmod>2018-04-10T05:06:17.384Z</lastmod>
-    <data>
-        <display>
-        <title>node.js学习笔记 异步I/O与回调</title>
-        <pubTime>2018-04-09T03:25:16.000Z</pubTime>
         
          
            
@@ -271,47 +492,6 @@
           
              
               <breadCrumb title="vue.js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vue-js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/vue-webpck%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-img%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A/</loc>
-    <lastmod>2018-04-01T08:00:59.504Z</lastmod>
-    <data>
-        <display>
-        <title>[vue&webpck学习笔记] webpack项目的img路径动态绑定</title>
-        <pubTime>2018-03-29T12:42:04.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="webpack" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/webpack/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/node-js%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-04-01T07:49:36.866Z</lastmod>
-    <data>
-        <display>
-        <title>node.js笔记</title>
-        <pubTime>2018-02-01T08:18:38.000Z</pubTime>
-        
-        <tag>node.js</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -397,31 +577,6 @@
 
     
   <url>
-    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-inline-box-vertical-align/</loc>
-    <lastmod>2018-04-01T07:46:45.354Z</lastmod>
-    <data>
-        <display>
-        <title>[css学习笔记] inline box & vertical-align</title>
-        <pubTime>2018-03-14T08:12:12.000Z</pubTime>
-        
-        <tag>inline box</tag>
-         
-        <tag>vertical-align</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chellhooo.com/%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/</loc>
     <lastmod>2018-04-01T07:42:59.452Z</lastmod>
     <data>
@@ -438,64 +593,6 @@
           
              
               <breadCrumb title="js" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A0%BC%E5%BC%8F%E6%A8%A1%E5%9E%8B%E5%92%8Cvertical-align/</loc>
-    <lastmod>2018-03-14T12:28:51.488Z</lastmod>
-    <data>
-        <display>
-        <title>[css学习笔记] 可视化格式模型和vertical-align</title>
-        <pubTime>2018-03-13T10:32:56.000Z</pubTime>
-        
-        <tag>vertical-align</tag>
-         
-        <tag>可视化格式模型</tag>
-         
-        <tag>line-height</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chellhooo.com/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8F%AF%E7%BD%AE%E6%8D%A2%E5%85%83%E7%B4%A0%E5%92%8C%E9%9D%9E%E7%BD%AE%E6%8D%A2%E5%85%83%E7%B4%A0/</loc>
-    <lastmod>2018-03-14T11:14:45.659Z</lastmod>
-    <data>
-        <display>
-        <title>[css学习笔记] 可置换元素和非置换元素</title>
-        <pubTime>2017-07-29T14:20:10.000Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>inline</tag>
-         
-        <tag>box</tag>
-         
-        <tag>margin</tag>
-         
-        <tag>padding</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-             
-              <breadCrumb title="css" url="http://chellhooo.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/css/"/>
           
         </display>
     </data>

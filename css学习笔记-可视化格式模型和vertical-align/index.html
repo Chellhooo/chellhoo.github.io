@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Chellhoooo_abyss">
 <meta property="og:description" content="可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定   box dimensions and type. //盒子的类型 positioning scheme (normal flow, float, and absolute positioning). //定位 re">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-14T12:28:51.488Z">
+<meta property="og:updated_time" content="2018-08-16T11:41:20.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[css学习笔记] 可视化格式模型和vertical-align">
 <meta name="twitter:description" content="可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定   box dimensions and type. //盒子的类型 positioning scheme (normal flow, float, and absolute positioning). //定位 re">
@@ -403,7 +403,7 @@
 </blockquote>
 <p>浮动元素并<strong>不在文档流</strong>中(这也就是为什么父元素容易出现高度坍塌的原因)，所以没有定位的块元素位置不会收到影响，但是相邻的line box就会在浮动元素之后被创建，而且它的宽度可能会减小以满足浮动元素margin box所需的空间，而真的没有空间了，该line box就会移至下一行</p>
 <ul>
-<li>大名鼎鼎的clear:both<br>可能很多人都不知都它有什么用的，只知道<code>clear:both</code><strong>清除浮动</strong>，并能解决大部分奇难杂症，比如父元素高度坍塌。那么它的实现原理是什么呢？现在我们先来看看clear有哪些属性值~<br>clear: none | left | right | both | inherit<br>该属性是让元素的某条边不与前面的浮动框相邻，但不会作用于该元素内部浮动元素。也可以简单理解为清除左/右/全部浮动，但不是很准确。<br>因为它除了能解决高度坍塌问题之外，还可以实现垂直环绕布局，例子可以戳<a href="http://www.zhangxinxu.com/study/201406/clear-left-right-both.html" target="_blank" rel="noopener">这里</a>。张鑫旭老师的例子中两张float：right的图片本应一起并排浮动到右边，但当第二张图片<code>clear:right</code>的时候，第二张图片就会落在第一张图片的正下方，也就文档中对clear的描述：让元素的某条边不与前面的浮动框相邻。    </li>
+<li>大名鼎鼎的clear:both<br>可能很多人都不知都它有什么用的，只知道<code>clear:both</code><strong>清除浮动</strong>，并能解决大部分奇难杂症，比如父元素高度坍塌。那么它的实现原理是什么呢？现在我们先来看看clear有哪些属性值~<br>clear: none | left | right | both | inherit<br>该属性是让元素的某条边不与前面的浮动框相邻，但不会作用于该元素内部浮动元素。也可以简单理解为清除左/右/全部浮动，但不是很准确。<br>因为它除了能解决高度坍塌问题之外，还可以实现垂直环绕布局，例子可以戳<a href="http://www.zhangxinxu.com/study/201406/clear-left-right-both.html" target="_blank" rel="noopener">这里</a>。张鑫旭老师的例子中两张float：left的图片本应一起并排浮动到左边，但当第二张图片<code>clear:left</code>的时候，第二张图片就会落在第一张图片的正下方，也就文档中对clear的描述：让元素的某条边不与前面的浮动框相邻。    </li>
 </ul>
 </li>
 </ul>
@@ -547,7 +547,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -569,7 +569,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

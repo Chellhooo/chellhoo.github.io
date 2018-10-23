@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js-词法分析和作用域/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-循环引用的解析和解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js-词法分析和作用域/" itemprop="url">[js学习笔记] 词法分析和作用域</a></h2>
+                <a class="post-title-link" href="/js学习笔记-循环引用的解析和解决方法/" itemprop="url">[js学习笔记] 循环引用</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-04T19:17:35+08:00">
-                2018-05-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T23:44:27+08:00">
+                2018-05-30
               </time>
             
 
@@ -355,12 +355,13 @@
       
         
           
-          [前言] 在大三下学期我选了编译原理，在某一天的学习中发现它可以让我更深层地了解我所接触的编程语言，很多零碎的知识点好像开始串联成线。下面主要为学习笔记和自己的一些小理解。
-词法作用域和动态作用域程序设计语言的作用域可以分为静态作用域和动态作用域。而静态作用域在js中又称为词法作用域。静态作用域，声明的作用域是在 定义 的时候确定的。如果在当前作用域找不到则会在 定义该函数的作用域 中查找，若没有则按此顺序往外查询。动态作用域，声明的作用域是在 调用 的时候确定的。如果在当前作用域找不到则会在 调用该函数的作用域 中查找，若没有则按此顺序往外查询。大多数现在程序设计语言都是采用静态作用域规则，
+          JavaScript中有两种垃圾回收策略，标记清除和引用计数。
+引用计数  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。
+循环引用js对象之间的循环引用  但引用计数有一个很严重的问题，循环引用。循环引用指的是对象A 中包
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js-词法分析和作用域/#more" rel="contents">
+            <a class="btn" href="/js学习笔记-循环引用的解析和解决方法/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -406,7 +407,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-函数/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/初识动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -425,7 +426,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js学习笔记-函数/" itemprop="url">[js学习笔记] 函数</a></h2>
+                <a class="post-title-link" href="/初识动画/" itemprop="url">初识动画</a></h2>
         
 
         <div class="post-meta">
@@ -437,8 +438,148 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-04T15:08:35+08:00">
-                2018-05-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-18T19:43:17+08:00">
+                2018-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          jssetTimeout()&amp;setInterval()setTimeout(fn,17)会在fn内部自己调用自己直至动画，而setInterval(fn,17)需要在动画完成后手动清除。基本用法如下1234567891011121314151617let timer1=null;let timer2=null;function testTimeout()&#123;    //window.clearTimeout(timer);    timer1=setTimeout(function()&#123;        // ……    &#125;,16)    while(not
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/初识动画/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js-闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/js-闭包/" itemprop="url">[js学习笔记] 闭包</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T00:21:05+08:00">
+                2018-05-12
               </time>
             
 
@@ -507,133 +648,20 @@
       
         
           
-          [前言] 在整理闭包笔记的时候，对函数部分笔记的简单整理和理解。
-函数我们都知道函数都有自己的私有的作用域，通常情况下函数以外地方是不能访问函数中的变量的，但是函数内部是可以访问其外层的作用域。123456var outer=1;function inner()&#123;    var inner=2;    console.log(outer) // 1&#125;console.log(inner) // undefined
-函数只取决于被定义的环境，而非被调用时产生的环境。严谨地说，即语法定义时所产生的作用域就是 词法作用域，因而当词法分析器处理代码的时候将会保持作用域不变。当退出函数
+          什么是闭包MDN中对闭包的描述是
+
+闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。
+
+而es2017文档对词法环境的描述是这样的
+
+A Lexical Environment consists of an Environment Record and a possibly null reference to an outer Lexical Environment. 
+
+environment record（环境记录）记录相应环境中的形参，函数声明，变量声明等。外部的词法环境的引用可以为null，比如全局词法环境。
+所以，其实我们可以这样理解
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js学习笔记-函数/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/hibernate学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chellhoo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chellhoooo_abyss">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hibernate学习笔记/" itemprop="url">hibernate学习笔记</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T14:03:12+08:00">
-                2018-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ERROR：javax.naming.NoInitialContextException:Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file: java.naming.factory.initialorg.hibernate.dialect.MySQLDialect是MySQL 4.x之前的版本.  TYPE=MYISAM是MySQL 4.0方言构建的，但在5.5版本已经废除了。
-
-如果用的是 Mar
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/hibernate学习笔记/#more" rel="contents">
+            <a class="btn" href="/js-闭包/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -674,7 +702,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -720,7 +748,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -742,7 +770,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

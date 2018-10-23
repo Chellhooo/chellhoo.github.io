@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/变量提升和函数提升/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-inline-box-vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/变量提升和函数提升/" itemprop="url">变量提升和函数提升</a></h2>
+                <a class="post-title-link" href="/css学习笔记-inline-box-vertical-align/" itemprop="url">[css学习笔记] inline box & vertical-align</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-01T17:24:34+08:00">
-                2018-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T16:12:12+08:00">
+                2018-03-14
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -355,13 +355,13 @@
       
         
           
-          变量提升 和 函数提升只有使用var声明的变量才会变量提升，let和const声明的变量不存在。函数提升优先级高于变量提升1234567foo();function foo()&#123;    console.log('1');&#125;var foo=function()&#123;    console.log('2');&#125;
-实际上会变成
-12345678function foo()&#123;    console.log('1');&#125;var foo;foo(); // 1foo=function()&#123;    console.log('2');&#125
+          line box &amp; vertical-align下面是文档中一段关于line box的介绍：
+
+A line box is always tall enough for all of the boxes it contains. However, it may be taller than the tallest box it contains (if, for example, boxes are aligned so that baselines line up). When the height of a box B is less than the height of the
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/变量提升和函数提升/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-inline-box-vertical-align/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -407,7 +407,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node-js笔记/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -426,7 +426,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/node-js笔记/" itemprop="url">node.js笔记</a></h2>
+                <a class="post-title-link" href="/css学习笔记-可视化格式模型和vertical-align/" itemprop="url">[css学习笔记] 可视化格式模型和vertical-align</a></h2>
         
 
         <div class="post-meta">
@@ -438,8 +438,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-01T16:18:38+08:00">
-                2018-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T18:32:56+08:00">
+                2018-03-13
               </time>
             
 
@@ -468,6 +468,17 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -497,18 +508,17 @@
       
         
           
-          模块
-一个js文件就可以是一个模块，每个模块中有独立的作用域。而被调用的时候node.js会把该模块包装成一个匿名函数，每个模块中的公共变量会变成当前匿名函数中的局部变量。
-但是如果想对外暴露模块中的变量（如函数）
+          可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定
 
-用法  模块hello.js
-  1234hi(name)&#123;    console.log('hello '+ name );&#125;module.exports=hi; // 对外暴露函数变量
-  调用模块的外部环境
-  12var hello=require('./hello'); //模块作为变量保存在当前作用域,相对路径hi(chellh); //调用模块中
+
+box dimensions and type. //盒子的类型
+positioning scheme (normal flow, float, and absolute positioning). //定位
+relationships between elements in the document tree. //元素与文档树的关系
+external information (e.g., viewport 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/node-js笔记/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-可视化格式模型和vertical-align/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -554,7 +564,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/设计模式：MVC和MVP和MVVM/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-居中那些事/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -573,7 +583,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/设计模式：MVC和MVP和MVVM/" itemprop="url">设计模式：MVC和MVP和MVVM</a></h2>
+                <a class="post-title-link" href="/css学习笔记-居中那些事/" itemprop="url">[css学习笔记] 居中那些事</a></h2>
         
 
         <div class="post-meta">
@@ -585,8 +595,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T13:36:19+08:00">
-                2018-01-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T14:46:27+08:00">
+                2018-03-11
               </time>
             
 
@@ -595,6 +605,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -622,18 +665,16 @@
       
         
           
-          软件架构 / 设计模式
-MVC
-View 传送指令到 Controller
-Controller 完成业务逻辑后，要求 Model 改变状态
-Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
+          垂直水平居中
+margin:auto &amp;&amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述
 
+Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-right-width’ + ‘margin-right’ = width of containing block
 
-主动MVC 用户向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。 model ：在MVC中Model应该包含2部分功能，一部分是处理业务逻辑，一部分是提供View显示的数据。 模型中数据的变化一般会通过一种刷新机制被公布。为了实现这种机制，那些用于监视此模型的视图必须事先在此模型上注册，从而，视图可以了解在数据模型上发生的改变。 view：为
+当margin-left和margin-right值为auto的时候，则他们的使用值是相同
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/设计模式：MVC和MVP和MVVM/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-居中那些事/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -674,7 +715,7 @@ Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -720,7 +761,7 @@ Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -742,7 +783,7 @@ Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

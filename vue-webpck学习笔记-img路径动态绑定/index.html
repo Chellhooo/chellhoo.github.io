@@ -102,7 +102,7 @@
 <meta property="og:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&quot;item in bookList&quot;&amp;gt;    &amp;lt;img :src=&apos;../assets/&apos;+item.img&quot;&amp;gt;    // ……&amp;lt;/div&amp;gt; 最后浏览器渲染的结果是这样的，感觉是直接">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://chellhooo.com/img/2018-03-29_195605.png">
-<meta property="og:updated_time" content="2018-04-01T08:00:59.504Z">
+<meta property="og:updated_time" content="2018-08-14T12:13:15.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[vue&amp;webpck学习笔记] webpack项目的img路径动态绑定">
 <meta name="twitter:description" content="背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&amp;lt;img&amp;gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&amp;lt;div v-for=&quot;item in bookList&quot;&amp;gt;    &amp;lt;img :src=&apos;../assets/&apos;+item.img&quot;&amp;gt;    // ……&amp;lt;/div&amp;gt; 最后浏览器渲染的结果是这样的，感觉是直接">
@@ -382,7 +382,7 @@
 </li>
 <li><p>在上面的解决过程中为什么文件放在<code>static</code>和<code>src/assets</code>会有不同效果？<br>刚刚学构建webpack项目的时候，经常会看到网上一些教程会把图片等资源放在<code>static</code>或者<code>src/assets</code>目录下，两个都是放静态资源文件的，有什么区别呢?</p>
 <ul>
-<li><code>static</code>文件夹下的资源文件才是真正的静态资源，它只能用绝对路径，而且它的路径不会被webpack处理解析，而是直接按<strong>绝对路径</strong>找到所需文件。</li>
+<li><code>static</code>文件夹下的资源文件才是真正的静态资源，它只能用绝对路径，而且它的路径不会被webpack处理解析，而是直接按 <strong>绝对路径</strong>找到所需文件。</li>
 <li>除<code>static</code>文件夹之外，其他路径都是需要使用相对路径，并使用相应loader解析路径。其中就包括<code>src/assets</code>下的文件。</li>
 </ul>
 </li>
@@ -527,7 +527,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -549,7 +549,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

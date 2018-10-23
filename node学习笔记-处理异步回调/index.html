@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://chellhooo.com/img/node_libuv0.png">
 <meta property="og:image" content="http://chellhooo.com/img/node_libuv.png">
 <meta property="og:image" content="http://chellhooo.com/img/异步io流程.png">
-<meta property="og:updated_time" content="2018-04-10T05:06:17.384Z">
+<meta property="og:updated_time" content="2018-08-16T16:22:09.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js学习笔记 异步I&#x2F;O与回调">
 <meta name="twitter:description" content="背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。 node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile(&apos;/path&apos;,(err,file)=&amp;gt;&amp;#123;    console.log(&apos;读">
@@ -385,7 +385,7 @@
 <li>避免线程并发数量过多，抢占系统资源从而导致阻塞(线程能共享系统资源，如果同时执行的线程过多，就有可能导致系统资源不足而产生阻塞)</li>
 <li>对线程进行一些简单的管理（延时执行、定时循环执行的策略等）</li>
 </ul>
-<h4 id="node的单线程仅仅是指JavaScript执行在单线程"><a href="#node的单线程仅仅是指JavaScript执行在单线程" class="headerlink" title="node的单线程仅仅是指JavaScript执行在单线程"></a>node的单线程仅仅是指JavaScript执行在单线程</h4><p>那再回到本文，我们需要注意的是，我们平时提到node是单线程的，但<strong>这里的单线程仅仅只是JavaScript执行在单线程</strong>。事实上，在node.js中，除了JavaScript是单线程外，node自身其实多线程。无论是*nix还是Windows平台，<strong>node内部完成I/O任务的是在线程池</strong>。<br><img src="/img/node_libuv.png"><br>从上图可以看到，libuv实现了一套自己的线程池来处理所有同步操作（从而模拟出异步的效果）。比如在下面代码中，<code>fs.open()</code>的作用是根据指定路径和参数去打开一个文件，从而得到一个文件描述符，这是后续所有I/O操作的初始操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fs.open=<span class="function"><span class="keyword">function</span>(<span class="params">path,flags,mode,callback</span>)</span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="node的单线程仅仅是指JavaScript执行在单线程"><a href="#node的单线程仅仅是指JavaScript执行在单线程" class="headerlink" title="node的单线程仅仅是指JavaScript执行在单线程"></a>node的单线程仅仅是指JavaScript执行在单线程</h4><p>那再回到本文，我们需要注意的是，我们平时提到node是单线程的，但 <strong>这里的单线程仅仅只是JavaScript执行在单线程</strong>。事实上，在node.js中，除了JavaScript是单线程外，node自身其实多线程。无论是*nix还是Windows平台，<strong>node内部完成I/O任务的是在线程池</strong>。<br><img src="/img/node_libuv.png"><br>从上图可以看到，libuv实现了一套自己的线程池来处理所有同步操作（从而模拟出异步的效果）。比如在下面代码中，<code>fs.open()</code>的作用是根据指定路径和参数去打开一个文件，从而得到一个文件描述符，这是后续所有I/O操作的初始操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fs.open=<span class="function"><span class="keyword">function</span>(<span class="params">path,flags,mode,callback</span>)</span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>上面的代码中，</p>
 <ul>
 <li>JavaScript层面的代码调用node的核心模块，核心模块调用c++内建模块，内建模块通过libuv进行系统调用。</li>
@@ -394,7 +394,7 @@
 </ul>
 <p>至此，JavaScript调用立即返回，由JavaScript层面发起的异步调用的第一阶段就此结束，JavaScript线程可以继续执行当前任务的后续操作。而当前的I/O操作在线程池中等待执行，不管它是否阻塞I/O，都不会影响JavaScript线程的后续执行，因而达到了异步的目的。</p>
 <h3 id="执行回调"><a href="#执行回调" class="headerlink" title="执行回调"></a>执行回调</h3><p>线程池中的I/O操作调用完毕后，会将获取的结果储存在<code>req-&gt;result</code>属性上，然后调用<code>PostQueuedCompletionStatus()</code>通知IOCP当前对象操作已完成(提交执行状态)，并将线程归还线程池，而且通过<code>PostQueuedCompletionStatus()</code>提交的状态可以通过<code>GetQueuedCompletionStatus()</code>提取。</p>
-<p>在每次eventLoop的执行中，他会调用IOCP相关的<code>GetQueuedCompletionStatus()</code>检查线程池中是否有执行完的请求，如果有就会把请求对象加入<strong>I/O观察者</strong>的队列中，然后把其当时间处理。</p>
+<p>在每次eventLoop的执行中，他会调用IOCP相关的<code>GetQueuedCompletionStatus()</code>检查线程池中是否有执行完的请求，如果有就会把请求对象加入 <strong>I/O观察者</strong>的队列中，然后把其当时间处理。</p>
 <p>I/O观察者回调函数的行为就是取出请求对象的result属性作为参数，取出oncomplete_sym属性作为方法，然后调用执行，以此就达到了调用JavaScript中传入的回调函数的目的。<br>至此，整个异步I/O的流程完全结束。<br><img src="/img/异步io流程.png"></p>
 <h4 id="try-catch"><a href="#try-catch" class="headerlink" title="try catch"></a>try catch</h4><p>因为node.js的异步操作，回调函数中的error是不能被外层的try catch捕捉的。所以我们通常在回调函数中if判断是否存在error再进行操作，其中我们通常会把error作为回调函数第一个实参传回。<br>在我们自行编写的异步方法上，需要去遵循一些原则：</p>
 <ol>
@@ -476,8 +476,8 @@ req.end();
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/node-mysql-踩坑笔记/" rel="prev" title="node+mysql 踩坑笔记">
-                node+mysql 踩坑笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/node学习笔记-express-中间件/" rel="prev" title="node学习笔记 express中间件">
+                node学习笔记 express中间件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,7 +553,7 @@ req.end();
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -575,7 +575,7 @@ req.end();
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
