@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-闭包与共享作用域/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node学习笔记-如何充分利用多核CPU/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js学习笔记-闭包与共享作用域/" itemprop="url">js学习笔记-闭包与共享作用域</a></h2>
+                <a class="post-title-link" href="/node学习笔记-如何充分利用多核CPU/" itemprop="url">node学习笔记 如何充分利用多核CPU</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T15:22:25+08:00">
-                2018-10-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T23:36:48+08:00">
+                2018-10-29
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
                   </a>
                 </span>
 
@@ -355,11 +355,18 @@
       
         
           
-          前言最近我在一篇关于内存泄漏的文章中看到有一个比较神奇的例子，一个函数返回一个没有引用自由变量的内部函数竟然会因为另外一个没有运行的过的内部函数造成内存泄漏，文章中的解释也令我很费解= =：“相同作用域内创建的多个内部函数对象是共享同一个变量对象，……，形成了闭包”。这个解释让我之前对闭包的理解又造成了毁灭性的冲击，可是仔细想想好像又有那么一点点道理……自我接触闭包那天起就不敢随意给闭包下定义，而文献中对它的定义也会经常变化，可是当你跳出闭包这个概念的界限，去思考闭包为什么存在，其实就是弄清楚作用域的问题。回归正传，关于那篇博文中所提到的解释我还是持保留意见，因为我还没找到相应的资料去佐证这一
+          node的单线程node是在v8引擎上构建的，其保持了JavaScript在浏览器中单线程的特点，其最大的好处是不用在意状态的同步的问题，不会出现死锁，也没有线程上下文交换所带来的性能上的开销。但是其弱点也很明显：
+
+无法利用多核CPU
+错误会引起整个应用退出，应用的健壮性值得考研
+大量计算占用CPU导致无法继续调用异步I/O
+
+当JavaScript长时间执行会导致长时间的CPU占用，继而会导致后续的异步I/O发不出调用，已完成的异步I/O的回调函数也会得不到及时执行。
+node中的JavaScript部分执行在单线程上，而如今CPU基本为多核，真正的服务器往往还有多个CPU，一个node进
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js学习笔记-闭包与共享作用域/#more" rel="contents">
+            <a class="btn" href="/node学习笔记-如何充分利用多核CPU/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -405,7 +412,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/浏览器缓存机制/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-margin和padding的百分比/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -424,7 +431,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/浏览器缓存机制/" itemprop="url">浏览器缓存机制</a></h2>
+                <a class="post-title-link" href="/css学习笔记-margin和padding的百分比/" itemprop="url">css学习笔记 margin和padding的百分比</a></h2>
         
 
         <div class="post-meta">
@@ -436,8 +443,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T16:54:57+08:00">
-                2018-07-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T18:06:32+08:00">
+                2018-10-29
               </time>
             
 
@@ -461,6 +468,17 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/学习笔记/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -495,26 +513,12 @@
       
         
           
-          缓存的分类
-数据库数据缓存
-服务器端缓存
-浏览器缓存
-Web应用层缓存浏览器缓存
-
-
-强缓存用户发送的请求，直接从客户端缓存中获取，不发送请求到服务器，不与服务器发生交互行为。
-协商缓存用户发送的请求，发送到服务器后，由服务器判定是否从缓存中获取资源。通常为本地的缓存不存在，或已过期后向浏览器发送请求后确认不使用缓存，进行协商缓存
-两者共同点客户端获得的数据最后都是从客户端缓存中获得。
-两者的区别从名字就可以看出，强缓存不与服务器交互，而协商缓存则需要与服务器交互。
-
-###
-
-新鲜度（过期机制）也就是缓存副本有效期。一个缓存副本必须满足以下条件，浏览器会认为它是有效的，足够新的：
-含有完整的
+          一个运用了padding:100%的css效果偶然间看到一段代码，可以用padding:100%实现一个高度永远等于宽度的块框。1&lt;div class="constant-width-to-height-ratio"&gt;&lt;/div&gt;
+123456789.constant-width-to-height-ratio &#123;  background: #333;  width: 50%;&#125;.constant-width-to-height-ratio::after &#123;  content: '';  display: block;  padding-t
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/浏览器缓存机制/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-margin和padding的百分比/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -560,7 +564,7 @@ Web应用层缓存浏览器缓存
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-JavaScript引擎与内存回收/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-布局方案整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -579,7 +583,7 @@ Web应用层缓存浏览器缓存
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js学习笔记-JavaScript引擎与内存回收/" itemprop="url">[js学习笔记] JavaScript引擎与内存管理</a></h2>
+                <a class="post-title-link" href="/css学习笔记-布局方案整理/" itemprop="url">css学习笔记 布局方案整理</a></h2>
         
 
         <div class="post-meta">
@@ -591,8 +595,8 @@ Web应用层缓存浏览器缓存
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-05T13:39:25+08:00">
-                2018-06-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T16:52:44+08:00">
+                2018-10-29
               </time>
             
 
@@ -625,8 +629,8 @@ Web应用层缓存浏览器缓存
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -661,12 +665,11 @@ Web应用层缓存浏览器缓存
       
         
           
-          JavaScript，和node.js、Chrome、V8等到底有什么关系呢？
-JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node.js实现语言。在node出现以前，JavaScript主要用于网页前端开发，其运行平台只能限制在浏览器，它能力取决于浏览器中间层提供的支持有多少。而node作者的初始目的是想要写一个基于事件驱动、非阻塞I/O的Web服务器以达到更好的性能，而node由此诞生称为后端JavaScript的运行平台。所以浏览器和node在某种程度上来说，是JavaScript适应不同需求所对应的运行平台。node打破了过去Ja
+          两栏 右边自适应布局左浮动 + 右新建bfc右左排列，右浮动 + 左（浮动 + margin-x:-100%）12345&lt;div&gt; &lt;!--float:left;width:100%--&gt;  &lt;div&gt;&lt;/div&gt;&lt;!--margin-left:下面浮动框的宽度--&gt;&lt;/div&gt;&lt;div class="left"&gt;&lt;/div&gt; &lt;!--float:left; margin-left:100%--&gt;&lt;!--浮动是让容器尽量向一个方向浮动直到它的外边缘碰到包含框或另一个浮动框的边框为止
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js学习笔记-JavaScript引擎与内存回收/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-布局方案整理/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -707,7 +710,7 @@ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -753,7 +756,7 @@ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -775,7 +778,7 @@ JavaScript和node.jsJavaScript是一门动态脚本语言，JavaScript也是node
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

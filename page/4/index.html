@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node-mysql-踩坑笔记/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-循环引用的解析和解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/node-mysql-踩坑笔记/" itemprop="url">node+mysql 踩坑笔记</a></h2>
+                <a class="post-title-link" href="/js学习笔记-循环引用的解析和解决方法/" itemprop="url">[js学习笔记] 循环引用</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T22:49:40+08:00">
-                2018-04-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T23:44:27+08:00">
+                2018-05-30
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">node.js</span>
+                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -355,12 +355,13 @@
       
         
           
-          关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.id])[22,&apos;00006&apos;]
-第二个数据为什么显示是字符串呢，但我写的明明是int类型。然后发现是字段自动补零的锅。我传入的数据是由book表搜索而来的，然后传入当前sql语句执行。1insert into orderDetail(oID,bID) val
+          JavaScript中有两种垃圾回收策略，标记清除和引用计数。
+引用计数  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。
+循环引用js对象之间的循环引用  但引用计数有一个很严重的问题，循环引用。循环引用指的是对象A 中包
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/node-mysql-踩坑笔记/#more" rel="contents">
+            <a class="btn" href="/js学习笔记-循环引用的解析和解决方法/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -406,7 +407,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node学习笔记-express-中间件/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/初识动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -425,7 +426,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/node学习笔记-express-中间件/" itemprop="url">node学习笔记 express中间件</a></h2>
+                <a class="post-title-link" href="/初识动画/" itemprop="url">初识动画</a></h2>
         
 
         <div class="post-meta">
@@ -437,8 +438,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T20:11:26+08:00">
-                2018-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-18T19:43:17+08:00">
+                2018-05-18
               </time>
             
 
@@ -496,17 +497,11 @@
       
         
           
-          中间件中间件（Middleware） 是一个函数，它可以访问请求对象（request object (req)）, 响应对象（response object (res)）, 和 web 应用中处于请求-响应循环流程中的中间件，一般被命名为 next 的变量。中间件的功能包括：
-
-执行任何代码。
-修改请求和响应对象。
-终结请求-响应循环。
-调用堆栈中的下一个中间件。如果当前中间件没有终结请求-响应循环，则必须调用 next() 方法将控制权交给下一个中间件，否则请求就会挂起。
-应用级中间件应用级中间件绑定到 app 对象 使用 app.use() 和 app.METHOD()， 其中， METH
+          jssetTimeout()&amp;setInterval()setTimeout(fn,17)会在fn内部自己调用自己直至动画，而setInterval(fn,17)需要在动画完成后手动清除。基本用法如下1234567891011121314151617let timer1=null;let timer2=null;function testTimeout()&#123;    //window.clearTimeout(timer);    timer1=setTimeout(function()&#123;        // ……    &#125;,16)    while(not
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/node学习笔记-express-中间件/#more" rel="contents">
+            <a class="btn" href="/初识动画/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -552,7 +547,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node学习笔记-处理异步回调/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js-闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -571,7 +566,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/node学习笔记-处理异步回调/" itemprop="url">node.js学习笔记 异步I/O与回调</a></h2>
+                <a class="post-title-link" href="/js-闭包/" itemprop="url">[js学习笔记] 闭包</a></h2>
         
 
         <div class="post-meta">
@@ -583,8 +578,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T11:25:16+08:00">
-                2018-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T00:21:05+08:00">
+                2018-05-12
               </time>
             
 
@@ -617,8 +612,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
-                    <span itemprop="name">node.js</span>
+                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
                   </a>
                 </span>
 
@@ -653,13 +648,20 @@
       
         
           
-          背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。
-node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile('/path',(err,file)=&gt;&#123;    console.log('读取文件完成')&#125;);console.log('我会先执行哦');
-第二条字符串会先输出，而第一条字符串的执行取决于读取文件的异步调用何时结束。在node的底层构建很多异步I/O的API，从文
+          什么是闭包MDN中对闭包的描述是
+
+闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。
+
+而es2017文档对词法环境的描述是这样的
+
+A Lexical Environment consists of an Environment Record and a possibly null reference to an outer Lexical Environment. 
+
+environment record（环境记录）记录相应环境中的形参，函数声明，变量声明等。外部的词法环境的引用可以为null，比如全局词法环境。
+所以，其实我们可以这样理解
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/node学习笔记-处理异步回调/#more" rel="contents">
+            <a class="btn" href="/js-闭包/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -700,7 +702,7 @@ node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -746,7 +748,7 @@ node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -768,7 +770,7 @@ node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

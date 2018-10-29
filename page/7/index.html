@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js的单线程和异步/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/javaweb-插入数据后返回自增id/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js的单线程和异步/" itemprop="url">js的单线程和异步</a></h2>
+                <a class="post-title-link" href="/javaweb-插入数据后返回自增id/" itemprop="url">javaweb学习笔记 插入数据后返回自增id</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T18:40:46+08:00">
-                2018-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T01:32:01+08:00">
+                2018-04-07
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/学习笔记/javaweb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaweb</span>
                   </a>
                 </span>
 
@@ -355,11 +355,17 @@
       
         
           
-          js的单线程和异步JavaScript是单线程的，即负责编译并执行js代码的线程只有一个。但对于数据库 文件系统等I/O操作，包括HTTP请求等等这些容易堵塞等待的操作通常会异步处理。异步，我们通常的理解就是，多个任务可以同时执行，而同步则是必须是一个任务完成之后，下一个任务才能开始执行。那么平时我们所说的异步（如ajax的异步加载）不就是和单线程冲突吗？其实，JavaScript执行的平台通常是在浏览器，这里的异步是主要由浏览器完成的。现在把JavaScript的单线程称为主线程/执行线程，在一个浏览器中只能有一个JavaScript的执行线程，即在同一个浏览器打开多个页面的时候，只有一个j
+          execute、executeQuery和executeUpdate之间的区别
+execute如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false。也就是说如果是查询的话返回true，如果是更新或插入的话就返回false了。
+
+可用于执行返回多个结果集、多个更新计数或二者组合的语句。
+调用 getResultSet 或 getUpdateCount 方法来检索结果
+调用 getMoreResults 移动到任何后面的结果。
+调用方法 getUpdateCount，将返回一个整数。这个整数为调用语句所影响的行数；如果为 -1 则表
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js的单线程和异步/#more" rel="contents">
+            <a class="btn" href="/javaweb-插入数据后返回自增id/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -405,7 +411,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/变量提升和函数提升/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue学习笔记-v-bind和v-model/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -424,7 +430,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/变量提升和函数提升/" itemprop="url">变量提升和函数提升</a></h2>
+                <a class="post-title-link" href="/vue学习笔记-v-bind和v-model/" itemprop="url">[vue学习笔记] v-bind和v-model</a></h2>
         
 
         <div class="post-meta">
@@ -436,8 +442,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-01T17:24:34+08:00">
-                2018-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T00:45:45+08:00">
+                2018-04-01
               </time>
             
 
@@ -470,8 +476,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/学习笔记/vue-js/" itemprop="url" rel="index">
+                    <span itemprop="name">vue.js</span>
                   </a>
                 </span>
 
@@ -506,13 +512,12 @@
       
         
           
-          变量提升 和 函数提升只有使用var声明的变量才会变量提升，let和const声明的变量不存在。函数提升优先级高于变量提升1234567foo();function foo()&#123;    console.log('1');&#125;var foo=function()&#123;    console.log('2');&#125;
-实际上会变成
-12345678function foo()&#123;    console.log('1');&#125;var foo;foo(); // 1foo=function()&#123;    console.log('2');&#125
+          背景最近使用element框架的时候用到inputNumber，需要渲染初始化数据并在数据修改后也能更新原数据。(下面的scope.row的数据源是在data里返回)1&lt;el-input-number :value="scope.row.amount" @change="changeAmount" size="mini" controls-position="right"  :min="1" :max="10"&gt;&lt;/el-input-number&gt;
+可是它的change事件只能传入最后修改值作参数，那我怎么修改原数据。然后我纠结了很久，突然想起这其实不就是表单控件的双向
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/变量提升和函数提升/#more" rel="contents">
+            <a class="btn" href="/vue学习笔记-v-bind和v-model/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -558,7 +563,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node-js笔记/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue-webpck学习笔记-img路径动态绑定/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -577,7 +582,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/node-js笔记/" itemprop="url">node.js笔记</a></h2>
+                <a class="post-title-link" href="/vue-webpck学习笔记-img路径动态绑定/" itemprop="url">[vue&webpck学习笔记] webpack项目的img路径动态绑定</a></h2>
         
 
         <div class="post-meta">
@@ -589,8 +594,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-01T16:18:38+08:00">
-                2018-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T20:42:04+08:00">
+                2018-03-29
               </time>
             
 
@@ -614,6 +619,17 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/学习笔记/" itemprop="url" rel="index">
                     <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
                   </a>
                 </span>
 
@@ -648,18 +664,15 @@
       
         
           
-          模块
-一个js文件就可以是一个模块，每个模块中有独立的作用域。而被调用的时候node.js会把该模块包装成一个匿名函数，每个模块中的公共变量会变成当前匿名函数中的局部变量。
-但是如果想对外暴露模块中的变量（如函数）
-
-用法  模块hello.js
-  1234hi(name)&#123;    console.log('hello '+ name );&#125;module.exports=hi; // 对外暴露函数变量
-  调用模块的外部环境
-  12var hello=require('./hello'); //模块作为变量保存在当前作用域,相对路径hi(chellh); //调用模块中
+          背景这是一个由vue-cli+webpack构建的项目，在开发的过程中我需要给&lt;img&gt;动态绑定路径，可是我发现怎么无法解析路径，代码如下1234&lt;div v-for="item in bookList"&gt;    &lt;img :src='../assets/'+item.img"&gt;    // ……&lt;/div&gt;
+最后浏览器渲染的结果是这样的，感觉是直接当做字符串处理，而没有对地址进行解析 
+解决过程
+一开始我在想会不会是相对路径写错了，可是当不是动态绑定:src的时候，路径前缀是没有问题的。
+然后我把图片放在static/img目录下，并把路径前缀
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/node-js笔记/#more" rel="contents">
+            <a class="btn" href="/vue-webpck学习笔记-img路径动态绑定/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -700,7 +713,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -746,7 +759,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -768,7 +781,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

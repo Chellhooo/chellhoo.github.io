@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-inline-box-vertical-align/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node-mysql-踩坑笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css学习笔记-inline-box-vertical-align/" itemprop="url">[css学习笔记] inline box & vertical-align</a></h2>
+                <a class="post-title-link" href="/node-mysql-踩坑笔记/" itemprop="url">node+mysql 踩坑笔记</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T16:12:12+08:00">
-                2018-03-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T22:49:40+08:00">
+                2018-04-10
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
                   </a>
                 </span>
 
@@ -355,13 +355,12 @@
       
         
           
-          line box &amp; vertical-align下面是文档中一段关于line box的介绍：
-
-A line box is always tall enough for all of the boxes it contains. However, it may be taller than the tallest box it contains (if, for example, boxes are aligned so that baselines line up). When the height of a box B is less than the height of the
+          关于字段自动补零zerofill在执行node中执行一句sql，检查了属性名、属性类型、语法等等都没错，甚至直接在mysql中以该语句插入数据都是可以的，可是在node中一直抛出错误说我填入的某一数据为null。然后在后台的终端中发现打印数据的格式是这样的12// console.log([order.id,good.id])[22,&apos;00006&apos;]
+第二个数据为什么显示是字符串呢，但我写的明明是int类型。然后发现是字段自动补零的锅。我传入的数据是由book表搜索而来的，然后传入当前sql语句执行。1insert into orderDetail(oID,bID) val
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css学习笔记-inline-box-vertical-align/#more" rel="contents">
+            <a class="btn" href="/node-mysql-踩坑笔记/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -407,7 +406,7 @@ A line box is always tall enough for all of the boxes it contains. However, it m
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node学习笔记-express-中间件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -426,7 +425,7 @@ A line box is always tall enough for all of the boxes it contains. However, it m
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css学习笔记-可视化格式模型和vertical-align/" itemprop="url">[css学习笔记] 可视化格式模型和vertical-align</a></h2>
+                <a class="post-title-link" href="/node学习笔记-express-中间件/" itemprop="url">node学习笔记 express中间件</a></h2>
         
 
         <div class="post-meta">
@@ -438,8 +437,8 @@ A line box is always tall enough for all of the boxes it contains. However, it m
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T18:32:56+08:00">
-                2018-03-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T20:11:26+08:00">
+                2018-04-09
               </time>
             
 
@@ -472,8 +471,8 @@ A line box is always tall enough for all of the boxes it contains. However, it m
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
                   </a>
                 </span>
 
@@ -508,17 +507,17 @@ A line box is always tall enough for all of the boxes it contains. However, it m
       
         
           
-          可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定
+          中间件中间件（Middleware） 是一个函数，它可以访问请求对象（request object (req)）, 响应对象（response object (res)）, 和 web 应用中处于请求-响应循环流程中的中间件，一般被命名为 next 的变量。中间件的功能包括：
 
-
-box dimensions and type. //盒子的类型
-positioning scheme (normal flow, float, and absolute positioning). //定位
-relationships between elements in the document tree. //元素与文档树的关系
-external information (e.g., viewport 
+执行任何代码。
+修改请求和响应对象。
+终结请求-响应循环。
+调用堆栈中的下一个中间件。如果当前中间件没有终结请求-响应循环，则必须调用 next() 方法将控制权交给下一个中间件，否则请求就会挂起。
+应用级中间件应用级中间件绑定到 app 对象 使用 app.use() 和 app.METHOD()， 其中， METH
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css学习笔记-可视化格式模型和vertical-align/#more" rel="contents">
+            <a class="btn" href="/node学习笔记-express-中间件/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -564,7 +563,7 @@ external information (e.g., viewport
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-居中那些事/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node学习笔记-处理异步回调/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -583,7 +582,7 @@ external information (e.g., viewport
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css学习笔记-居中那些事/" itemprop="url">[css学习笔记] 居中那些事</a></h2>
+                <a class="post-title-link" href="/node学习笔记-处理异步回调/" itemprop="url">node.js学习笔记 异步I/O与回调</a></h2>
         
 
         <div class="post-meta">
@@ -595,8 +594,8 @@ external information (e.g., viewport
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-11T14:46:27+08:00">
-                2018-03-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T11:25:16+08:00">
+                2018-04-09
               </time>
             
 
@@ -629,8 +628,8 @@ external information (e.g., viewport
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
                   </a>
                 </span>
 
@@ -665,16 +664,13 @@ external information (e.g., viewport
       
         
           
-          垂直水平居中
-margin:auto &amp;&amp; position:absolutecss文档对块级非替换元素在普通流内布局有公式描述
-
-Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘padding-left’ + ‘width’ + ‘padding-right’ + ‘border-right-width’ + ‘margin-right’ = width of containing block
-
-当margin-left和margin-right值为auto的时候，则他们的使用值是相同
+          背景我在node中使用try catch的时候对它的运行机制有点迷惑，因而有关于node.js异步知识的延伸，下面主要整理自《深入浅出Node.js》。
+node的非阻塞异步I/O调用程序的时候，内部代码立即执行，回调函数会在该异步请求结束后执行，但执行的时间点是不知道的。1234fs.readfile('/path',(err,file)=&gt;&#123;    console.log('读取文件完成')&#125;);console.log('我会先执行哦');
+第二条字符串会先输出，而第一条字符串的执行取决于读取文件的异步调用何时结束。在node的底层构建很多异步I/O的API，从文
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css学习笔记-居中那些事/#more" rel="contents">
+            <a class="btn" href="/node学习笔记-处理异步回调/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -715,7 +711,7 @@ Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -761,7 +757,7 @@ Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -783,7 +779,7 @@ Visual formatting model details’margin-left’ + ‘border-left-width’ + ‘
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

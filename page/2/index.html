@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-循环引用的解析和解决方法/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/es6学习笔记-fetch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js学习笔记-循环引用的解析和解决方法/" itemprop="url">[js学习笔记] 循环引用</a></h2>
+                <a class="post-title-link" href="/es6学习笔记-fetch/" itemprop="url">js学习笔记 fetch</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,145 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T23:44:27+08:00">
-                2018-05-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-27T22:39:07+08:00">
+                2018-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          什么是fetchfetch、ajax、axios有什么区别ajax
+
+本身是针对MVC的编程,不符合现在前端MVVM的浪潮
+基于原生的XHR开发，XHR本身的架构不清晰，已经有了fetch的替代方案
+JQuery整个项目太大，单纯使用ajax却要引入整个JQuery非常的不合理（采取个性化打包的方案又不能享受CDN服务）
+
+axios
+
+从浏览器中创建XMLHttpRequest
+从node.js 中发出http请求
+支持 Promise API
+客户端支持防止CSRF（伪脚本攻击）
+提供了并发请求API接口
+支持请求/响应拦截
+取消请求
+自动转换json数据
+
+fetch
+
+基于promis
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/es6学习笔记-fetch/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js学习笔记-闭包与共享作用域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/js学习笔记-闭包与共享作用域/" itemprop="url">js学习笔记-闭包与共享作用域</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T15:22:25+08:00">
+                2018-10-23
               </time>
             
 
@@ -355,13 +492,11 @@
       
         
           
-          JavaScript中有两种垃圾回收策略，标记清除和引用计数。
-引用计数  引用计数的含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0 时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。这样，当垃圾收集器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。
-循环引用js对象之间的循环引用  但引用计数有一个很严重的问题，循环引用。循环引用指的是对象A 中包
+          前言最近我在一篇关于内存泄漏的文章中看到有一个比较神奇的例子，一个函数返回一个没有引用自由变量的内部函数竟然会因为另外一个没有运行的过的内部函数造成内存泄漏，文章中的解释也令我很费解= =：“相同作用域内创建的多个内部函数对象是共享同一个变量对象，……，形成了闭包”。这个解释让我之前对闭包的理解又造成了毁灭性的冲击，可是仔细想想好像又有那么一点点道理……自我接触闭包那天起就不敢随意给闭包下定义，而文献中对它的定义也会经常变化，可是当你跳出闭包这个概念的界限，去思考闭包为什么存在，其实就是弄清楚作用域的问题。回归正传，关于那篇博文中所提到的解释我还是持保留意见，因为我还没找到相应的资料去佐证这一
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js学习笔记-循环引用的解析和解决方法/#more" rel="contents">
+            <a class="btn" href="/js学习笔记-闭包与共享作用域/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -407,7 +542,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/初识动画/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-BFC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -426,7 +561,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/初识动画/" itemprop="url">初识动画</a></h2>
+                <a class="post-title-link" href="/css学习笔记-BFC/" itemprop="url">css学习笔记 BFC</a></h2>
         
 
         <div class="post-meta">
@@ -438,8 +573,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-18T19:43:17+08:00">
-                2018-05-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-24T10:17:53+08:00">
+                2018-08-24
               </time>
             
 
@@ -448,28 +583,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -497,171 +610,18 @@
       
         
           
-          jssetTimeout()&amp;setInterval()setTimeout(fn,17)会在fn内部自己调用自己直至动画，而setInterval(fn,17)需要在动画完成后手动清除。基本用法如下1234567891011121314151617let timer1=null;let timer2=null;function testTimeout()&#123;    //window.clearTimeout(timer);    timer1=setTimeout(function()&#123;        // ……    &#125;,16)    while(not
+          BFC
+float的值不为none。
+overflow的值为auto,scroll或hidden。
+display的值为inline-block、table-cell、flex、table-caption或者inline-flex
+position的值不为relative和static。
+
+BFC &amp; floatfloat
+Since a float is not in the flow, non-positioned block boxes created before and after the float box flow vertically as if the float d
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/初识动画/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/js-闭包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chellhoo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chellhoooo_abyss">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/js-闭包/" itemprop="url">[js学习笔记] 闭包</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T00:21:05+08:00">
-                2018-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          什么是闭包MDN中对闭包的描述是
-
-闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。
-
-而es2017文档对词法环境的描述是这样的
-
-A Lexical Environment consists of an Environment Record and a possibly null reference to an outer Lexical Environment. 
-
-environment record（环境记录）记录相应环境中的形参，函数声明，变量声明等。外部的词法环境的引用可以为null，比如全局词法环境。
-所以，其实我们可以这样理解
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/js-闭包/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-BFC/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -702,7 +662,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -748,7 +708,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -770,7 +730,7 @@ environment record（环境记录）记录相应环境中的形参，函数声�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

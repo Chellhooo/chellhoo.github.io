@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,BFC,float," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="BFC float的值不为none。 overflow的值为auto,scroll或hidden。 display的值为inline-block、table-cell、flex、table-caption或者inline-flex position的值不为relative和static。  BFC &amp;amp; ">
+<meta name="keywords" content="css,BFC,float">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css学习笔记 BFC">
+<meta property="og:url" content="http://chellhooo.com/css学习笔记-BFC/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="BFC float的值不为none。 overflow的值为auto,scroll或hidden。 display的值为inline-block、table-cell、flex、table-caption或者inline-flex position的值不为relative和static。  BFC &amp;amp; floatfloat Since a float is not in the flow,">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chellhooo.com/img/float1.png">
+<meta property="og:image" content="http://chellhooo.com/img/float2.png">
+<meta property="og:image" content="http://chellhooo.com/img/float3.png">
+<meta property="og:image" content="http://chellhooo.com/img/float4.png">
+<meta property="og:updated_time" content="2018-10-29T13:48:54.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css学习笔记 BFC">
+<meta name="twitter:description" content="BFC float的值不为none。 overflow的值为auto,scroll或hidden。 display的值为inline-block、table-cell、flex、table-caption或者inline-flex position的值不为relative和static。  BFC &amp;amp; floatfloat Since a float is not in the flow,">
+<meta name="twitter:image" content="http://chellhooo.com/img/float1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/css学习笔记-BFC/"/>
+
+
+
+
+
+  <title>css学习笔记 BFC | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-BFC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">css学习笔记 BFC</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-24T10:17:53+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><ul>
+<li>float的值不为none。</li>
+<li>overflow的值为auto,scroll或hidden。</li>
+<li>display的值为inline-block、table-cell、flex、table-caption或者inline-flex</li>
+<li>position的值不为relative和static。</li>
+</ul>
+<h3 id="BFC-amp-float"><a href="#BFC-amp-float" class="headerlink" title="BFC &amp; float"></a>BFC &amp; float</h3><h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4><blockquote>
+<p>Since a float is not in the flow, non-positioned block boxes created before and after the float box flow vertically as if the float did not exist. However, the current and subsequent line boxes created next to the float are shortened as necessary to make room for the margin box of the float.</p>
+<p>this means that floats with zero outer height or negative outer height do not shorten line boxes.</p>
+</blockquote>
+<p>上述文档的意思是，因为浮动块并不在正常文档流中，所以在浮动块之前或之后创建的没有定位的块状元素会在垂直排布，且不受浮动块的影响。但是后面的line box会满足浮动块的margin box的情况下平分剩余空间，也即是会缩短自己的宽度而满足浮动块的margin box宽度。</p>
+<p>而现在我们来一段html布局<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--float:left--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span>hhhh<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--float:right--&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="/img/float1.png" style="width:80%"><br>我们会发现最后的结果是left box和middle box在一行，right box在第二行的最后边。而当我们用chrome调试器查看的时候，发现middle box的宽度是100%的，left box覆盖了middle box左边的部分<br><img src="/img/float2.png" style="width:80%"><br>而这正正解释了float box脱离了文档流，浮在了middle box的上方，而middle box的排布不会受到float box的影响。而至于为什么right box会在第二行呢？后面的浮动元素形成新的bfc另起一行。</p>
+<p>但是既然middle box实际上在float box之下，可是文本却不会被float box覆盖，而是紧跟的float box。这也是上述文档所说的，文本组成的line box会水平变窄来给浮动元素腾出了空间。随着文本的增加，最后文本将环绕在浮动元素的下方，且因下方么有浮动元素，line box也无需缩短宽度。这也就是我们常说的<strong>文字环绕布局</strong>。</p>
+<p>如果我们只想要两列布局而不是环绕布局呢？<br>我们只需要给middle box生成一个新的bfc，即使用本文开头的任意方法，而我们选用造成影响最小的overflow:hidden，则此时，<strong>新生成的bfc不会和float box重合</strong>，因为BFC就是页面上的一个隔离的独立容器，<strong>容器里面的子元素不会影响到外面的元素</strong>。反之也如此。<br><img src="/img/float3.png" style="width:80%"></p>
+<p>当我们换了一下顺序，发现三个box都在一行，因为middle box无视前面的float box直接排列，前面两个 float box其实是直接浮在middle box上面的。<br>这种方法和实现<strong>三栏布局</strong>。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--float:left--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--float:right--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="/img/float4.png" style="width:80%"></p>
+<h4 id="BFC区域不会与浮动元素区域重叠"><a href="#BFC区域不会与浮动元素区域重叠" class="headerlink" title="BFC区域不会与浮动元素区域重叠"></a>BFC区域不会与浮动元素区域重叠</h4><ul>
+<li>两栏<ul>
+<li>浮动 + bfc</li>
+</ul>
+</li>
+<li><p>三栏布局</p>
+<ul>
+<li>左右中排序，左右框两边float，中间生成新bfc</li>
+</ul>
+</li>
+<li><p>避免文字环绕<br>解决方法：中间自适应元素生成新的bfc / 文字所在容器生成新的bfc</p>
+</li>
+</ul>
+<h4 id="计算BFC的高度时-浮动子元素的高度也参与计算"><a href="#计算BFC的高度时-浮动子元素的高度也参与计算" class="headerlink" title="计算BFC的高度时 浮动子元素的高度也参与计算"></a>计算BFC的高度时 浮动子元素的高度也参与计算</h4><p>可解决的问题：高度坍塌<br>解决方法：让父元素生成bfc包裹浮动元素</p>
+<h3 id="BFC-amp-margin"><a href="#BFC-amp-margin" class="headerlink" title="BFC &amp; margin"></a>BFC &amp; margin</h3><h4 id="BFC中相邻的块级元素外边距会折叠"><a href="#BFC中相邻的块级元素外边距会折叠" class="headerlink" title="BFC中相邻的块级元素外边距会折叠"></a>BFC中相邻的块级元素外边距会折叠</h4><p>可解决的问题：防止margin折叠<br>解决方法：即相邻的box生成新的bfc</p>
+<p>###未完待续</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.cnblogs.com/dojo-lzz/p/3999013.html" target="_blank" rel="noopener"></a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/BFC/" rel="tag"># BFC</a>
+          
+            <a href="/tags/float/" rel="tag"># float</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/浏览器缓存机制/" rel="next" title="浏览器缓存机制">
+                <i class="fa fa-chevron-left"></i> 浏览器缓存机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/js学习笔记-闭包与共享作用域/" rel="prev" title="js学习笔记-闭包与共享作用域">
+                js学习笔记-闭包与共享作用域 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC"><span class="nav-number">1.</span> <span class="nav-text">BFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-amp-float"><span class="nav-number">2.</span> <span class="nav-text">BFC & float</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#float"><span class="nav-number">2.1.</span> <span class="nav-text">float</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC区域不会与浮动元素区域重叠"><span class="nav-number">2.2.</span> <span class="nav-text">BFC区域不会与浮动元素区域重叠</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算BFC的高度时-浮动子元素的高度也参与计算"><span class="nav-number">2.3.</span> <span class="nav-text">计算BFC的高度时 浮动子元素的高度也参与计算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-amp-margin"><span class="nav-number">3.</span> <span class="nav-text">BFC & margin</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC中相邻的块级元素外边距会折叠"><span class="nav-number">3.1.</span> <span class="nav-text">BFC中相邻的块级元素外边距会折叠</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

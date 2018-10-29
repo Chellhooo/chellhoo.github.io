@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/设计模式：MVC和MVP和MVVM/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-flex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/设计模式：MVC和MVP和MVVM/" itemprop="url">设计模式：MVC和MVP和MVVM</a></h2>
+                <a class="post-title-link" href="/css学习笔记-flex/" itemprop="url">css学习笔记 flex</a></h2>
         
 
         <div class="post-meta">
@@ -285,133 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T13:36:19+08:00">
-                2018-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          软件架构 / 设计模式
-MVC
-View 传送指令到 Controller
-Controller 完成业务逻辑后，要求 Model 改变状态
-Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
-
-
-主动MVC 用户向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。 model ：在MVC中Model应该包含2部分功能，一部分是处理业务逻辑，一部分是提供View显示的数据。 模型中数据的变化一般会通过一种刷新机制被公布。为了实现这种机制，那些用于监视此模型的视图必须事先在此模型上注册，从而，视图可以了解在数据模型上发生的改变。 view：为
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/设计模式：MVC和MVP和MVVM/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue-js笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chellhoo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chellhoooo_abyss">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/vue-js笔记/" itemprop="url">vue.js笔记</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T12:07:33+08:00">
-                2017-11-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T20:16:54+08:00">
+                2018-03-28
               </time>
             
 
@@ -444,8 +319,8 @@ Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/vue-js/" itemprop="url" rel="index">
-                    <span itemprop="name">vue.js</span>
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -481,16 +356,17 @@ Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
         
           
           
-多个实例为什么不能同时挂载一个element?其实是可以创建多个实例的。只是在第一个实例创建并渲染后，html里别的实例的模板语句已经不存在了，可能还会报错别的实例中的数据并不能在第一个实例中找到。详情可以看着我之前的这个问题
+flex布局内的块状元素和行内元素
+display:flex  子元素若为行内元素，将无法设置宽高，需要手动设置display:block/inlinebox
+display:inline-flex  这是指这是一个行内级的flex包含块，即作用于父包含块而不是子元素。
 
-v-bind的假值 [文档变更]null undefined false(包括字符串’false’)
 
-v-on监听原生事件v-on:xxx只会监听自定义事件 (组件用 $emit 触发的事件)v-on:click.native监听原生click事件 (router-link需要加上.native才能触发)
-vm.$nextTick( [callback] ) 12
+flex-direction为 row 或 column 的时候 该属性下为row或column是水平居中和垂直居中是相反，即
+ 12345.a&#123;    flex-direction:column;    justify-content:center; //水平居中    align-items:center;
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/vue-js笔记/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-flex/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -536,7 +412,7 @@ vm.$nextTick( [callback] ) 12
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/Vue-Spa应用的简单实现/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-inline-box-vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -555,7 +431,7 @@ vm.$nextTick( [callback] ) 12
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Vue-Spa应用的简单实现/" itemprop="url">vue单页面应用的简单实现</a></h2>
+                <a class="post-title-link" href="/css学习笔记-inline-box-vertical-align/" itemprop="url">[css学习笔记] inline box & vertical-align</a></h2>
         
 
         <div class="post-meta">
@@ -567,8 +443,8 @@ vm.$nextTick( [callback] ) 12
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-19T15:41:32+08:00">
-                2017-11-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T16:12:12+08:00">
+                2018-03-14
               </time>
             
 
@@ -590,8 +466,19 @@ vm.$nextTick( [callback] ) 12
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">项目搭建</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -626,16 +513,170 @@ vm.$nextTick( [callback] ) 12
       
         
           
-          
-环境&amp;常用工具简要介绍
-node.js(自带npm)
-vue-cli  vue-cli是vue.js官方工程命令行脚手架，可以快速地初始化一个vue工程。然而它其实初始化一切工程，只要有一份能够运行的模，就能通过vue-cli进行工程的初始化  安装： npm install vue-cli  使用： vue init &lt;template-name&gt; [project-name]* &lt;template-name&gt; 项目模板
-    官方模板-&gt; https://github.com/vuejs-templates
-    自定义模板-&gt; https
+          line box &amp; vertical-align下面是文档中一段关于line box的介绍：
+
+A line box is always tall enough for all of the boxes it contains. However, it may be taller than the tallest box it contains (if, for example, boxes are aligned so that baselines line up). When the height of a box B is less than the height of the
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/Vue-Spa应用的简单实现/#more" rel="contents">
+            <a class="btn" href="/css学习笔记-inline-box-vertical-align/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-可视化格式模型和vertical-align/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/css学习笔记-可视化格式模型和vertical-align/" itemprop="url">[css学习笔记] 可视化格式模型和vertical-align</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T18:32:56+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          可视化格式模型visual formatting model在可视化格式模式中，文档树中的每个元素都会根据盒子模型(box model)生成零到多个框，这些盒子的布局由以下几点决定
+
+
+box dimensions and type. //盒子的类型
+positioning scheme (normal flow, float, and absolute positioning). //定位
+relationships between elements in the document tree. //元素与文档树的关系
+external information (e.g., viewport 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/css学习笔记-可视化格式模型和vertical-align/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -676,7 +717,7 @@ vue-cli  vue-cli是vue.js官方工程命令行脚手架，可以快速地初始�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -722,7 +763,7 @@ vue-cli  vue-cli是vue.js官方工程命令行脚手架，可以快速地初始�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -744,7 +785,7 @@ vue-cli  vue-cli是vue.js官方工程命令行脚手架，可以快速地初始�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

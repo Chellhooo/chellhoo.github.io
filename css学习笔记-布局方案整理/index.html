@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,等高布局,多栏,自适应,垂直水平居中" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="两栏 右边自适应布局左浮动 + 右新建bfc右左排列，右浮动 + 左（浮动 + margin-x:-100%）12345&amp;lt;div&amp;gt; &amp;lt;!--float:left;width:100%--&amp;gt;  &amp;lt;div&amp;gt;&amp;lt;/div&amp;">
+<meta name="keywords" content="css,等高布局,多栏,自适应,垂直水平居中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css学习笔记 布局方案整理">
+<meta property="og:url" content="http://chellhooo.com/css学习笔记-布局方案整理/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="两栏 右边自适应布局左浮动 + 右新建bfc右左排列，右浮动 + 左（浮动 + margin-x:-100%）12345&amp;lt;div&amp;gt; &amp;lt;!--float:left;width:100%--&amp;gt;  &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;!--margin-left:下面浮动框的宽度--&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;left&quot;&amp;gt;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-29T13:49:53.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css学习笔记 布局方案整理">
+<meta name="twitter:description" content="两栏 右边自适应布局左浮动 + 右新建bfc右左排列，右浮动 + 左（浮动 + margin-x:-100%）12345&amp;lt;div&amp;gt; &amp;lt;!--float:left;width:100%--&amp;gt;  &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;!--margin-left:下面浮动框的宽度--&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;left&quot;&amp;gt;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/css学习笔记-布局方案整理/"/>
+
+
+
+
+
+  <title>css学习笔记 布局方案整理 | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-布局方案整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">css学习笔记 布局方案整理</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T16:52:44+08:00">
+                2018-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="两栏-右边自适应布局"><a href="#两栏-右边自适应布局" class="headerlink" title="两栏 右边自适应布局"></a>两栏 右边自适应布局</h3><h4 id="左浮动-右新建bfc"><a href="#左浮动-右新建bfc" class="headerlink" title="左浮动 + 右新建bfc"></a>左浮动 + 右新建bfc</h4><h4 id="右左排列，右浮动-左（浮动-margin-x-100-）"><a href="#右左排列，右浮动-左（浮动-margin-x-100-）" class="headerlink" title="右左排列，右浮动 + 左（浮动 + margin-x:-100%）"></a>右左排列，右浮动 + 左（浮动 + margin-x:-100%）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--float:left;width:100%--&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--margin-left:下面浮动框的宽度--&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--float:left; margin-left:100%--&gt;</span></div><div class="line"><span class="comment">&lt;!--浮动是让容器尽量向一个方向浮动直到它的外边缘碰到包含框或另一个浮动框的边框为止，当left框--&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="左浮动-右（浮动-width-cal-100vw-左边box宽度"><a href="#左浮动-右（浮动-width-cal-100vw-左边box宽度" class="headerlink" title="左浮动 + 右（浮动 + width: cal(100vw-左边box宽度)"></a>左浮动 + 右（浮动 + width: cal(100vw-左边box宽度)</h4><ul>
+<li>运算符前后要有空格</li>
+<li>1vw = viewport 宽度的 1%, 100vw = viewport width<h4 id="右flex-grow"><a href="#右flex-grow" class="headerlink" title="右flex-grow"></a>右flex-grow</h4></li>
+<li>对于剩余空间，按数值评分。若只有一个设置了正值，那么它会占据剩下所有空间</li>
+</ul>
+<h3 id="三栏-中间自适应布局"><a href="#三栏-中间自适应布局" class="headerlink" title="三栏 中间自适应布局"></a>三栏 中间自适应布局</h3><h4 id="flex布局，自适应块设置flex-grow值"><a href="#flex布局，自适应块设置flex-grow值" class="headerlink" title="flex布局，自适应块设置flex-grow值"></a>flex布局，自适应块设置flex-grow值</h4><h4 id="左右中排序，左右浮动，中间生成新bfc-定位-margin"><a href="#左右中排序，左右浮动，中间生成新bfc-定位-margin" class="headerlink" title="左右中排序，左右浮动，中间生成新bfc/定位/margin"></a>左右中排序，左右浮动，中间生成新bfc/定位/margin</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--float:left--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!--float:right--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--overflow:hidden--&gt;</span></div><div class="line">                            <span class="comment">&lt;!--position:absolute;left:xx;right:xxx--&gt;</span></div><div class="line">                            <span class="comment">&lt;!--margin:0 xxx 0 xxx--&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="左中右排序，父table，左中右table-cell"><a href="#左中右排序，父table，左中右table-cell" class="headerlink" title="左中右排序，父table，左中右table-cell"></a>左中右排序，父table，左中右table-cell</h4><h4 id="左中右排序，grid布局"><a href="#左中右排序，grid布局" class="headerlink" title="左中右排序，grid布局"></a>左中右排序，grid布局</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">grid-template-rows</span>: 100<span class="selector-tag">px</span>;  <span class="comment">/*设置行高*/</span></div><div class="line"><span class="selector-tag">grid-template-columns</span>: 100<span class="selector-tag">px</span> <span class="selector-tag">auto</span> 200<span class="selector-tag">px</span>;  <span class="comment">/*设置列数属性*/</span></div></pre></td></tr></table></figure>
+<h4 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main col"</span>&gt;</span>Main<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left col"</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right col"</span>&gt;</span>Right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.col</span>&#123;</div><div class="line">  <span class="attribute">float</span>: left;   </div><div class="line">  <span class="attribute">position</span>:relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">  <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">200px</span> <span class="number">0</span> <span class="number">100px</span>;<span class="comment">/*父元素空出左右栏位子,否则中间栏的内容会被遮盖住*/</span></div><div class="line">  <span class="comment">/* 方案二 给main外包裹一个100%宽度的容器，main设置margin空出左右栏位子*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;</div><div class="line">  <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">  <span class="attribute">margin-left</span>: -<span class="number">100%</span>;<span class="comment">/* 通过负值margin-left为100% 使其移到与中间box左边框重合 */</span></div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">left</span>:-<span class="number">100px</span>;<span class="comment">/* 设置left使其移动到父元素的左边padding处 */</span></div><div class="line">  </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.right</span>&#123;</div><div class="line">  <span class="attribute">margin-left</span>: -<span class="number">200px</span>;<span class="comment">/* 通过margin-right为宽度的负值 使其移到与中间box右边框重合 */</span></div><div class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">  <span class="attribute">right</span>:-<span class="number">200px</span>;<span class="comment">/* 设置right使其移动到父元素的右边padding处 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="多栏等高布局"><a href="#多栏等高布局" class="headerlink" title="多栏等高布局"></a>多栏等高布局</h3><h4 id="table布局"><a href="#table布局" class="headerlink" title="table布局"></a>table布局</h4><p>父元素display:table;子元素display:table-cell</p>
+<h4 id="负margin-正padding"><a href="#负margin-正padding" class="headerlink" title="负margin+正padding"></a>负margin+正padding</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span>&#123;</div><div class="line">  <span class="attribute">overflow</span>:hidden</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span>&#123;</div><div class="line">  <span class="attribute">margin-bottom</span>:-<span class="number">3000px</span>; </div><div class="line">  <span class="attribute">padding-bottom</span>:<span class="number">3000px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="inline-block（仅视觉上，不考虑背景色和border）"><a href="#inline-block（仅视觉上，不考虑背景色和border）" class="headerlink" title="inline-block（仅视觉上，不考虑背景色和border）"></a>inline-block（仅视觉上，不考虑背景色和border）</h4><p>linebox的默认高度为被所包含的最大高度的inlinebox<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.demo</span>&#123;</div><div class="line">	<span class="attribute">display</span>:inline-block;</div><div class="line">  <span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">  <span class="attribute">word-break</span>: break-all; <span class="comment">/*换行*/</span></div><div class="line">  <span class="attribute">vertical-align</span>: top; <span class="comment">/*改变基线，使文字在块的顶部排列*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="垂直水平居中"><a href="#垂直水平居中" class="headerlink" title="垂直水平居中"></a>垂直水平居中</h3><h4 id="margin负间距-absolute"><a href="#margin负间距-absolute" class="headerlink" title="margin负间距 + absolute"></a>margin负间距 + absolute</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">left</span>:<span class="number">50%</span>;</div><div class="line">  <span class="attribute">top</span>:<span class="number">50%</span>;</div><div class="line">  <span class="attribute">margin-left</span>:-<span class="number">100px</span>;<span class="comment">/*width的一半*/</span></div><div class="line">  <span class="attribute">margin-top</span>:-<span class="number">100px</span>;<span class="comment">/*hight的一半*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="margin-auto-absolute"><a href="#margin-auto-absolute" class="headerlink" title="margin auto + absolute"></a>margin auto + absolute</h4><p>兼容性：IE7及之前版本不支持<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">position</span>:absolute;</div><div class="line">  <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">margin</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h4><p>兼容性：IE8及之前不支持<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">left</span>:<span class="number">50%</span>;</div><div class="line">  <span class="attribute">top</span>:<span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%); <span class="comment">/*自己的50% */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h4><p>兼容性：IE9及之前不支持<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">  <span class="attribute">display</span>:flex;</div><div class="line">  <span class="attribute">justify-content</span>:center;</div><div class="line">  <span class="attribute">align-items</span>:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>兼容性：IE7及之前版本不支持</p>
+<ul>
+<li><p>方案一：子元素会换行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">  <span class="attribute">display</span>: table-cell;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span>&#123;</div><div class="line">  <span class="attribute">display</span>:inline-block; <span class="comment">/*若不够空间，下个box会自动换行*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>方案二 ：子元素均在同一行并平分空间</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">  <span class="attribute">display</span>: table;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table-cell; <span class="comment">/*均会在同一行，并自动平分空间*/</span></div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="absolute-calc"><a href="#absolute-calc" class="headerlink" title="absolute + calc"></a>absolute + calc</h4><p>兼容性：IE8及之前不支持<br>局限性：子元素必须固定宽高，而且<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span>&#123;</div><div class="line">  <span class="attribute">position</span>:relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span>&#123;</div><div class="line">  <span class="attribute">position</span>:absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="built_in">calc</span>(50% - 30px);</div><div class="line">  <span class="attribute">left</span>: <span class="built_in">calc</span>(50% - 50px);</div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>; <span class="comment">/*必须固定宽高*/</span></div><div class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/布局/" rel="tag"># 布局</a>
+          
+            <a href="/tags/等高/" rel="tag"># 等高</a>
+          
+            <a href="/tags/自适应/" rel="tag"># 自适应</a>
+          
+            <a href="/tags/垂直水平居中/" rel="tag"># 垂直水平居中</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/es6学习笔记-fetch/" rel="next" title="js学习笔记 fetch">
+                <i class="fa fa-chevron-left"></i> js学习笔记 fetch
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/css学习笔记-margin和padding的百分比/" rel="prev" title="css学习笔记 margin和padding的百分比">
+                css学习笔记 margin和padding的百分比 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#两栏-右边自适应布局"><span class="nav-number">1.</span> <span class="nav-text">两栏 右边自适应布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#左浮动-右新建bfc"><span class="nav-number">1.1.</span> <span class="nav-text">左浮动 + 右新建bfc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#右左排列，右浮动-左（浮动-margin-x-100-）"><span class="nav-number">1.2.</span> <span class="nav-text">右左排列，右浮动 + 左（浮动 + margin-x:-100%）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左浮动-右（浮动-width-cal-100vw-左边box宽度"><span class="nav-number">1.3.</span> <span class="nav-text">左浮动 + 右（浮动 + width: cal(100vw-左边box宽度)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#右flex-grow"><span class="nav-number">1.4.</span> <span class="nav-text">右flex-grow</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三栏-中间自适应布局"><span class="nav-number">2.</span> <span class="nav-text">三栏 中间自适应布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flex布局，自适应块设置flex-grow值"><span class="nav-number">2.1.</span> <span class="nav-text">flex布局，自适应块设置flex-grow值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左右中排序，左右浮动，中间生成新bfc-定位-margin"><span class="nav-number">2.2.</span> <span class="nav-text">左右中排序，左右浮动，中间生成新bfc/定位/margin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左中右排序，父table，左中右table-cell"><span class="nav-number">2.3.</span> <span class="nav-text">左中右排序，父table，左中右table-cell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左中右排序，grid布局"><span class="nav-number">2.4.</span> <span class="nav-text">左中右排序，grid布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圣杯布局"><span class="nav-number">2.5.</span> <span class="nav-text">圣杯布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多栏等高布局"><span class="nav-number">3.</span> <span class="nav-text">多栏等高布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#table布局"><span class="nav-number">3.1.</span> <span class="nav-text">table布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负margin-正padding"><span class="nav-number">3.2.</span> <span class="nav-text">负margin+正padding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inline-block（仅视觉上，不考虑背景色和border）"><span class="nav-number">3.3.</span> <span class="nav-text">inline-block（仅视觉上，不考虑背景色和border）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直水平居中"><span class="nav-number">4.</span> <span class="nav-text">垂直水平居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#margin负间距-absolute"><span class="nav-number">4.1.</span> <span class="nav-text">margin负间距 + absolute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#margin-auto-absolute"><span class="nav-number">4.2.</span> <span class="nav-text">margin auto + absolute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transform"><span class="nav-number">4.3.</span> <span class="nav-text">Transform</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex"><span class="nav-number">4.4.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#table"><span class="nav-number">4.5.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#absolute-calc"><span class="nav-number">4.6.</span> <span class="nav-text">absolute + calc</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-w3c规范/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/node-js笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -273,7 +273,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css学习笔记-w3c规范/" itemprop="url">[css学习笔记] w3c标准</a></h2>
+                <a class="post-title-link" href="/node-js笔记/" itemprop="url">node.js笔记</a></h2>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-29T22:50:05+08:00">
-                2017-07-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-01T16:18:38+08:00">
+                2018-02-01
               </time>
             
 
@@ -319,8 +319,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/学习笔记/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
                   </a>
                 </span>
 
@@ -355,17 +355,18 @@
       
         
           
-          首先，How to Read W3C Specs。里面有一句话是这样的， 
+          模块
+一个js文件就可以是一个模块，每个模块中有独立的作用域。而被调用的时候node.js会把该模块包装成一个匿名函数，每个模块中的公共变量会变成当前匿名函数中的局部变量。
+但是如果想对外暴露模块中的变量（如函数）
 
-A SPECIFICATION IS NOT A USER MANUAL
-
-翻译为中文也就是规范不是用户手册，我想了很久要怎么去理解这句话，规范不就是文档吗？而文章里面举了一个例子，把这两者分别比喻为车的用户手册和维修手册，然后我就更懵逼了（掩脸..）可是我有时候就是很钻牛角尖想要去字斟句酌，之后随着我学习w3c规范的过程，我好像对此有了一点自己的理解，如若不对，还请指教。
-
-什么是w3c？为什么需要W3C标准w3c,World Wide Web Consortium,中文名为万维网联盟。与其说w3c生产标准，不如说
+用法  模块hello.js
+  1234hi(name)&#123;    console.log('hello '+ name );&#125;module.exports=hi; // 对外暴露函数变量
+  调用模块的外部环境
+  12var hello=require('./hello'); //模块作为变量保存在当前作用域,相对路径hi(chellh); //调用模块中
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css学习笔记-w3c规范/#more" rel="contents">
+            <a class="btn" href="/node-js笔记/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -411,7 +412,7 @@ A SPECIFICATION IS NOT A USER MANUAL
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/css学习笔记-可置换元素和非置换元素/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/设计模式：MVC和MVP和MVVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -430,7 +431,7 @@ A SPECIFICATION IS NOT A USER MANUAL
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css学习笔记-可置换元素和非置换元素/" itemprop="url">[css学习笔记] 可置换元素和非置换元素</a></h2>
+                <a class="post-title-link" href="/设计模式：MVC和MVP和MVVM/" itemprop="url">设计模式：MVC和MVP和MVVM</a></h2>
         
 
         <div class="post-meta">
@@ -442,8 +443,8 @@ A SPECIFICATION IS NOT A USER MANUAL
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-29T22:20:10+08:00">
-                2017-07-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T13:36:19+08:00">
+                2018-01-25
               </time>
             
 
@@ -452,39 +453,6 @@ A SPECIFICATION IS NOT A USER MANUAL
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -512,14 +480,18 @@ A SPECIFICATION IS NOT A USER MANUAL
       
         
           
-          [ 写在前面 ] 一直以来都没有系统的学过css，对于行内元素很多的认知都是做项目的时候遇到bug然后从网络上各种七零八落的总结上获得的，之前在网上看到w3cschool教程等上面的介绍都很简略，而没有一些更深层的标准化定义。在之前准备工作室交流会的资料的时候，对于行内元素有关的概念和计算总觉得模糊，而在这次翻找W3C规范的过程中，对其终于也有了一些自己的理解。
-鉴于有些概念不知道用怎样的中文名比较恰当，所以下面的有些专业名词我直接使用英文了~
+          软件架构 / 设计模式
+MVC
+View 传送指令到 Controller
+Controller 完成业务逻辑后，要求 Model 改变状态
+Model 将新的数据发送到 View，用户得到反馈以上均为单项通信
 
-行内级元素(inline-level elements) 行内级元素是那些不会为自身内容形成新的块，而让内容分布在多行中的元素。行内级元素由以下两类
+
+主动MVC 用户向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。 model ：在MVC中Model应该包含2部分功能，一部分是处理业务逻辑，一部分是提供View显示的数据。 模型中数据的变化一般会通过一种刷新机制被公布。为了实现这种机制，那些用于监视此模型的视图必须事先在此模型上注册，从而，视图可以了解在数据模型上发生的改变。 view：为
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css学习笔记-可置换元素和非置换元素/#more" rel="contents">
+            <a class="btn" href="/设计模式：MVC和MVP和MVVM/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -565,7 +537,7 @@ A SPECIFICATION IS NOT A USER MANUAL
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/hexo-github-blog-四-：seo优化/">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/vue-js笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chellhoo">
@@ -584,7 +556,7 @@ A SPECIFICATION IS NOT A USER MANUAL
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hexo-github-blog-四-：seo优化/" itemprop="url">hexo+github blog(四)：seo优化</a></h2>
+                <a class="post-title-link" href="/vue-js笔记/" itemprop="url">vue.js笔记</a></h2>
         
 
         <div class="post-meta">
@@ -596,8 +568,8 @@ A SPECIFICATION IS NOT A USER MANUAL
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-29T00:39:55+08:00">
-                2017-07-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T12:07:33+08:00">
+                2017-11-25
               </time>
             
 
@@ -619,8 +591,8 @@ A SPECIFICATION IS NOT A USER MANUAL
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">项目搭建</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -630,8 +602,8 @@ A SPECIFICATION IS NOT A USER MANUAL
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目搭建/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/学习笔记/vue-js/" itemprop="url" rel="index">
+                    <span itemprop="name">vue.js</span>
                   </a>
                 </span>
 
@@ -666,24 +638,17 @@ A SPECIFICATION IS NOT A USER MANUAL
       
         
           
-          [ 参考链接 ] :
-动动手指，不限于NexT主题的Hexo优化（SEO篇）
-
-使用GitHub做个人博客
-
-如何解决百度爬虫无法爬取搭建在Github上的个人博客的问题？
-
-
-[ 踩坑提醒 ] : 
-
-在_config.yml配置完hexo sitemap网站地图之后要先执行hexo d或hexo g，hexo才会编译并在hexo站点根目录生成sitemap.xml和baidusitemap.xml
-
-[ 说明 ]:  看了一圈，感觉涉及的范围有点广，而顾及到暑假的学习计划和我自身情况，博客暂时对我来说是记录个人成长和学习笔记，就先不弄这一块了。有机会再回来填这个坑~
-
           
+多个实例为什么不能同时挂载一个element?其实是可以创建多个实例的。只是在第一个实例创建并渲染后，html里别的实例的模板语句已经不存在了，可能还会报错别的实例中的数据并不能在第一个实例中找到。详情可以看着我之前的这个问题
+
+v-bind的假值 [文档变更]null undefined false(包括字符串’false’)
+
+v-on监听原生事件v-on:xxx只会监听自定义事件 (组件用 $emit 触发的事件)v-on:click.native监听原生click事件 (router-link需要加上.native才能触发)
+vm.$nextTick( [callback] ) 12
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/hexo-github-blog-四-：seo优化/#more" rel="contents">
+            <a class="btn" href="/vue-js笔记/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -724,7 +689,7 @@ A SPECIFICATION IS NOT A USER MANUAL
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -770,7 +735,7 @@ A SPECIFICATION IS NOT A USER MANUAL
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -792,7 +757,7 @@ A SPECIFICATION IS NOT A USER MANUAL
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
