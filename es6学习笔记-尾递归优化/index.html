@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="尾递归,尾调用,优化,es6,严格模式,tco，蹦床函数" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。">
+<meta name="keywords" content="尾递归,尾调用,优化,es6,严格模式,tco，蹦床函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6学习笔记 尾递归优化">
+<meta property="og:url" content="http://chellhooo.com/es6学习笔记-尾递归优化/index.html">
+<meta property="og:site_name" content="Chellhoooo_abyss">
+<meta property="og:description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。 实际上大多数浏览器都不支持尾递归优化，详情可以看这里。 在node6.5+版本">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-31T04:20:52.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6学习笔记 尾递归优化">
+<meta name="twitter:description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。 实际上大多数浏览器都不支持尾递归优化，详情可以看这里。 在node6.5+版本">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chellhooo.com/es6学习笔记-尾递归优化/"/>
+
+
+
+
+
+  <title>es6学习笔记 尾递归优化 | Chellhoooo_abyss</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chellhoooo_abyss</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chellhooo.com/es6学习笔记-尾递归优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chellhoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chellhoooo_abyss">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">es6学习笔记 尾递归优化</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T12:05:19+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/es6/" itemprop="url" rel="index">
+                    <span itemprop="name">es6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。</p>
+<p>实际上大多数浏览器都不支持尾递归优化，详情可以看<a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">这里</a>。</p>
+<p>在node6.5+版本中使用 <strong>–harmony-tailcalls</strong>关键字可以运行<br><code>node --harmony-tailcalls test.js</code></p>
+<h3 id="尾递归优化只在es6的严格模式下开启"><a href="#尾递归优化只在es6的严格模式下开启" class="headerlink" title="尾递归优化只在es6的严格模式下开启"></a>尾递归优化只在es6的严格模式下开启</h3><p>ES6的尾调用优化只在严格模式下开启，正常模式下是无效的。<br>这是因为，在正常模式下函数内部有两个变量，可以跟踪函数的调用栈。</p>
+<ul>
+<li>func.arguments</li>
+<li>func.caller 但会调用当前函数的那个函数<br>尾调用优化发生时，函数的调用栈会改写，因此上面两个变量会失真。严格模式禁用这两个变量，所有尾调用模式尽在严格模式下生效。</li>
+</ul>
+<h3 id="如何在正常模式下-不支持优化的环境中实现尾递归优化"><a href="#如何在正常模式下-不支持优化的环境中实现尾递归优化" class="headerlink" title="如何在正常模式下/不支持优化的环境中实现尾递归优化"></a>如何在正常模式下/不支持优化的环境中实现尾递归优化</h3><h4 id="蹦床函数"><a href="#蹦床函数" class="headerlink" title="蹦床函数"></a>蹦床函数</h4><p>比如下面这个递归函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(y&gt;<span class="number">0</span>) <span class="keyword">return</span> sum(x+<span class="number">1</span>,y<span class="number">-1</span>)</div><div class="line">  <span class="keyword">else</span> <span class="keyword">return</span> x</div><div class="line">&#125;</div><div class="line">sum(<span class="number">1</span>,<span class="number">100000</span>) <span class="comment">// 报错：爆栈</span></div></pre></td></tr></table></figure></p>
+<p>我们可以使用蹦床函数(trampoline)可以将递归执行转为循环执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">trampoline</span>(<span class="params">f</span>)</span>&#123;</div><div class="line">  <span class="keyword">while</span>(f &amp;&amp; f <span class="keyword">instanceof</span> <span class="built_in">Function</span>)&#123;</div><div class="line">    f=f()</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> f</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在上述函数中接收函数f作为参数。<strong>只要f执行后返回一个函数</strong>就可以继续执行。<br>该函数的实现是返回一个函数然后执行该函数，而不是在函数中调用函数，这样就避免了递归执行，从而消除了调用栈过大的问题。<br>现在我们再来改写一下递归函数sum<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(y &gt; <span class="number">0</span>) <span class="keyword">return</span> sum.bind(<span class="literal">null</span>,x+<span class="number">1</span>,y<span class="number">-1</span>) <span class="comment">// 每次执行都会返回自身的另一个版本</span></div><div class="line">  <span class="keyword">else</span> <span class="keyword">return</span> x</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>改写了的sum函数中，每次执行都会返回自身的另一个版本（即返回函数而非调用函数），而不是递归调用自己。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">trampoline(sum(<span class="number">1</span>,<span class="number">100000</span>)) <span class="comment">// 此时就不会发生调用栈溢出了</span></div></pre></td></tr></table></figure></p>
+<h4 id="tco函数：真正的尾递归优化"><a href="#tco函数：真正的尾递归优化" class="headerlink" title="tco函数：真正的尾递归优化"></a>tco函数：真正的尾递归优化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">tco</span>(<span class="params">f</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> value;</div><div class="line">  <span class="keyword">var</span> active = <span class="literal">false</span>;</div><div class="line">  <span class="keyword">var</span> accumulated= [];</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">accumulator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    accumulated.push(<span class="built_in">arguments</span>);</div><div class="line">    <span class="keyword">if</span>(!active)&#123;</div><div class="line">      active=<span class="literal">true</span>;</div><div class="line">      <span class="keyword">while</span>(accumulated.length)&#123;</div><div class="line">        value=f.apply(<span class="keyword">this</span>,accumulated.shift())</div><div class="line">      &#125;</div><div class="line">      active=<span class="literal">false</span>;</div><div class="line">      <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum=tco(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(x&gt;<span class="number">0</span>)<span class="keyword">return</span> sum(x+<span class="number">1</span>,y<span class="number">-1</span>)</div><div class="line">  <span class="keyword">else</span> <span class="keyword">return</span> x</div><div class="line">&#125;)</div><div class="line">sum(<span class="number">1</span>,<span class="number">100000</span>)</div></pre></td></tr></table></figure>
+<p>上述代码中，tco函数是尾递归优化的实现，它的奥妙就在于状态标量active。默认情况下，这个变量是不被集火的。一旦进入尾递归优化的过程，这个变量就被激活了。可是在while循环里面感觉好像也是在递归啊？既然他是一个优化函数，那么答案很明显不是:) 那我们来努力理解一下这个函数吧~</p>
+<ul>
+<li>首先以函数表达式的形式将tco函数的返回值赋给sum，tco函数的返回值是accumulator函数，也就是说当执行sum(1,10)的时候即是在执行accumulator(1,10)，要牢记这一点</li>
+<li>在tco函数中accumulator就是一个闭包，可以自由访问active、value和accumulated数组</li>
+<li>上面我们说到执行sum函数也就是执行accumulator函数，那么第一次的参数(1,100000)也就变成了accumulator函数的arguments，accumulate数组作用就是push每一次sum(accumulator)函数的参数</li>
+<li>此时active为false，所以接下来我们进入while循环。</li>
+<li>在while循环中我们把tco函数中f函数赋值给了value值，而此时f函数的返回值是一个sum立即执行函数，好了，还记得上面我们说的吗，执行sum函数也就是执行accumulator函数。</li>
+<li>此时，再次进入accumulator函数，并把第二个sum函数的参数push进accumulate数组中。而因为我们在第一个执行accumulator函数的时候，已经把active标记为true，而accumulator函数是一个闭包函数，共享一个active，所以此时我们并不会进入if块，也就是我们执行了第一条语句<code>accumulated.push(arguments);</code></li>
+<li>换而言之，f函数(即tco形参)中不停地调用sum函数，其实都只是执行了第一条语句<code>accumulated.push(arguments);</code>，所以value值一直都是被赋值为undefined，可是因为accumulated数组一直被push进新的参数，所以while循环一直再继续；直至f函数不再调用sum而是返回x时，accumulated数组也就为空了，value的最后的值就是f函数中else块所返回的x，则此时x的值就赋给了value并return出来了。</li>
+</ul>
+<p>所以综上，tco函数的原理其实还是采用了将递归改成了循环，而后一轮的参数会去掉前一轮的参数，保证了调用栈只有一层。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>《ES6标准入门》 阮一峰著<br><a href="https://segmentfault.com/a/1190000004018047" target="_blank" rel="noopener">JS的递归与TCO尾调用优化</a><br><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-tail-position-calls" target="_blank" rel="noopener">sec-tail-position-calls</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/es6/" rel="tag"># es6</a>
+          
+            <a href="/tags/尾递归优化/" rel="tag"># 尾递归优化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/node学习笔记-如何充分利用多核CPU/" rel="next" title="node学习笔记 如何充分利用多核CPU">
+                <i class="fa fa-chevron-left"></i> node学习笔记 如何充分利用多核CPU
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="chellhoo" />
+          <p class="site-author-name" itemprop="name">chellhoo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尾递归优化只在es6的严格模式下开启"><span class="nav-number">2.</span> <span class="nav-text">尾递归优化只在es6的严格模式下开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在正常模式下-不支持优化的环境中实现尾递归优化"><span class="nav-number">3.</span> <span class="nav-text">如何在正常模式下/不支持优化的环境中实现尾递归优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#蹦床函数"><span class="nav-number">3.1.</span> <span class="nav-text">蹦床函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tco函数：真正的尾递归优化"><span class="nav-number">3.2.</span> <span class="nav-text">tco函数：真正的尾递归优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chellhoo</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+              id: document.location.href, 
+               owner: 'Chellhooo',
+               repo: 'chellhooo.github.io',
+               oauth: {
+                   client_id: 'd85372efa394a75d30ad',
+                   client_secret: '14f06aff7e385d017e7de5f3f31741949867b2fa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
