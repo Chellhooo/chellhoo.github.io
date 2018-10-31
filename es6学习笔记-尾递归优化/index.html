@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。">
+<meta name="description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。其实这个概念一直在书上有，但一不小心忽略了+ +..在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chro">
 <meta name="keywords" content="尾递归,尾调用,优化,es6,严格模式,tco，蹦床函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6学习笔记 尾递归优化">
 <meta property="og:url" content="http://chellhooo.com/es6学习笔记-尾递归优化/index.html">
 <meta property="og:site_name" content="Chellhoooo_abyss">
-<meta property="og:description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。 实际上大多数浏览器都不支持尾递归优化，详情可以看这里。 在node6.5+版本">
+<meta property="og:description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。其实这个概念一直在书上有，但一不小心忽略了+ +..在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。 实际上大多数浏览器都不支持">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-31T04:20:52.495Z">
+<meta property="og:updated_time" content="2018-10-31T04:24:36.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6学习笔记 尾递归优化">
-<meta name="twitter:description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。 实际上大多数浏览器都不支持尾递归优化，详情可以看这里。 在node6.5+版本">
+<meta name="twitter:description" content="前言之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。其实这个概念一直在书上有，但一不小心忽略了+ +..在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。 实际上大多数浏览器都不支持">
 
 
 
@@ -354,7 +354,7 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前也有一直接触尾递归这个概念，可是最近才发现其实在JavaScript中尾递归优化并不是默认支持的。其实这个概念一直在书上有，但一不小心忽略了+ +..在ES6中才第一次明确规定，所有ECMAScript的实现都必须部署“尾调用优化”，可是es6只是一个标准规范，在不同运行环境的支持程度也不一样，我在本机Chrome(70.0.3538.67)上测试也还是会爆栈。</p>
 <p>实际上大多数浏览器都不支持尾递归优化，详情可以看<a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">这里</a>。</p>
 <p>在node6.5+版本中使用 <strong>–harmony-tailcalls</strong>关键字可以运行<br><code>node --harmony-tailcalls test.js</code></p>
 <h3 id="尾递归优化只在es6的严格模式下开启"><a href="#尾递归优化只在es6的严格模式下开启" class="headerlink" title="尾递归优化只在es6的严格模式下开启"></a>尾递归优化只在es6的严格模式下开启</h3><p>ES6的尾调用优化只在严格模式下开启，正常模式下是无效的。<br>这是因为，在正常模式下函数内部有两个变量，可以跟踪函数的调用栈。</p>
